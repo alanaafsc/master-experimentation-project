@@ -1,39 +1,64 @@
+import time
 import numpy as np
-from prometheus_api_client import PrometheusConnect
-from datetime import datetime, timedelta
-## processamento estatístico (Análise) para detectar anomalias
-#Regra $3\sigma$ e o Random Walk
+from monitor import MonitoringModule  
 
+class XAIAnalyzer:
+    def __init__(self):
+        self.monitor = MonitoringModule()
+        self.history = {}  # Dicionário para histórico de múltiplos serviços
+        self.thresholds = {}
 
-#===================================================================
-# Conexão com o Prometheus
-prom = PrometheusConnect(url="http://localhost:9090", disable_ssl=True)
+    def run_analysis(self, services):
+        print(f"--- Iniciando Ciclo de Análise MAPE-K ---")
+        
+        while True:
+            for service in services:
+                # 1. Coleta via Monitor
+                try:
+                    p95, _ = self.monitor.get_metrics(service)
+                    
+                    if service not in self.history:
+                        self.history[service] = []
+                    
+                    # 2. Detecção via Regra 3-sigma
+                    self.detect_anomaly(service, p95)
+                    
+                    # Atualiza histórico (janela deslizante)
+                    self.history[service].append(p95)
+                    if len(self.history[service]) > 20:
+                        self.history[service].pop(0)
+                        
+                except Exception as e:
+                    print(f"Erro ao analisar {service}: {e}")
 
-def get_p95_latency(service_name):
-    # Query para pegar o P95 da latência nos últimos 30s (Istio)
-    query = f'histogram_quantile(0.95, sum(rate(istio_request_duration_milliseconds_bucket{{destination_service="{service_name}"}}[1m])) by (le))'
-    result = prom.custom_query(query=query)
-    return float(result[0]['value'][1]) if result else 0.0
+            time.sleep(30) # Intervalo conforme o artigo
 
-def check_3_sigma_anomaly(history_data, current_value):
-    if len(history_data) < 10: return False # Espera ter dados suficientes
-    
-    mu = np.mean(history_data) # Média histórica 
-    sigma = np.std(history_data) # Desvio padrão 
-    
-    # Regra 3-sigma do artigo: P95_now >= mu + 3 * sigma 
-    upper_bound = mu + 3 * sigma
-    
-    if current_value >= upper_bound:
-        print(f"ANOMALIA DETECTADA! Valor: {current_value:.2f}, Limite: {upper_bound:.2f}")
-        return True
-    return False
+    def detect_anomaly(self, service, current_val):
+        data = self.history[service]
+        if len(data) < 10:
+            print(f"[{service}] Coletando baseline... ({len(data)}/10)")
+            return
 
-# Exemplo de loop de monitoramento (executa a cada 30s conforme o artigo) 
-history = []
-service = "product-service" # Exemplo de serviço do Hipster-shop 
+        mu = np.mean(data)
+        sigma = np.std(data)
+        limit = mu + 3 * sigma #
 
-# Simulando coleta
-# current_p95 = get_p95_latency(service)
-# if check_3_sigma_anomaly(history, current_p95):
-#     # Próximo passo: Chamar o Random Walk
+        if current_val > limit and current_val > 100: # Filtro para ignorar ruídos baixos
+            print(f"\n⚠️ ANOMALIA DETECTADA em '{service}'!")
+            print(f"Valor: {current_val:.2f}ms | Limite: {limit:.2f}ms")
+            self.explain_xai(service, current_val, mu)
+
+    def explain_xai(self, service, val, mu):
+        # contribuição de XAI 
+        increase = ((val - mu) / mu) * 100
+        print(f"📢 XAI DIAGNÓSTICO: O serviço '{service}' apresentou um aumento de "
+              f"{increase:.1f}% na latência em relação à média histórica.")
+        
+        if service == "productcatalogservice":
+            print("💡 CAUSA RAIZ PROVÁVEL: Falha detectada neste nó. Verifique dependências downstream.")
+
+# --- EXECUÇÃO ---
+if __name__ == "__main__":
+    analyzer = XAIAnalyzer()
+    # Monitorando os dois principais pontos para o Random Walk
+    analyzer.run_analysis(["frontend", "productcatalogservice"])

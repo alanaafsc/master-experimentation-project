@@ -25,11 +25,24 @@ class MonitoringModule:
 
     def get_metrics(self, service_name):
         """Coleta P95 e Throughput conforme Seção III.A """
-        # Latência P95 (Regra 3-sigma) 
+        # 1. Latência P95 (Regra 3-sigma)
         p95_query = f'histogram_quantile(0.95, sum(rate(istio_request_duration_milliseconds_bucket{{destination_workload="{service_name}"}}[1m])) by (le))'
-        
-        # Throughput (Overcommit Detection)
+        p95_res = self.prom.custom_query(query=p95_query)
+        p95_val = float(p95_res[0]['value'][1]) if p95_res else 0.0
+
+        # 2. Throughput (Overcommit Detection) 
         throughput_query = f'sum(rate(istio_requests_total{{destination_workload="{service_name}"}}[1m]))'
+        t_res = self.prom.custom_query(query=throughput_query)
+        throughput_val = float(t_res[0]['value'][1]) if t_res else 0.0
         
-        # ... lógica de requisição ao Prometheus ...
         return p95_val, throughput_val
+
+# --- Bloco de Teste ---
+if __name__ == "__main__":
+    monitor = MonitoringModule()
+    # Testando com o serviço do frontend
+    p95, tput = monitor.get_metrics("frontend")
+    print(f"Frontend - P95: {p95}ms | Throughput: {tput} req/s")
+    
+    topo = monitor.get_topology()
+    print(f"Topologia detectada: {topo.edges()}")
