@@ -28,6 +28,8 @@ class XAIAnalyzer:
         if len(data) < 10:
             print(f"[{service}] Baseline: {len(data)}/10")
             return False
+        
+        print(f"✅ {service.upper()} ANALISADO: {current_val:.2f}ms (Média: {np.mean(data):.2f})")
 
         mu = np.mean(data)
         sigma = np.std(data)
@@ -39,36 +41,51 @@ class XAIAnalyzer:
             return True
         return False
 
-    def run(self):
-        print("Iniciando Ciclo MAPE-K (Monitor & Analyze)...")
+def run(self):
+        print("\n🚀 Iniciando Ciclo MAPE-K Completo (Monitor-Analyze-Plan-Execute)...")
         while True:
             for service in self.services_to_watch:
                 try:
-                    # 1. MONITOR: Coleta via Prometheus
+                    # 1. MONITOR
                     p95, _ = self.monitor.get_metrics(service)
                     
                     if service not in self.history:
                         self.history[service] = []
 
-                    # 2. ANALYZE: Detecção de Anomalia
+                    # 2. ANALYZE (Detecção)
                     is_anomalous = self.detect_anomaly(service, p95)
                     
-                    if is_anomalous and service == "frontend":
-                        # Se o frontend está lento, investigamos a causa raiz (Random Walk)
+                    if is_anomalous:
+                        # 2.1 ANALYZE (XAI - Causa Raiz)
                         score = self.calculate_pearson("frontend", "productcatalogservice")
-                        print(f"🔍 XAI DIAGNÓSTICO: Correlação com Catálogo: {score:.4f}")
-                        if score > 0.8:
-                            print("💡 EXPLICAÇÃO: O Catálogo está arrastando a performance do Frontend.")
+                        print(f"🔍 [XAI] Score de Correlação (Frontend <-> Catálogo): {score:.4f}")
+                        
+                        # 3. PLAN (ARIMA - Previsão)
+                        print(f"📈 [PLAN] Rodando ARIMA para {service}...")
+                        should_scale = self.scaler.predict_trend(self.history[service])
+                        
+                        trend_msg = "TENDÊNCIA DE ALTA" if should_scale else "OSCILAÇÃO PASSAGEIRA"
+                        print(f"📊 [PLAN] Resultado ARIMA: {trend_msg}")
 
-                    # Atualiza histórico (Janela deslizante de 20 pontos)
+                        # 4. EXECUTE (Ação no Kubernetes)
+                        if should_scale and score > 0.8:
+                            print(f"⚖️ [EXECUTE] Gatilhos confirmados! Escalonando {service}...")
+                            self.executor.scale_service("productcatalogservice", replicas=3)
+                        else:
+                            reason = "Correlação Baixa" if score <= 0.8 else "Tendência de Queda"
+                            print(f"ℹ️ [EXECUTE] Escalonamento abortado. Motivo: {reason}")
+                    else:
+                        print(f"✅ {service.upper()}: Estável ({p95:.2f}ms)")
+
+                    # Atualiza histórico
                     self.history[service].append(p95)
                     if len(self.history[service]) > 20:
                         self.history[service].pop(0)
 
                 except Exception as e:
-                    print(f"Erro no monitoramento de {service}: {e}")
+                    print(f"❌ Erro no ciclo de {service}: {e}")
 
-            time.sleep(30) # Intervalo de 30s conforme Seção III.A
+            time.sleep(5) # voltar para Intervalo de 30s conforme Seção III.A
 
 if __name__ == "__main__":
     analyzer = XAIAnalyzer()

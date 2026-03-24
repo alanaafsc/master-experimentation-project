@@ -34,8 +34,13 @@ class MonitoringModule:
         throughput_query = f'sum(rate(istio_requests_total{{destination_workload="{service_name}"}}[1m]))'
         t_res = self.prom.custom_query(query=throughput_query)
         throughput_val = float(t_res[0]['value'][1]) if t_res else 0.0
+
+        # 3. CPU Usage (para o Plan decidir se escala)
+        cpu_query = f'sum(rate(container_cpu_usage_seconds_total{{container="{service_name}"}}[1m]))'
+        cpu_res = self.prom.custom_query(query=cpu_query)
+        cpu_val = float(cpu_res[0]['value'][1]) if cpu_res else 0.0
         
-        return p95_val, throughput_val
+        return p95_val, throughput_val, cpu_val
 
 # --- Bloco de Teste ---
 if __name__ == "__main__":
