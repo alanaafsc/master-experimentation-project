@@ -1,0 +1,21 @@
+# Em vez de aplicar o VirtualService manualmente, usar esse patch de Chaos Engineering.
+# testar o MTTR (Mean Time To Repair - Tempo médio de recuperação)
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: productcatalogservice-chaos
+  namespace: default
+spec:
+  hosts:
+  - productcatalogservice
+  http:
+  - fault:
+      delay:
+        percentage:
+          value: 100 # Aplica em 100% das requisições para forçar a anomalia
+        fixedDelay: 3s # Atraso de 3 segundos (garante que estoure o 3-sigma)
+    route:
+    - destination:
+        host: productcatalogservice
+        subset: v1
