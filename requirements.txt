@@ -1,0 +1,24 @@
+# XAI-FinOps — Dependências do projeto experimental
+# Instale com: pip install -r requirements.txt
+
+# Coleta de métricas via Prometheus
+prometheus-api-client>=0.5.3
+
+# Grafo de dependências entre microsserviços
+networkx>=3.1
+
+# Operações numéricas e estatísticas
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Modelo ARIMA e testes de estacionariedade (ADF)
+statsmodels>=0.14.0
+
+# Interface com a API do Kubernetes
+kubernetes>=28.1.0
+
+# Visualizações XAI (heatmaps, séries temporais)
+matplotlib>=3.7.0
+
+# Utilitários de data/hora (já incluído no Python stdlib, listado para documentação)
+# python-dateutil>=2.8.2

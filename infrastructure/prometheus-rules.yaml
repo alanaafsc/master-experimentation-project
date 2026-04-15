@@ -1,1 +1,115 @@
-# alertas de "High Latency" diretamente no motor de métricas
+# prometheus-rules.yaml
+# PrometheusRule para alertas de latência e disponibilidade no experimento XAI-FinOps.
+#
+# Estas regras complementam a detecção programática do framework (Regra 3σ),
+# servindo como camada de observabilidade independente para validação cruzada
+# dos experimentos de injeção de falhas.
+#
+# Aplicar: kubectl apply -f infrastructure/prometheus-rules.yaml
+#
+# Requer: Prometheus Operator instalado (via kube-prometheus-stack Helm chart).
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: xai-finops-latency-rules
+  namespace: default
+  labels:
+    release: kube-prometheus-stack   # deve corresponder ao label do Prometheus Operator
+    experiment: xai-finops
+spec:
+  groups:
+    # ─────────────────────────────────────────────────────────────────────────
+    # Grupo 1: Alertas de Latência por Serviço
+    # ─────────────────────────────────────────────────────────────────────────
+    - name: latency.rules
+      interval: 30s
+      rules:
+
+        # Alerta: P95 de qualquer serviço ultrapassou 500ms (SLA)
+        - alert: HighLatencyP95
+          expr: |
+            histogram_quantile(0.95,
+              sum(rate(istio_request_duration_milliseconds_bucket[1m]))
+              by (destination_workload, le)
+            ) > 500
+          for: 1m
+          labels:
+            severity: warning
+            experiment: xai-finops
+          annotations:
+            summary: "P95 alta em {{ $labels.destination_workload }}"
+            description: >
+              Serviço {{ $labels.destination_workload }} com P95 acima do SLA
+              de 500ms por mais de 1 minuto.
+
+        # Alerta: P95 > 2000ms — anomalia severa (correlata à injeção de falha)
+        - alert: CriticalLatencyP95
+          expr: |
+            histogram_quantile(0.95,
+              sum(rate(istio_request_duration_milliseconds_bucket[1m]))
+              by (destination_workload, le)
+            ) > 2000
+          for: 30s
+          labels:
+            severity: critical
+            experiment: xai-finops
+          annotations:
+            summary: "LATÊNCIA CRÍTICA em {{ $labels.destination_workload }}"
+            description: >
+              Serviço {{ $labels.destination_workload }} com P95 acima de 2000ms.
+              Possível injeção de falha ativa ou degradação severa de upstream.
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Grupo 2: Alertas de Taxa de Erros
+    # ─────────────────────────────────────────────────────────────────────────
+    - name: error-rate.rules
+      interval: 30s
+      rules:
+
+        # Alerta: taxa de erros 5xx > 5%
+        - alert: HighErrorRate
+          expr: |
+            (
+              sum(rate(istio_requests_total{response_code=~"5.."}[1m]))
+                by (destination_workload)
+              /
+              sum(rate(istio_requests_total[1m]))
+                by (destination_workload)
+            ) > 0.05
+          for: 1m
+          labels:
+            severity: warning
+            experiment: xai-finops
+          annotations:
+            summary: "Taxa de erros elevada em {{ $labels.destination_workload }}"
+            description: >
+              Serviço {{ $labels.destination_workload }} com taxa de erros
+              acima de 5% no último minuto.
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Grupo 3: Recording rules — métricas derivadas pré-calculadas
+    # ─────────────────────────────────────────────────────────────────────────
+    - name: xai-finops.recording
+      interval: 30s
+      rules:
+
+        # P95 por serviço (pré-calculada para performance nas queries do framework)
+        - record: xai_finops:p95_latency_ms:by_service
+          expr: |
+            histogram_quantile(0.95,
+              sum(rate(istio_request_duration_milliseconds_bucket[1m]))
+              by (destination_workload, le)
+            )
+
+        # Throughput por serviço (req/s)
+        - record: xai_finops:throughput_rps:by_service
+          expr: |
+            sum(rate(istio_requests_total[1m]))
+            by (destination_workload)
+
+        # Uso de CPU por container (cores)
+        - record: xai_finops:cpu_usage_cores:by_container
+          expr: |
+            sum(rate(container_cpu_usage_seconds_total[1m]))
+            by (container)

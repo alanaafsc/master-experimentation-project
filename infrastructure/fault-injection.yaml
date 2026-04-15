@@ -1,16 +1,34 @@
+# fault-injection.yaml
+# Injeção de latência artificial no productcatalogservice via Istio VirtualService.
+#
+# Parâmetros do experimento:
+#   - Serviço alvo : productcatalogservice
+#   - Tipo de falha: delay fixo (latência artificial)
+#   - Percentual   : 100% das requisições (garante detecção pelo limiar 3σ)
+#   - Magnitude    : 2,5s (suficiente para ultrapassar UCL = μ + 3σ estimado em ~300ms)
+#
+# Aplicar  : kubectl apply  -f infrastructure/fault-injection.yaml
+# Remover  : kubectl delete -f infrastructure/fault-injection.yaml
+#
+# ATENÇÃO: remova SEMPRE ao final do experimento para não afetar outros serviços.
+
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: product-catalog-delay
+  name: productcatalogservice-fault
+  namespace: default
+  labels:
+    experiment: xai-finops
+    phase: fault-injection
 spec:
   hosts:
-  - productcatalogservice
+    - productcatalogservice
   http:
-  - fault:
-      delay:
-        percentage:
-          value: 100.0
-        fixedDelay: 2.5s # Adiciona 2.5 segundos de atraso fixo
-    route:
-    - destination:
-        host: productcatalogservice
+    - fault:
+        delay:
+          percentage:
+            value: 100.0       # 100% das requisições para garantir detecção
+          fixedDelay: 2500ms   # 2,5 segundos de atraso fixo
+      route:
+        - destination:
+            host: productcatalogservice
