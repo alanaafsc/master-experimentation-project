@@ -248,7 +248,7 @@ class XAIReporter:
         pearson_scores = []
         for e in event_log:
             corr_ev = e.get("correlation_evidence", {})
-            score = corr_ev.get("pearson_score")
+            score = corr_ev.get("best_score")
             if score is not None:
                 pearson_scores.append(score)
 

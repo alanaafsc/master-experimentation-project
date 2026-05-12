@@ -260,7 +260,20 @@ class XAIAnalyzer:
                         execute_result = self.executor.scale_service(
                             root_cause, replicas=SCALE_UP_REPLICAS
                         )
-                        decision = f"SCALE_UP:{root_cause}:{SCALE_UP_REPLICAS}_replicas"
+                        status = execute_result.get("status", "ERROR")
+                        if status == "SUCCESS":
+                            decision = f"SCALE_UP:{root_cause}:{SCALE_UP_REPLICAS}_replicas"
+                        elif status == "COOLDOWN":
+                            decision = f"COOLDOWN:{root_cause}"
+                            logger.info(
+                                "[EXECUTE] Escalonamento suprimido — cooldown ativo em %s",
+                                root_cause,
+                            )
+                        else:
+                            logger.warning(
+                                "[EXECUTE] scale_service retornou status '%s' para %s",
+                                status, root_cause,
+                            )
                     else:
                         reason = (
                             f"Pearson={best_score:.4f} < {PEARSON_THRESHOLD}"
