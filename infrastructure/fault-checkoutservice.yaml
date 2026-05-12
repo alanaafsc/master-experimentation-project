@@ -1,0 +1,36 @@
+# fault-checkoutservice.yaml — Cenário C: injeção de latência no checkoutservice.
+#
+# Parâmetros do experimento:
+#   - Serviço alvo : checkoutservice
+#   - Tipo de falha: delay fixo (latência artificial)
+#   - Percentual   : 100% das requisições
+#   - Magnitude    : 1,5s (falha mais sutil — testa sensibilidade do detector 3σ)
+#
+# Topologia afetada: frontend → checkoutservice
+# Objetivo: verificar se o framework detecta anomalia mais sutil e atribui
+#           causa raiz a checkoutservice com menor magnitude de falha.
+#
+# Aplicar  : kubectl apply  -f infrastructure/fault-checkoutservice.yaml
+# Remover  : kubectl delete -f infrastructure/fault-checkoutservice.yaml
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: checkoutservice-fault
+  namespace: default
+  labels:
+    experiment: xai-finops
+    scenario: C
+    phase: fault-injection
+spec:
+  hosts:
+    - checkoutservice
+  http:
+    - fault:
+        delay:
+          percentage:
+            value: 100.0
+          fixedDelay: 1500ms
+      route:
+        - destination:
+            host: checkoutservice

@@ -1,0 +1,36 @@
+# fault-cartservice.yaml — Cenário B: injeção de latência no cartservice.
+#
+# Parâmetros do experimento:
+#   - Serviço alvo : cartservice
+#   - Tipo de falha: delay fixo (latência artificial)
+#   - Percentual   : 100% das requisições
+#   - Magnitude    : 2,5s (mesma magnitude do Cenário A para comparabilidade)
+#
+# Topologia afetada: frontend → cartservice (e checkoutservice → cartservice)
+# Objetivo: verificar se o framework atribui causa raiz a cartservice
+#           (e não ao frontend sintomático).
+#
+# Aplicar  : kubectl apply  -f infrastructure/fault-cartservice.yaml
+# Remover  : kubectl delete -f infrastructure/fault-cartservice.yaml
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: cartservice-fault
+  namespace: default
+  labels:
+    experiment: xai-finops
+    scenario: B
+    phase: fault-injection
+spec:
+  hosts:
+    - cartservice
+  http:
+    - fault:
+        delay:
+          percentage:
+            value: 100.0
+          fixedDelay: 2500ms
+      route:
+        - destination:
+            host: cartservice
