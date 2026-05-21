@@ -24,6 +24,20 @@ import os
 from datetime import datetime
 
 import numpy as np
+
+
+class _NumpyEncoder(json.JSONEncoder):
+    """Converte tipos numpy para tipos Python nativos antes da serialização JSON."""
+    def default(self, obj):
+        if isinstance(obj, np.bool_):
+            return bool(obj)
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super().default(obj)
 import matplotlib
 matplotlib.use("Agg")   # backend sem display para execução headless
 import matplotlib.pyplot as plt
@@ -71,7 +85,7 @@ class XAIReporter:
 
         report_path = os.path.join(self.reports_dir, f"event_{ts}.json")
         with open(report_path, "w", encoding="utf-8") as f:
-            json.dump(event, f, indent=2, ensure_ascii=False)
+            json.dump(event, f, indent=2, ensure_ascii=False, cls=_NumpyEncoder)
 
         logger.info("[XAIReporter] Relatório salvo: %s", report_path)
 

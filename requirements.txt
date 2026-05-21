@@ -20,5 +20,11 @@ kubernetes>=28.1.0
 # Visualizações XAI (heatmaps, séries temporais)
 matplotlib>=3.7.0
 
+# Geração de dados sintéticos para o Locust
+faker>=19.0.0
+
+# Gerador de carga para os experimentos
+locust>=2.20.0
+
 # Utilitários de data/hora (já incluído no Python stdlib, listado para documentação)
 # python-dateutil>=2.8.2

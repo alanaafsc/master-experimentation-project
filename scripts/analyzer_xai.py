@@ -32,6 +32,7 @@ from config import (
     SCALE_UP_REPLICAS,
     SCRAPE_INTERVAL_S,
     SERVICES,
+    SERVICE_DEPENDENCIES,
     RESULTS_DIR,
     LOG_DIR,
 )
@@ -148,16 +149,32 @@ class XAIAnalyzer:
 
     def identify_root_cause(self, trigger_service: str) -> tuple[str, float, dict]:
         """
-        Identifica o serviço causa raiz avaliando a correlação de Pearson entre
-        o serviço disparador e todos os candidatos monitorados.
+        Identifica o serviço causa raiz combinando Correlação de Pearson com
+        restrição topológica derivada do grafo de dependências.
 
         O grau de influência S_{k,m} entre os serviços k e m é:
 
             S_{k,m} = (Σ[(x_i - μ_x)(y_i - μ_y)]) / (n · σ_x · σ_y)
 
-        O candidato com maior S_{k,m} > PEARSON_THRESHOLD é identificado
-        como causa raiz. Se nenhum superar o limiar, assume-se que o serviço
-        disparador é ele mesmo a causa raiz.
+        ** Refinamento v2 — restrição topológica (Design Cycle DSR) **
+
+        Problema identificado durante o Cenário A do experimento empírico
+        (ciclo 39, fase Baseline): a versão original avaliava todos os serviços
+        monitorados como candidatos a causa raiz, sem considerar a direção das
+        dependências no grafo. Como Pearson é uma medida simétrica (S_{k,m} =
+        S_{m,k}), serviços DOWNSTREAM (que chamam o serviço anômalo) obtinham
+        scores tão altos quanto serviços UPSTREAM (que o serviço anômalo chama),
+        produzindo inversões causais — e.g., identificar checkoutservice como
+        causa raiz de productcatalogservice, quando a dependência real é inversa.
+
+        Correção: a decisão de causa raiz agora é restrita aos candidatos
+        UPSTREAM do trigger_service, ou seja, serviços que trigger_service
+        chama diretamente conforme SERVICE_DEPENDENCIES. O cálculo de Pearson
+        continua sendo feito para todos os pares (para o heatmap XAI), mas
+        apenas os candidatos topologicamente válidos concorrem à causa raiz.
+
+        Serviços folha (sem dependências upstream nos serviços monitorados)
+        são identificados como sua própria causa raiz — a anomalia é interna.
 
         Args:
             trigger_service : serviço onde a anomalia foi detectada
@@ -165,6 +182,13 @@ class XAIAnalyzer:
         Returns:
             (root_cause, best_score, evidence)
         """
+        # Candidatos upstream: serviços que trigger_service chama (dependências diretas)
+        upstream_candidates = {
+            callee
+            for (caller, callee) in SERVICE_DEPENDENCIES
+            if caller == trigger_service and callee in SERVICES
+        }
+
         best_score = 0.0
         root_cause = trigger_service
         all_scores: dict[str, float] = {}
@@ -186,27 +210,48 @@ class XAIAnalyzer:
             corr = 0.0 if np.isnan(corr) else corr
             all_scores[candidate] = round(corr, 4)
 
+            # Restrição topológica: só candidatos upstream concorrem à causa raiz
+            if candidate not in upstream_candidates:
+                continue
+
             if corr > best_score:
                 best_score = corr
                 if corr > PEARSON_THRESHOLD:
                     root_cause = candidate
 
+        if not upstream_candidates:
+            interpretation = (
+                f"Serviço folha — sem dependências upstream monitoradas. "
+                f"Causa raiz assumida: {trigger_service} (anomalia interna)."
+            )
+        elif root_cause != trigger_service:
+            interpretation = (
+                f"Causa raiz upstream: {root_cause} "
+                f"(S={best_score:.4f} > τ={PEARSON_THRESHOLD}, "
+                f"candidatos avaliados: {sorted(upstream_candidates)})."
+            )
+        else:
+            interpretation = (
+                f"Nenhum candidato upstream com correlação dominante "
+                f"(upstream: {sorted(upstream_candidates)}, melhor S={best_score:.4f} < τ={PEARSON_THRESHOLD}). "
+                f"Causa raiz assumida: {trigger_service}."
+            )
+
         evidence = {
             "trigger_service": trigger_service,
             "root_cause_identified": root_cause,
+            "upstream_candidates_considered": sorted(upstream_candidates),
+            "topology_constrained": True,
             "pearson_scores": all_scores,
             "best_score": round(best_score, 4),
             "threshold": PEARSON_THRESHOLD,
-            "interpretation": (
-                f"Causa raiz: {root_cause} (S={best_score:.4f} > {PEARSON_THRESHOLD})."
-                if best_score > PEARSON_THRESHOLD
-                else f"Sem correlação dominante. Causa raiz assumida: {trigger_service}."
-            ),
+            "interpretation": interpretation,
         }
 
         logger.info(
-            "[XAI] Causa raiz: %s | Melhor score Pearson: %.4f (threshold: %.2f)",
-            root_cause, best_score, PEARSON_THRESHOLD,
+            "[XAI] Causa raiz: %s | Melhor score Pearson upstream: %.4f "
+            "(threshold: %.2f) | Upstream: %s",
+            root_cause, best_score, PEARSON_THRESHOLD, sorted(upstream_candidates),
         )
         return root_cause, best_score, evidence
 

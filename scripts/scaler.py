@@ -67,7 +67,7 @@ class ScalerModule:
         """
         try:
             adf_stat, p_value, _, _, critical_values, _ = adfuller(data, autolag="AIC")
-            is_stationary = p_value < 0.05
+            is_stationary = bool(p_value < 0.05)
             return {
                 "adf_statistic": round(float(adf_stat), 4),
                 "p_value": round(float(p_value), 4),
