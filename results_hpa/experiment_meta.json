@@ -1,0 +1,47 @@
+{
+  "experiment_id": "20260525_024528",
+  "type": "HPA_BASELINE",
+  "start_time": "2026-05-25T02:45:28.951321",
+  "hpa_config": {
+    "cpu_target_percent": 60,
+    "min_replicas": 1,
+    "max_replicas": 5,
+    "services": [
+      "frontend",
+      "productcatalogservice",
+      "checkoutservice",
+      "cartservice"
+    ]
+  },
+  "config": {
+    "scrape_interval_s": 30,
+    "baseline_cycles": 40,
+    "fault_cycles": 20,
+    "recovery_cycles": 10
+  },
+  "phases": [
+    {
+      "name": "BASELINE",
+      "start": "2026-05-25T02:45:28.951451",
+      "end": "2026-05-25T03:05:12.990192",
+      "duration_s": 1184.0,
+      "cycles": 40
+    },
+    {
+      "name": "FAULT_INJECTION",
+      "start": "2026-05-25T03:05:13.279207",
+      "end": "2026-05-25T03:14:50.812767",
+      "duration_s": 577.5,
+      "cycles": 20
+    },
+    {
+      "name": "RECOVERY",
+      "start": "2026-05-25T03:14:50.893826",
+      "end": "2026-05-25T03:19:24.661429",
+      "duration_s": 273.8,
+      "cycles": 10
+    }
+  ],
+  "end_time": "2026-05-25T03:19:24.996170",
+  "fault_removed_at": "2026-05-25T03:14:50.814047"
+}

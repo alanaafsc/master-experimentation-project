@@ -1,0 +1,759 @@
+2026-05-24 23:26:00,336 [INFO] HPABaseline — =================================================================
+2026-05-24 23:26:00,337 [INFO] HPABaseline —   XAI-FinOps — Grupo de Controle: Kubernetes HPA
+2026-05-24 23:26:00,338 [INFO] HPABaseline —   Iniciado em: 2026-05-25T02:26:00.338346
+2026-05-24 23:26:00,338 [INFO] HPABaseline — =================================================================
+2026-05-24 23:26:00,338 [INFO] HPABaseline — Instalando HPAs (CPU target=60%)...
+2026-05-24 23:26:00,450 [INFO] HPABaseline —   HPA criado: frontend
+2026-05-24 23:26:00,554 [INFO] HPABaseline —   HPA criado: productcatalogservice
+2026-05-24 23:26:00,651 [INFO] HPABaseline —   HPA criado: checkoutservice
+2026-05-24 23:26:00,740 [INFO] HPABaseline —   HPA criado: cartservice
+2026-05-24 23:26:00,740 [INFO] HPABaseline — Aguardando HPA estabilizar (30s)...
+2026-05-24 23:26:30,743 [INFO] MonitoringModule — MonitoringModule iniciado. Prometheus: http://localhost:9090
+2026-05-24 23:26:31,045 [INFO] HPABaseline — HPAMetricsCollector iniciado. Réplicas iniciais: {'frontend': 1, 'productcatalogservice': 1, 'checkoutservice': 1, 'cartservice': 1}
+2026-05-24 23:26:31,046 [INFO] HPABaseline — ┌─ FASE HPA: BASELINE (40 ciclos × 30s = ~20 min) ──────────────────
+2026-05-24 23:26:31,046 [INFO] HPABaseline — │  Ciclo 1/40 [BASELINE]
+2026-05-24 23:26:35,109 [WARNING] urllib3.connectionpool — Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:26:41,183 [WARNING] urllib3.connectionpool — Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:26:49,252 [WARNING] urllib3.connectionpool — Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:26:53,277 [ERROR] HPABaseline — Erro ao coletar frontend: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 500, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 331, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\hpa_baseline.py", line 223, in collect_cycle
+    p95, tput, cpu = self.monitor.get_metrics(svc)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\monitor.py", line 97, in get_metrics
+    p95_res = self.prom.custom_query(query=p95_query)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\prometheus_api_client\prometheus_connect.py", line 462, in custom_query
+    response = self._session.request(
+        method=self._method,
+    ...<6 lines>...
+        timeout=timeout,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+2026-05-24 23:26:57,468 [WARNING] urllib3.connectionpool — Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22productcatalogservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:03,532 [WARNING] urllib3.connectionpool — Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22productcatalogservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:11,611 [WARNING] urllib3.connectionpool — Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22productcatalogservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:15,679 [ERROR] HPABaseline — Erro ao coletar productcatalogservice: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22productcatalogservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 500, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 331, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22productcatalogservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\hpa_baseline.py", line 223, in collect_cycle
+    p95, tput, cpu = self.monitor.get_metrics(svc)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\monitor.py", line 97, in get_metrics
+    p95_res = self.prom.custom_query(query=p95_query)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\prometheus_api_client\prometheus_connect.py", line 462, in custom_query
+    response = self._session.request(
+        method=self._method,
+    ...<6 lines>...
+        timeout=timeout,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22productcatalogservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+2026-05-24 23:27:19,750 [WARNING] urllib3.connectionpool — Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22checkoutservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:25,798 [WARNING] urllib3.connectionpool — Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22checkoutservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:33,846 [WARNING] urllib3.connectionpool — Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22checkoutservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:37,882 [ERROR] HPABaseline — Erro ao coletar checkoutservice: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22checkoutservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 500, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 331, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22checkoutservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\hpa_baseline.py", line 223, in collect_cycle
+    p95, tput, cpu = self.monitor.get_metrics(svc)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\monitor.py", line 97, in get_metrics
+    p95_res = self.prom.custom_query(query=p95_query)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\prometheus_api_client\prometheus_connect.py", line 462, in custom_query
+    response = self._session.request(
+        method=self._method,
+    ...<6 lines>...
+        timeout=timeout,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22checkoutservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+2026-05-24 23:27:41,933 [WARNING] urllib3.connectionpool — Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22cartservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:48,024 [WARNING] urllib3.connectionpool — Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22cartservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:27:56,084 [WARNING] urllib3.connectionpool — Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22cartservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:28:00,130 [ERROR] HPABaseline — Erro ao coletar cartservice: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22cartservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 500, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 331, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22cartservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\hpa_baseline.py", line 223, in collect_cycle
+    p95, tput, cpu = self.monitor.get_metrics(svc)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\monitor.py", line 97, in get_metrics
+    p95_res = self.prom.custom_query(query=p95_query)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\prometheus_api_client\prometheus_connect.py", line 462, in custom_query
+    response = self._session.request(
+        method=self._method,
+    ...<6 lines>...
+        timeout=timeout,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22cartservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+2026-05-24 23:28:04,190 [WARNING] urllib3.connectionpool — Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22recommendationservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:28:10,244 [WARNING] urllib3.connectionpool — Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22recommendationservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:28:18,313 [WARNING] urllib3.connectionpool — Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22recommendationservice%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:28:22,362 [ERROR] HPABaseline — Erro ao coletar recommendationservice: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22recommendationservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 500, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\alana\AppData\Local\Python\pythoncore-3.14-64\Lib\http\client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 331, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+           ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<13 lines>...
+        **response_kw,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22recommendationservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\hpa_baseline.py", line 223, in collect_cycle
+    p95, tput, cpu = self.monitor.get_metrics(svc)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\monitor.py", line 97, in get_metrics
+    p95_res = self.prom.custom_query(query=p95_query)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\prometheus_api_client\prometheus_connect.py", line 462, in custom_query
+    response = self._session.request(
+        method=self._method,
+    ...<6 lines>...
+        timeout=timeout,
+    )
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\venv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22recommendationservice%22%7D%5B1m%5D%29%29+by+%28le%29%29 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente"))
+2026-05-24 23:28:52,676 [INFO] HPABaseline — │  Ciclo 2/40 [BASELINE]
+2026-05-24 23:28:56,750 [WARNING] urllib3.connectionpool — Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=9090): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /api/v1/query?query=histogram_quantile%280.95%2C+sum%28rate%28istio_request_duration_milliseconds_bucket%7Bdestination_workload%3D%22frontend%22%7D%5B1m%5D%29%29+by+%28le%29%29
+2026-05-24 23:44:58,322 [INFO] HPABaseline — =================================================================
+2026-05-24 23:44:58,323 [INFO] HPABaseline —   XAI-FinOps — Grupo de Controle: Kubernetes HPA
+2026-05-24 23:44:58,323 [INFO] HPABaseline —   Iniciado em: 2026-05-25T02:44:58.323701
+2026-05-24 23:44:58,323 [INFO] HPABaseline — =================================================================
+2026-05-24 23:44:58,323 [INFO] HPABaseline — Instalando HPAs (CPU target=60%)...
+2026-05-24 23:44:58,420 [ERROR] HPABaseline —   Falha ao criar HPA para frontend: Flag --cpu-percent has been deprecated, Use --cpu with percentage or resource quantity format (e.g., '70%' for utilization or '500m' for milliCPU).
+error: failed to create autoscaling/v2 HPA and the configuration is incompatible with autoscaling/v1: empty input
+2026-05-24 23:44:58,496 [ERROR] HPABaseline —   Falha ao criar HPA para productcatalogservice: Flag --cpu-percent has been deprecated, Use --cpu with percentage or resource quantity format (e.g., '70%' for utilization or '500m' for milliCPU).
+error: failed to create autoscaling/v2 HPA and the configuration is incompatible with autoscaling/v1: empty input
+2026-05-24 23:44:58,570 [ERROR] HPABaseline —   Falha ao criar HPA para checkoutservice: Flag --cpu-percent has been deprecated, Use --cpu with percentage or resource quantity format (e.g., '70%' for utilization or '500m' for milliCPU).
+error: failed to create autoscaling/v2 HPA and the configuration is incompatible with autoscaling/v1: empty input
+2026-05-24 23:44:58,645 [ERROR] HPABaseline —   Falha ao criar HPA para cartservice: Flag --cpu-percent has been deprecated, Use --cpu with percentage or resource quantity format (e.g., '70%' for utilization or '500m' for milliCPU).
+error: failed to create autoscaling/v2 HPA and the configuration is incompatible with autoscaling/v1: empty input
+2026-05-24 23:44:58,645 [INFO] HPABaseline — Aguardando HPA estabilizar (30s)...
+2026-05-24 23:45:28,648 [INFO] MonitoringModule — MonitoringModule iniciado. Prometheus: http://localhost:9090
+2026-05-24 23:45:28,951 [INFO] HPABaseline — HPAMetricsCollector iniciado. Réplicas iniciais: {'frontend': 1, 'productcatalogservice': 1, 'checkoutservice': 1, 'cartservice': 1}
+2026-05-24 23:45:28,951 [INFO] HPABaseline — ┌─ FASE HPA: BASELINE (40 ciclos × 30s = ~20 min) ──────────────────
+2026-05-24 23:45:28,951 [INFO] HPABaseline — │  Ciclo 1/40 [BASELINE]
+2026-05-24 23:45:59,354 [INFO] HPABaseline — │  Ciclo 2/40 [BASELINE]
+2026-05-24 23:46:29,674 [INFO] HPABaseline — │  Ciclo 3/40 [BASELINE]
+2026-05-24 23:47:00,130 [INFO] HPABaseline — │  Ciclo 4/40 [BASELINE]
+2026-05-24 23:47:30,451 [INFO] HPABaseline — │  Ciclo 5/40 [BASELINE]
+2026-05-24 23:48:00,798 [INFO] HPABaseline — │  Ciclo 6/40 [BASELINE]
+2026-05-24 23:48:31,176 [INFO] HPABaseline — │  Ciclo 7/40 [BASELINE]
+2026-05-24 23:49:01,520 [INFO] HPABaseline — │  Ciclo 8/40 [BASELINE]
+2026-05-24 23:49:31,888 [INFO] HPABaseline — │  Ciclo 9/40 [BASELINE]
+2026-05-24 23:50:02,214 [INFO] HPABaseline — │  Ciclo 10/40 [BASELINE]
+2026-05-24 23:50:32,554 [INFO] HPABaseline — │  Ciclo 11/40 [BASELINE]
+2026-05-24 23:51:02,964 [INFO] HPABaseline — │  Ciclo 12/40 [BASELINE]
+2026-05-24 23:51:33,346 [INFO] HPABaseline — │  Ciclo 13/40 [BASELINE]
+2026-05-24 23:52:03,680 [INFO] HPABaseline — │  Ciclo 14/40 [BASELINE]
+2026-05-24 23:52:34,019 [INFO] HPABaseline — │  Ciclo 15/40 [BASELINE]
+2026-05-24 23:53:04,351 [INFO] HPABaseline — │  Ciclo 16/40 [BASELINE]
+2026-05-24 23:53:34,682 [INFO] HPABaseline — │  Ciclo 17/40 [BASELINE]
+2026-05-24 23:54:05,049 [INFO] HPABaseline — │  Ciclo 18/40 [BASELINE]
+2026-05-24 23:54:35,393 [INFO] HPABaseline — │  Ciclo 19/40 [BASELINE]
+2026-05-24 23:55:05,719 [INFO] HPABaseline — │  Ciclo 20/40 [BASELINE]
+2026-05-24 23:55:36,057 [INFO] HPABaseline — │  Ciclo 21/40 [BASELINE]
+2026-05-24 23:56:06,405 [INFO] HPABaseline — │  Ciclo 22/40 [BASELINE]
+2026-05-24 23:56:36,731 [INFO] HPABaseline — │  Ciclo 23/40 [BASELINE]
+2026-05-24 23:57:07,122 [INFO] HPABaseline — │  Ciclo 24/40 [BASELINE]
+2026-05-24 23:57:37,444 [INFO] HPABaseline — │  Ciclo 25/40 [BASELINE]
+2026-05-24 23:58:07,792 [INFO] HPABaseline — │  Ciclo 26/40 [BASELINE]
+2026-05-24 23:58:38,139 [INFO] HPABaseline — │  Ciclo 27/40 [BASELINE]
+2026-05-24 23:59:08,505 [INFO] HPABaseline — │  Ciclo 28/40 [BASELINE]
+2026-05-24 23:59:38,852 [INFO] HPABaseline — │  Ciclo 29/40 [BASELINE]
+2026-05-25 00:00:09,183 [INFO] HPABaseline — │  Ciclo 30/40 [BASELINE]
+2026-05-25 00:00:39,532 [INFO] HPABaseline — │  Ciclo 31/40 [BASELINE]
+2026-05-25 00:01:09,858 [INFO] HPABaseline — │  Ciclo 32/40 [BASELINE]
+2026-05-25 00:01:40,238 [INFO] HPABaseline — │  Ciclo 33/40 [BASELINE]
+2026-05-25 00:02:10,568 [INFO] HPABaseline — │  Ciclo 34/40 [BASELINE]
+2026-05-25 00:02:40,897 [INFO] HPABaseline — │  Ciclo 35/40 [BASELINE]
+2026-05-25 00:03:11,310 [INFO] HPABaseline — │  Ciclo 36/40 [BASELINE]
+2026-05-25 00:03:41,629 [INFO] HPABaseline — │  Ciclo 37/40 [BASELINE]
+2026-05-25 00:04:11,963 [INFO] HPABaseline — │  Ciclo 38/40 [BASELINE]
+2026-05-25 00:04:42,309 [INFO] HPABaseline — │  Ciclo 39/40 [BASELINE]
+2026-05-25 00:05:12,662 [INFO] HPABaseline — │  Ciclo 40/40 [BASELINE]
+2026-05-25 00:05:12,990 [INFO] HPABaseline — └─ FIM BASELINE | Duração: 1184s
+2026-05-25 00:05:12,990 [INFO] HPABaseline — 
+2026-05-25 00:05:12,990 [INFO] HPABaseline — Aplicando falha Istio → productcatalogservice (delay=2,5s, 100%%)...
+2026-05-25 00:05:13,278 [INFO] HPABaseline — kubectl apply fault-injection.yaml — OK
+2026-05-25 00:05:13,279 [INFO] HPABaseline — ┌─ FASE HPA: FAULT_INJECTION (20 ciclos × 30s = ~10 min) ──────────────────
+2026-05-25 00:05:13,279 [INFO] HPABaseline — │  Ciclo 1/20 [FAULT_INJECTION]
+2026-05-25 00:05:43,634 [INFO] HPABaseline — │  Ciclo 2/20 [FAULT_INJECTION]
+2026-05-25 00:06:13,953 [INFO] HPABaseline — │  Ciclo 3/20 [FAULT_INJECTION]
+2026-05-25 00:06:44,294 [INFO] HPABaseline — │  Ciclo 4/20 [FAULT_INJECTION]
+2026-05-25 00:07:14,631 [INFO] HPABaseline — │  Ciclo 5/20 [FAULT_INJECTION]
+2026-05-25 00:07:45,067 [INFO] HPABaseline — │  Ciclo 6/20 [FAULT_INJECTION]
+2026-05-25 00:08:15,485 [INFO] HPABaseline — │  Ciclo 7/20 [FAULT_INJECTION]
+2026-05-25 00:08:45,952 [INFO] HPABaseline — │  Ciclo 8/20 [FAULT_INJECTION]
+2026-05-25 00:09:16,346 [INFO] HPABaseline — │  Ciclo 9/20 [FAULT_INJECTION]
+2026-05-25 00:09:46,733 [INFO] HPABaseline — │  Ciclo 10/20 [FAULT_INJECTION]
+2026-05-25 00:10:17,211 [INFO] HPABaseline — │  Ciclo 11/20 [FAULT_INJECTION]
+2026-05-25 00:10:47,557 [INFO] HPABaseline — │  Ciclo 12/20 [FAULT_INJECTION]
+2026-05-25 00:11:17,896 [INFO] HPABaseline — │  Ciclo 13/20 [FAULT_INJECTION]
+2026-05-25 00:11:48,236 [INFO] HPABaseline — │  Ciclo 14/20 [FAULT_INJECTION]
+2026-05-25 00:12:18,580 [INFO] HPABaseline — │  Ciclo 15/20 [FAULT_INJECTION]
+2026-05-25 00:12:48,901 [INFO] HPABaseline — │  Ciclo 16/20 [FAULT_INJECTION]
+2026-05-25 00:13:19,229 [INFO] HPABaseline — │  Ciclo 17/20 [FAULT_INJECTION]
+2026-05-25 00:13:49,596 [INFO] HPABaseline — │  Ciclo 18/20 [FAULT_INJECTION]
+2026-05-25 00:14:19,943 [INFO] HPABaseline — │  Ciclo 19/20 [FAULT_INJECTION]
+2026-05-25 00:14:50,458 [INFO] HPABaseline — │  Ciclo 20/20 [FAULT_INJECTION]
+2026-05-25 00:14:50,812 [INFO] HPABaseline — └─ FIM FAULT_INJECTION | Duração: 578s
+2026-05-25 00:14:50,813 [INFO] HPABaseline — 
+2026-05-25 00:14:50,813 [INFO] HPABaseline — Removendo falha. Observando recuperação com HPA...
+2026-05-25 00:14:50,893 [INFO] HPABaseline — kubectl delete fault-injection.yaml — OK
+2026-05-25 00:14:50,893 [INFO] HPABaseline — ┌─ FASE HPA: RECOVERY (10 ciclos × 30s = ~5 min) ──────────────────
+2026-05-25 00:14:50,893 [INFO] HPABaseline — │  Ciclo 1/10 [RECOVERY]
+2026-05-25 00:15:21,246 [INFO] HPABaseline — │  Ciclo 2/10 [RECOVERY]
+2026-05-25 00:15:51,602 [INFO] HPABaseline — │  Ciclo 3/10 [RECOVERY]
+2026-05-25 00:16:21,962 [INFO] HPABaseline — │  Ciclo 4/10 [RECOVERY]
+2026-05-25 00:16:52,386 [INFO] HPABaseline — │  Ciclo 5/10 [RECOVERY]
+2026-05-25 00:17:22,793 [INFO] HPABaseline — │  Ciclo 6/10 [RECOVERY]
+2026-05-25 00:17:53,245 [INFO] HPABaseline — │  Ciclo 7/10 [RECOVERY]
+2026-05-25 00:18:23,617 [INFO] HPABaseline — │  Ciclo 8/10 [RECOVERY]
+2026-05-25 00:18:53,956 [INFO] HPABaseline — │  Ciclo 9/10 [RECOVERY]
+2026-05-25 00:19:24,297 [INFO] HPABaseline — │  Ciclo 10/10 [RECOVERY]
+2026-05-25 00:19:24,661 [INFO] HPABaseline — └─ FIM RECOVERY | Duração: 274s
+2026-05-25 00:19:24,661 [INFO] HPABaseline — Removendo HPAs...
+2026-05-25 00:19:24,744 [INFO] HPABaseline —   HPA removido: frontend
+2026-05-25 00:19:24,823 [INFO] HPABaseline —   HPA removido: productcatalogservice
+2026-05-25 00:19:24,919 [INFO] HPABaseline —   HPA removido: checkoutservice
+2026-05-25 00:19:24,995 [INFO] HPABaseline —   HPA removido: cartservice
+2026-05-25 00:19:24,999 [INFO] HPABaseline — 
+2026-05-25 00:19:24,999 [INFO] HPABaseline — =================================================================
+2026-05-25 00:19:24,999 [INFO] HPABaseline —   BASELINE HPA CONCLUÍDO
+2026-05-25 00:19:24,999 [INFO] HPABaseline —   Resultados em: results_hpa/
+2026-05-25 00:19:24,999 [INFO] HPABaseline — =================================================================

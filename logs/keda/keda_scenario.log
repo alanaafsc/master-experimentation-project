@@ -1,0 +1,123 @@
+2026-05-25 22:14:57,624 [INFO] KEDAScenario — =================================================================
+2026-05-25 22:14:57,627 [INFO] KEDAScenario —   XAI-FinOps — Cenário B: KEDA + Prometheus P95
+2026-05-25 22:14:57,633 [INFO] KEDAScenario —   Iniciado em: 2026-05-26T01:14:57.633041
+2026-05-25 22:14:57,635 [INFO] KEDAScenario — =================================================================
+2026-05-25 22:14:57,636 [INFO] KEDAScenario — Resetando réplicas para 1 em todos os serviços...
+2026-05-25 22:14:58,976 [INFO] KEDAScenario —   frontend → 1 réplica
+2026-05-25 22:15:00,117 [INFO] KEDAScenario —   productcatalogservice → 1 réplica
+2026-05-25 22:15:01,143 [INFO] KEDAScenario —   checkoutservice → 1 réplica
+2026-05-25 22:15:02,065 [INFO] KEDAScenario —   recommendationservice → 1 réplica
+2026-05-25 22:15:02,932 [INFO] KEDAScenario —   cartservice → 1 réplica
+2026-05-25 22:15:02,933 [INFO] KEDAScenario — Instalando KEDA ScaledObjects (P95 threshold=500ms)...
+2026-05-25 22:15:05,580 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-frontend
+2026-05-25 22:15:07,013 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-productcatalogservice
+2026-05-25 22:15:08,333 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-checkoutservice
+2026-05-25 22:15:09,889 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-recommendationservice
+2026-05-25 22:15:11,481 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-cartservice
+2026-05-25 22:15:11,482 [INFO] KEDAScenario — Aguardando KEDA estabilizar (60s)...
+2026-05-25 22:16:11,484 [INFO] MonitoringModule — MonitoringModule iniciado. Prometheus: http://localhost:9090
+2026-05-25 22:16:28,598 [INFO] KEDAScenario — KEDAMetricsCollector iniciado. Réplicas iniciais: {'frontend': 5, 'productcatalogservice': 1, 'checkoutservice': 4, 'recommendationservice': 1, 'cartservice': 1}
+2026-05-25 22:16:28,601 [INFO] KEDAScenario — ┌─ FASE KEDA: BASELINE (40 ciclos × 30s = ~20 min) ─────────────────
+2026-05-25 22:16:28,603 [INFO] KEDAScenario — │  Ciclo 1/40 [BASELINE]
+2026-05-25 22:17:38,249 [INFO] KEDAScenario — │  Ciclo 2/40 [BASELINE]
+2026-05-25 22:18:36,619 [INFO] KEDAScenario — │  Ciclo 3/40 [BASELINE]
+2026-05-25 22:19:33,657 [INFO] KEDAScenario — │  Ciclo 4/40 [BASELINE]
+2026-05-25 22:20:26,677 [INFO] KEDAScenario — │  Ciclo 5/40 [BASELINE]
+2026-05-25 22:21:19,776 [INFO] KEDAScenario — │  Ciclo 6/40 [BASELINE]
+2026-05-25 22:22:10,328 [INFO] KEDAScenario — │  Ciclo 7/40 [BASELINE]
+2026-05-25 22:23:15,685 [INFO] KEDAScenario — │  Ciclo 8/40 [BASELINE]
+2026-05-25 22:24:03,500 [INFO] KEDAScenario — │  Ciclo 9/40 [BASELINE]
+2026-05-25 22:24:58,184 [INFO] KEDAScenario — │  Ciclo 10/40 [BASELINE]
+2026-05-25 22:25:47,829 [INFO] KEDAScenario — │  Ciclo 11/40 [BASELINE]
+2026-05-25 22:26:36,705 [INFO] KEDAScenario — │  Ciclo 12/40 [BASELINE]
+2026-05-25 22:27:26,099 [INFO] KEDAScenario — │  Ciclo 13/40 [BASELINE]
+2026-05-25 22:28:14,095 [INFO] KEDAScenario — │  Ciclo 14/40 [BASELINE]
+2026-05-25 22:29:02,271 [INFO] KEDAScenario — │  Ciclo 15/40 [BASELINE]
+2026-05-25 22:29:52,571 [INFO] KEDAScenario — │  Ciclo 16/40 [BASELINE]
+2026-05-25 22:30:43,675 [INFO] KEDAScenario — │  Ciclo 17/40 [BASELINE]
+2026-05-25 22:31:29,377 [INFO] KEDAScenario — │  Ciclo 18/40 [BASELINE]
+2026-05-25 22:32:19,627 [INFO] KEDAScenario — │  Ciclo 19/40 [BASELINE]
+2026-05-25 22:33:11,829 [INFO] KEDAScenario — │  Ciclo 20/40 [BASELINE]
+2026-05-25 22:34:03,303 [INFO] KEDAScenario — │  Ciclo 21/40 [BASELINE]
+2026-05-25 22:34:51,664 [INFO] KEDAScenario — │  Ciclo 22/40 [BASELINE]
+2026-05-25 22:35:43,216 [INFO] KEDAScenario — │  Ciclo 23/40 [BASELINE]
+2026-05-25 22:36:26,396 [INFO] KEDAScenario — │  Ciclo 24/40 [BASELINE]
+2026-05-25 22:37:09,694 [INFO] KEDAScenario — │  Ciclo 25/40 [BASELINE]
+2026-05-25 22:37:19,828 [WARNING] KEDAScenario — [KEDA] checkoutservice escalado: 4 → 5 réplicas (SCALE_UP)
+2026-05-25 22:37:51,952 [INFO] KEDAScenario — │  Ciclo 26/40 [BASELINE]
+2026-05-25 22:38:38,275 [INFO] KEDAScenario — │  Ciclo 27/40 [BASELINE]
+2026-05-25 22:39:24,475 [INFO] KEDAScenario — │  Ciclo 28/40 [BASELINE]
+2026-05-25 22:40:11,635 [INFO] KEDAScenario — │  Ciclo 29/40 [BASELINE]
+2026-05-25 22:40:54,068 [INFO] KEDAScenario — │  Ciclo 30/40 [BASELINE]
+2026-05-25 22:41:39,805 [INFO] KEDAScenario — │  Ciclo 31/40 [BASELINE]
+2026-05-25 22:42:26,696 [INFO] KEDAScenario — │  Ciclo 32/40 [BASELINE]
+2026-05-25 22:43:14,928 [INFO] KEDAScenario — │  Ciclo 33/40 [BASELINE]
+2026-05-25 22:44:07,053 [INFO] KEDAScenario — │  Ciclo 34/40 [BASELINE]
+2026-05-25 22:45:05,978 [WARNING] KEDAScenario — [KEDA] checkoutservice escalado: 5 → 4 réplicas (SCALE_DOWN)
+2026-05-25 22:45:08,216 [WARNING] KEDAScenario — [KEDA] recommendationservice escalado: 1 → 2 réplicas (SCALE_UP)
+2026-05-25 22:45:39,919 [INFO] KEDAScenario — │  Ciclo 35/40 [BASELINE]
+2026-05-25 22:46:49,185 [INFO] KEDAScenario — │  Ciclo 36/40 [BASELINE]
+2026-05-25 22:47:42,018 [INFO] KEDAScenario — │  Ciclo 37/40 [BASELINE]
+2026-05-25 22:48:49,005 [INFO] KEDAScenario — │  Ciclo 38/40 [BASELINE]
+2026-05-25 22:49:37,774 [INFO] KEDAScenario — │  Ciclo 39/40 [BASELINE]
+2026-05-25 22:50:38,937 [INFO] KEDAScenario — │  Ciclo 40/40 [BASELINE]
+2026-05-25 22:51:21,497 [WARNING] KEDAScenario — [KEDA] checkoutservice escalado: 4 → 5 réplicas (SCALE_UP)
+2026-05-25 22:51:23,401 [WARNING] KEDAScenario — [KEDA] recommendationservice escalado: 2 → 4 réplicas (SCALE_UP)
+2026-05-25 22:51:31,108 [INFO] KEDAScenario — └─ FIM BASELINE | Duração: 2103s
+2026-05-25 22:51:31,112 [INFO] KEDAScenario — 
+2026-05-25 22:51:31,114 [INFO] KEDAScenario — Aplicando falha Istio → productcatalogservice (delay=2.5s, 100%%)...
+2026-05-25 22:51:42,323 [INFO] KEDAScenario — kubectl apply fault-injection.yaml — OK
+2026-05-25 22:51:42,326 [INFO] KEDAScenario — ┌─ FASE KEDA: FAULT_INJECTION (20 ciclos × 30s = ~10 min) ─────────────────
+2026-05-25 22:51:42,327 [INFO] KEDAScenario — │  Ciclo 1/20 [FAULT_INJECTION]
+2026-05-25 22:52:54,092 [INFO] KEDAScenario — │  Ciclo 2/20 [FAULT_INJECTION]
+2026-05-25 22:53:48,029 [INFO] KEDAScenario — │  Ciclo 3/20 [FAULT_INJECTION]
+2026-05-25 22:54:36,356 [INFO] KEDAScenario — │  Ciclo 4/20 [FAULT_INJECTION]
+2026-05-25 22:55:34,141 [INFO] KEDAScenario — │  Ciclo 5/20 [FAULT_INJECTION]
+2026-05-25 22:56:32,621 [INFO] KEDAScenario — │  Ciclo 6/20 [FAULT_INJECTION]
+2026-05-25 22:57:32,703 [INFO] KEDAScenario — │  Ciclo 7/20 [FAULT_INJECTION]
+2026-05-25 22:58:30,849 [INFO] KEDAScenario — │  Ciclo 8/20 [FAULT_INJECTION]
+2026-05-25 22:59:16,898 [INFO] KEDAScenario — │  Ciclo 9/20 [FAULT_INJECTION]
+2026-05-25 23:00:11,392 [INFO] KEDAScenario — │  Ciclo 10/20 [FAULT_INJECTION]
+2026-05-25 23:01:19,598 [INFO] KEDAScenario — │  Ciclo 11/20 [FAULT_INJECTION]
+2026-05-25 23:02:28,961 [INFO] KEDAScenario — │  Ciclo 12/20 [FAULT_INJECTION]
+2026-05-25 23:03:16,755 [INFO] KEDAScenario — │  Ciclo 13/20 [FAULT_INJECTION]
+2026-05-25 23:04:06,339 [INFO] KEDAScenario — │  Ciclo 14/20 [FAULT_INJECTION]
+2026-05-25 23:04:54,250 [INFO] KEDAScenario — │  Ciclo 15/20 [FAULT_INJECTION]
+2026-05-25 23:05:45,881 [INFO] KEDAScenario — │  Ciclo 16/20 [FAULT_INJECTION]
+2026-05-25 23:06:13,904 [WARNING] KEDAScenario — [KEDA] productcatalogservice escalado: 1 → 5 réplicas (SCALE_UP)
+2026-05-25 23:06:16,943 [WARNING] KEDAScenario — [KEDA] recommendationservice escalado: 4 → 5 réplicas (SCALE_UP)
+2026-05-25 23:06:49,082 [INFO] KEDAScenario — │  Ciclo 17/20 [FAULT_INJECTION]
+2026-05-25 23:07:37,297 [INFO] KEDAScenario — │  Ciclo 18/20 [FAULT_INJECTION]
+2026-05-25 23:08:33,675 [INFO] KEDAScenario — │  Ciclo 19/20 [FAULT_INJECTION]
+2026-05-25 23:09:15,615 [INFO] KEDAScenario — │  Ciclo 20/20 [FAULT_INJECTION]
+2026-05-25 23:09:30,223 [INFO] KEDAScenario — └─ FIM FAULT_INJECTION | Duração: 1068s
+2026-05-25 23:09:30,224 [INFO] KEDAScenario — 
+2026-05-25 23:09:30,225 [INFO] KEDAScenario — Removendo falha. Observando recuperação com KEDA...
+2026-05-25 23:09:31,583 [INFO] KEDAScenario — kubectl delete fault-injection.yaml — OK
+2026-05-25 23:09:31,584 [INFO] KEDAScenario — ┌─ FASE KEDA: RECOVERY (10 ciclos × 30s = ~5 min) ─────────────────
+2026-05-25 23:09:31,584 [INFO] KEDAScenario — │  Ciclo 1/10 [RECOVERY]
+2026-05-25 23:10:22,028 [INFO] KEDAScenario — │  Ciclo 2/10 [RECOVERY]
+2026-05-25 23:11:31,933 [INFO] KEDAScenario — │  Ciclo 3/10 [RECOVERY]
+2026-05-25 23:12:15,924 [INFO] KEDAScenario — │  Ciclo 4/10 [RECOVERY]
+2026-05-25 23:13:05,588 [INFO] KEDAScenario — │  Ciclo 5/10 [RECOVERY]
+2026-05-25 23:13:38,398 [INFO] KEDAScenario — │  Ciclo 6/10 [RECOVERY]
+2026-05-25 23:14:09,888 [INFO] KEDAScenario — │  Ciclo 7/10 [RECOVERY]
+2026-05-25 23:14:41,382 [INFO] KEDAScenario — │  Ciclo 8/10 [RECOVERY]
+2026-05-25 23:15:12,855 [INFO] KEDAScenario — │  Ciclo 9/10 [RECOVERY]
+2026-05-25 23:15:13,818 [WARNING] KEDAScenario — [KEDA] frontend escalado: 5 → 4 réplicas (SCALE_DOWN)
+2026-05-25 23:15:13,964 [WARNING] KEDAScenario — [KEDA] productcatalogservice escalado: 5 → 1 réplicas (SCALE_DOWN)
+2026-05-25 23:15:14,099 [WARNING] KEDAScenario — [KEDA] checkoutservice escalado: 5 → 1 réplicas (SCALE_DOWN)
+2026-05-25 23:15:14,231 [WARNING] KEDAScenario — [KEDA] recommendationservice escalado: 5 → 1 réplicas (SCALE_DOWN)
+2026-05-25 23:15:44,371 [INFO] KEDAScenario — │  Ciclo 10/10 [RECOVERY]
+2026-05-25 23:15:46,106 [INFO] KEDAScenario — └─ FIM RECOVERY | Duração: 375s
+2026-05-25 23:15:46,107 [INFO] KEDAScenario — Removendo KEDA ScaledObjects...
+2026-05-25 23:20:14,449 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-frontend
+2026-05-25 23:20:14,739 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-productcatalogservice
+2026-05-25 23:20:14,978 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-checkoutservice
+2026-05-25 23:20:15,229 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-recommendationservice
+2026-05-25 23:20:15,478 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-cartservice
+2026-05-25 23:20:15,487 [INFO] KEDAScenario — 
+2026-05-25 23:20:15,487 [INFO] KEDAScenario — =================================================================
+2026-05-25 23:20:15,487 [INFO] KEDAScenario —   CENÁRIO B (KEDA) CONCLUÍDO
+2026-05-25 23:20:15,487 [INFO] KEDAScenario —   Resultados em: results_keda/
+2026-05-25 23:20:15,487 [INFO] KEDAScenario — =================================================================
