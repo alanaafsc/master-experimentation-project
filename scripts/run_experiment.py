@@ -79,9 +79,13 @@ def _setup():
     )
     args = parser.parse_args()
     sc = _SCENARIOS[args.scenario]
-    # Propaga para config.py antes que seja importado
-    os.environ["XAI_RESULTS_DIR"] = sc["results_dir"]
-    os.environ["XAI_LOG_DIR"]     = sc["log_dir"]
+    # Propaga para config.py antes que seja importado.
+    # Respeita valores já definidos pelo processo pai (ex.: run_all_scenarios.py),
+    # usando os defaults do cenário apenas como fallback.
+    if not os.environ.get("XAI_RESULTS_DIR"):
+        os.environ["XAI_RESULTS_DIR"] = sc["results_dir"]
+    if not os.environ.get("XAI_LOG_DIR"):
+        os.environ["XAI_LOG_DIR"] = sc["log_dir"]
     fault_manifest = os.path.join(
         os.path.dirname(__file__), "..", "infrastructure", sc["manifest"]
     )
