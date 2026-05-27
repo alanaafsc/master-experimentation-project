@@ -60,5 +60,7 @@ BASELINE_PHASE_CYCLES: int = 40    # Ciclos da Fase 1 (~20 min a 30s/ciclo)
 FAULT_PHASE_CYCLES: int = 20       # Ciclos da Fase 2 (~10 min de observação pós-falha)
 
 # ── Diretórios de saída ─────────────────────────────────────────────────────────
-LOG_DIR: str = "logs"
-RESULTS_DIR: str = "results"
+# Lidos via env var para permitir cenários múltiplos sem alterar o código.
+# Ex.: XAI_RESULTS_DIR=results_cenarioB python run_experiment.py
+LOG_DIR: str = os.getenv("XAI_LOG_DIR", "logs")
+RESULTS_DIR: str = os.getenv("XAI_RESULTS_DIR", "results")

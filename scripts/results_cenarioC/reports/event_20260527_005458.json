@@ -1,0 +1,43 @@
+{
+  "cycle": 22,
+  "timestamp": "2026-05-27T00:54:58.817025",
+  "trigger_service": "frontend",
+  "root_cause_service": "checkoutservice",
+  "decision": "NO_ACTION",
+  "anomaly_evidence": {
+    "service": "frontend",
+    "timestamp": "2026-05-27T00:54:58.668814",
+    "observed_p95_ms": 2533.63,
+    "baseline_mean_ms": 254.35,
+    "baseline_std_ms": 746.15,
+    "k_factor": 3.0,
+    "threshold_3sigma_ms": 2492.82,
+    "lower_control_limit_ms": 0.0,
+    "anomaly_detected": true
+  },
+  "correlation_evidence": {
+    "trigger_service": "frontend",
+    "root_cause_identified": "checkoutservice",
+    "upstream_candidates_considered": [
+      "cartservice",
+      "checkoutservice",
+      "productcatalogservice",
+      "recommendationservice"
+    ],
+    "topology_constrained": true,
+    "pearson_scores": {
+      "productcatalogservice": 0.3532,
+      "checkoutservice": 0.9864,
+      "cartservice": -0.1576,
+      "recommendationservice": 0.3072
+    },
+    "best_score": 0.9864,
+    "threshold": 0.7,
+    "interpretation": "Causa raiz upstream: checkoutservice (S=0.9864 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+  },
+  "arima_evidence": {
+    "error": "LU decomposition error.",
+    "should_scale": false
+  },
+  "execute_result": {}
+}

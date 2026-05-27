@@ -32,9 +32,68 @@ Resultados salvos em results/:
   experiment_meta.json     — metadados e cronograma das fases
 """
 
+import argparse
+import os
+
+# ── Configurações por cenário ─────────────────────────────────────────────────
+_SCENARIOS = {
+    "A": {
+        "manifest":    "fault-injection.yaml",
+        "service":     "productcatalogservice",
+        "delay":       "2,5s",
+        "results_dir": "results",
+        "log_dir":     "logs",
+    },
+    "B": {
+        "manifest":    "fault-cartservice.yaml",
+        "service":     "cartservice",
+        "delay":       "2,5s",
+        "results_dir": "results_cenarioB",
+        "log_dir":     "logs_cenarioB",
+    },
+    "C": {
+        "manifest":    "fault-checkoutservice.yaml",
+        "service":     "checkoutservice",
+        "delay":       "1,5s",
+        "results_dir": "results_cenarioC",
+        "log_dir":     "logs_cenarioC",
+    },
+}
+
+
+def _setup():
+    """Parseia --scenario e configura env vars ANTES de importar config/XAIAnalyzer."""
+    parser = argparse.ArgumentParser(
+        description="XAI-FinOps Experiment Runner",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Cenários disponíveis:\n"
+            "  A — productcatalogservice, delay 2,5s (padrão)\n"
+            "  B — cartservice,           delay 2,5s\n"
+            "  C — checkoutservice,       delay 1,5s\n"
+        ),
+    )
+    parser.add_argument(
+        "--scenario", choices=["A", "B", "C"], default="A",
+        help="Cenário de injeção de falha (default: A)",
+    )
+    args = parser.parse_args()
+    sc = _SCENARIOS[args.scenario]
+    # Propaga para config.py antes que seja importado
+    os.environ["XAI_RESULTS_DIR"] = sc["results_dir"]
+    os.environ["XAI_LOG_DIR"]     = sc["log_dir"]
+    fault_manifest = os.path.join(
+        os.path.dirname(__file__), "..", "infrastructure", sc["manifest"]
+    )
+    return args.scenario, fault_manifest, sc["service"], sc["delay"]
+
+
+# Executa setup ANTES de qualquer import que leia config.py
+SCENARIO_LABEL, FAULT_MANIFEST, FAULT_SERVICE, FAULT_DELAY = _setup()
+
+# ── Agora importa o resto (config já lê as env vars corretas) ─────────────────
 import json
 import logging
-import os
 import subprocess
 import time
 from datetime import datetime
@@ -62,10 +121,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ExperimentRunner")
 
-# ── Manifestos Istio ──────────────────────────────────────────────────────────
-FAULT_MANIFEST = os.path.join(
-    os.path.dirname(__file__), "..", "infrastructure", "fault-injection.yaml"
-)
 RECOVERY_CYCLES = 10   # ciclos para medir MTTR após remoção da falha
 
 
@@ -135,6 +190,7 @@ def run_experiment():
     """
     logger.info("=" * 65)
     logger.info("  XAI-FinOps — Experimento Empírico (Design Science Research)")
+    logger.info("  Cenário %s: %s (delay=%s)", SCENARIO_LABEL, FAULT_SERVICE, FAULT_DELAY)
     logger.info("  Iniciado em: %s", datetime.utcnow().isoformat())
     logger.info("=" * 65)
 
@@ -165,7 +221,7 @@ def run_experiment():
 
     # ── FASE 2: INJEÇÃO DE FALHAS ─────────────────────────────────────────────
     logger.info("")
-    logger.info("Aplicando injeção de falha Istio → productcatalogservice (delay=2,5s, 100%%)...")
+    logger.info("Aplicando injeção de falha Istio → %s (delay=%s, 100%%)...", FAULT_SERVICE, FAULT_DELAY)
     fault_applied = kubectl("apply", FAULT_MANIFEST)
 
     if fault_applied:
