@@ -1,0 +1,486 @@
+2026-05-27 23:46:20,143 [INFO] ExperimentRunner Ч =================================================================
+2026-05-27 23:46:20,143 [INFO] ExperimentRunner Ч   XAI-FinOps Ч Experimento Empнrico (Design Science Research)
+2026-05-27 23:46:20,143 [INFO] ExperimentRunner Ч   Cenбrio C: checkoutservice (delay=1,5s)
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:198: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  logger.info("  Iniciado em: %s", datetime.utcnow().isoformat())
+2026-05-27 23:46:20,145 [INFO] ExperimentRunner Ч   Iniciado em: 2026-05-28T02:46:20.145467
+2026-05-27 23:46:20,146 [INFO] ExperimentRunner Ч =================================================================
+2026-05-27 23:46:20,146 [INFO] MonitoringModule Ч MonitoringModule iniciado. Prometheus: http://localhost:9090
+2026-05-27 23:46:20,168 [INFO] ExecutorModule Ч Kubernetes: configuraзгo local (kubeconfig) carregada.
+2026-05-27 23:46:20,170 [INFO] XAIAnalyzer Ч XAIAnalyzer iniciado. Serviзos monitorados: ['frontend', 'productcatalogservice', 'checkoutservice', 'cartservice', 'recommendationservice']
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "experiment_id": datetime.utcnow().strftime("%Y%m%d_%H%M%S"),
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:204: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "start_time": datetime.utcnow().isoformat(),
+2026-05-27 23:46:20,171 [INFO] ExperimentRunner Ч \u250c\u2500 FASE: BASELINE (40 ciclos „ 30s = ~20 min) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:157: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start = datetime.utcnow()
+2026-05-27 23:46:20,171 [INFO] ExperimentRunner Ч \u2502  Ciclo 1/40 [BASELINE]
+2026-05-27 23:46:20,220 [INFO] XAIAnalyzer Ч [frontend] Baseline: 0/20 pontos.
+2026-05-27 23:46:20,230 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 0/20 pontos.
+2026-05-27 23:46:20,243 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 0/20 pontos.
+2026-05-27 23:46:20,252 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 0/20 pontos.
+2026-05-27 23:46:20,263 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 0/20 pontos.
+2026-05-27 23:46:50,265 [INFO] ExperimentRunner Ч \u2502  Ciclo 2/40 [BASELINE]
+2026-05-27 23:46:50,288 [INFO] XAIAnalyzer Ч [frontend] Baseline: 1/20 pontos.
+2026-05-27 23:46:50,299 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 1/20 pontos.
+2026-05-27 23:46:50,308 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 1/20 pontos.
+2026-05-27 23:46:50,321 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 1/20 pontos.
+2026-05-27 23:46:50,331 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 1/20 pontos.
+2026-05-27 23:47:20,333 [INFO] ExperimentRunner Ч \u2502  Ciclo 3/40 [BASELINE]
+2026-05-27 23:47:20,352 [INFO] XAIAnalyzer Ч [frontend] Baseline: 2/20 pontos.
+2026-05-27 23:47:20,368 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 2/20 pontos.
+2026-05-27 23:47:20,384 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 2/20 pontos.
+2026-05-27 23:47:20,399 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 2/20 pontos.
+2026-05-27 23:47:20,416 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 2/20 pontos.
+2026-05-27 23:47:50,416 [INFO] ExperimentRunner Ч \u2502  Ciclo 4/40 [BASELINE]
+2026-05-27 23:47:50,443 [INFO] XAIAnalyzer Ч [frontend] Baseline: 3/20 pontos.
+2026-05-27 23:47:50,462 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 3/20 pontos.
+2026-05-27 23:47:50,476 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 3/20 pontos.
+2026-05-27 23:47:50,497 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 3/20 pontos.
+2026-05-27 23:47:50,515 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 3/20 pontos.
+2026-05-27 23:48:20,517 [INFO] ExperimentRunner Ч \u2502  Ciclo 5/40 [BASELINE]
+2026-05-27 23:48:20,541 [INFO] XAIAnalyzer Ч [frontend] Baseline: 4/20 pontos.
+2026-05-27 23:48:20,555 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 4/20 pontos.
+2026-05-27 23:48:20,566 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 4/20 pontos.
+2026-05-27 23:48:20,579 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 4/20 pontos.
+2026-05-27 23:48:20,635 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 4/20 pontos.
+2026-05-27 23:48:50,636 [INFO] ExperimentRunner Ч \u2502  Ciclo 6/40 [BASELINE]
+2026-05-27 23:48:50,658 [INFO] XAIAnalyzer Ч [frontend] Baseline: 5/20 pontos.
+2026-05-27 23:48:50,687 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 5/20 pontos.
+2026-05-27 23:48:50,704 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 5/20 pontos.
+2026-05-27 23:48:50,713 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 5/20 pontos.
+2026-05-27 23:48:50,726 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 5/20 pontos.
+2026-05-27 23:49:20,727 [INFO] ExperimentRunner Ч \u2502  Ciclo 7/40 [BASELINE]
+2026-05-27 23:49:20,749 [INFO] XAIAnalyzer Ч [frontend] Baseline: 6/20 pontos.
+2026-05-27 23:49:20,766 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 6/20 pontos.
+2026-05-27 23:49:20,780 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 6/20 pontos.
+2026-05-27 23:49:20,803 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 6/20 pontos.
+2026-05-27 23:49:20,820 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 6/20 pontos.
+2026-05-27 23:49:50,822 [INFO] ExperimentRunner Ч \u2502  Ciclo 8/40 [BASELINE]
+2026-05-27 23:49:50,840 [INFO] XAIAnalyzer Ч [frontend] Baseline: 7/20 pontos.
+2026-05-27 23:49:50,857 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 7/20 pontos.
+2026-05-27 23:49:50,871 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 7/20 pontos.
+2026-05-27 23:49:50,883 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 7/20 pontos.
+2026-05-27 23:49:50,891 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 7/20 pontos.
+2026-05-27 23:50:20,893 [INFO] ExperimentRunner Ч \u2502  Ciclo 9/40 [BASELINE]
+2026-05-27 23:50:20,911 [INFO] XAIAnalyzer Ч [frontend] Baseline: 8/20 pontos.
+2026-05-27 23:50:20,920 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 8/20 pontos.
+2026-05-27 23:50:20,941 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 8/20 pontos.
+2026-05-27 23:50:20,954 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 8/20 pontos.
+2026-05-27 23:50:20,971 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 8/20 pontos.
+2026-05-27 23:50:50,973 [INFO] ExperimentRunner Ч \u2502  Ciclo 10/40 [BASELINE]
+2026-05-27 23:50:50,996 [INFO] XAIAnalyzer Ч [frontend] Baseline: 9/20 pontos.
+2026-05-27 23:50:51,007 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 9/20 pontos.
+2026-05-27 23:50:51,024 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 9/20 pontos.
+2026-05-27 23:50:51,044 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 9/20 pontos.
+2026-05-27 23:50:51,059 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 9/20 pontos.
+2026-05-27 23:51:21,060 [INFO] ExperimentRunner Ч \u2502  Ciclo 11/40 [BASELINE]
+2026-05-27 23:51:21,077 [INFO] XAIAnalyzer Ч [frontend] Baseline: 10/20 pontos.
+2026-05-27 23:51:21,090 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 10/20 pontos.
+2026-05-27 23:51:21,103 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 10/20 pontos.
+2026-05-27 23:51:21,116 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 10/20 pontos.
+2026-05-27 23:51:21,130 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 10/20 pontos.
+2026-05-27 23:51:51,132 [INFO] ExperimentRunner Ч \u2502  Ciclo 12/40 [BASELINE]
+2026-05-27 23:51:51,144 [INFO] XAIAnalyzer Ч [frontend] Baseline: 11/20 pontos.
+2026-05-27 23:51:51,157 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 11/20 pontos.
+2026-05-27 23:51:51,166 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 11/20 pontos.
+2026-05-27 23:51:51,174 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 11/20 pontos.
+2026-05-27 23:51:51,182 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 11/20 pontos.
+2026-05-27 23:52:21,183 [INFO] ExperimentRunner Ч \u2502  Ciclo 13/40 [BASELINE]
+2026-05-27 23:52:21,199 [INFO] XAIAnalyzer Ч [frontend] Baseline: 12/20 pontos.
+2026-05-27 23:52:21,215 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 12/20 pontos.
+2026-05-27 23:52:21,230 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 12/20 pontos.
+2026-05-27 23:52:21,246 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 12/20 pontos.
+2026-05-27 23:52:21,258 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 12/20 pontos.
+2026-05-27 23:52:51,260 [INFO] ExperimentRunner Ч \u2502  Ciclo 14/40 [BASELINE]
+2026-05-27 23:52:51,282 [INFO] XAIAnalyzer Ч [frontend] Baseline: 13/20 pontos.
+2026-05-27 23:52:51,299 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 13/20 pontos.
+2026-05-27 23:52:51,311 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 13/20 pontos.
+2026-05-27 23:52:51,324 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 13/20 pontos.
+2026-05-27 23:52:51,339 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 13/20 pontos.
+2026-05-27 23:53:21,341 [INFO] ExperimentRunner Ч \u2502  Ciclo 15/40 [BASELINE]
+2026-05-27 23:53:21,355 [INFO] XAIAnalyzer Ч [frontend] Baseline: 14/20 pontos.
+2026-05-27 23:53:21,369 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 14/20 pontos.
+2026-05-27 23:53:21,384 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 14/20 pontos.
+2026-05-27 23:53:21,396 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 14/20 pontos.
+2026-05-27 23:53:21,405 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 14/20 pontos.
+2026-05-27 23:53:51,406 [INFO] ExperimentRunner Ч \u2502  Ciclo 16/40 [BASELINE]
+2026-05-27 23:53:51,426 [INFO] XAIAnalyzer Ч [frontend] Baseline: 15/20 pontos.
+2026-05-27 23:53:51,443 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 15/20 pontos.
+2026-05-27 23:53:51,458 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 15/20 pontos.
+2026-05-27 23:53:51,470 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 15/20 pontos.
+2026-05-27 23:53:51,477 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 15/20 pontos.
+2026-05-27 23:54:21,478 [INFO] ExperimentRunner Ч \u2502  Ciclo 17/40 [BASELINE]
+2026-05-27 23:54:21,492 [INFO] XAIAnalyzer Ч [frontend] Baseline: 16/20 pontos.
+2026-05-27 23:54:21,509 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 16/20 pontos.
+2026-05-27 23:54:21,521 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 16/20 pontos.
+2026-05-27 23:54:21,539 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 16/20 pontos.
+2026-05-27 23:54:21,551 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 16/20 pontos.
+2026-05-27 23:54:51,552 [INFO] ExperimentRunner Ч \u2502  Ciclo 18/40 [BASELINE]
+2026-05-27 23:54:51,564 [INFO] XAIAnalyzer Ч [frontend] Baseline: 17/20 pontos.
+2026-05-27 23:54:51,571 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 17/20 pontos.
+2026-05-27 23:54:51,578 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 17/20 pontos.
+2026-05-27 23:54:51,585 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 17/20 pontos.
+2026-05-27 23:54:51,591 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 17/20 pontos.
+2026-05-27 23:55:21,592 [INFO] ExperimentRunner Ч \u2502  Ciclo 19/40 [BASELINE]
+2026-05-27 23:55:21,607 [INFO] XAIAnalyzer Ч [frontend] Baseline: 18/20 pontos.
+2026-05-27 23:55:21,615 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 18/20 pontos.
+2026-05-27 23:55:21,624 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 18/20 pontos.
+2026-05-27 23:55:21,631 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 18/20 pontos.
+2026-05-27 23:55:21,637 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 18/20 pontos.
+2026-05-27 23:55:51,638 [INFO] ExperimentRunner Ч \u2502  Ciclo 20/40 [BASELINE]
+2026-05-27 23:55:51,673 [INFO] XAIAnalyzer Ч [frontend] Baseline: 19/20 pontos.
+2026-05-27 23:55:51,692 [INFO] XAIAnalyzer Ч [productcatalogservice] Baseline: 19/20 pontos.
+2026-05-27 23:55:51,706 [INFO] XAIAnalyzer Ч [checkoutservice] Baseline: 19/20 pontos.
+2026-05-27 23:55:51,718 [INFO] XAIAnalyzer Ч [cartservice] Baseline: 19/20 pontos.
+2026-05-27 23:55:51,725 [INFO] XAIAnalyzer Ч [recommendationservice] Baseline: 19/20 pontos.
+2026-05-27 23:56:21,726 [INFO] ExperimentRunner Ч \u2502  Ciclo 21/40 [BASELINE]
+2026-05-27 23:56:21,760 [INFO] XAIAnalyzer Ч [OK][frontend] P95=39.38ms \u2264 UCL=76.36ms
+2026-05-27 23:56:21,780 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.19ms \u2264 UCL=4.28ms
+2026-05-27 23:56:21,797 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=67.33ms
+2026-05-27 23:56:21,815 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.78ms \u2264 UCL=4.95ms
+2026-05-27 23:56:21,829 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.87ms \u2264 UCL=11.01ms
+2026-05-27 23:56:51,830 [INFO] ExperimentRunner Ч \u2502  Ciclo 22/40 [BASELINE]
+2026-05-27 23:56:51,851 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.63ms \u2264 UCL=76.56ms
+2026-05-27 23:56:51,861 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.10ms \u2264 UCL=4.55ms
+2026-05-27 23:56:51,870 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=45.00ms \u2264 UCL=66.73ms
+2026-05-27 23:56:51,879 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.94ms
+2026-05-27 23:56:51,888 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.69ms \u2264 UCL=10.95ms
+2026-05-27 23:57:21,889 [INFO] ExperimentRunner Ч \u2502  Ciclo 23/40 [BASELINE]
+2026-05-27 23:57:21,900 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.67ms \u2264 UCL=75.89ms
+2026-05-27 23:57:21,909 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.80ms \u2264 UCL=4.52ms
+2026-05-27 23:57:21,917 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=67.18ms
+2026-05-27 23:57:21,924 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.94ms
+2026-05-27 23:57:21,930 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.00ms \u2264 UCL=10.83ms
+2026-05-27 23:57:51,931 [INFO] ExperimentRunner Ч \u2502  Ciclo 24/40 [BASELINE]
+2026-05-27 23:57:51,941 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.19ms \u2264 UCL=75.27ms
+2026-05-27 23:57:51,952 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.12ms \u2264 UCL=4.53ms
+2026-05-27 23:57:51,965 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=66.65ms
+2026-05-27 23:57:51,976 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.86ms \u2264 UCL=4.94ms
+2026-05-27 23:57:51,994 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.23ms \u2264 UCL=10.75ms
+2026-05-27 23:58:21,995 [INFO] ExperimentRunner Ч \u2502  Ciclo 25/40 [BASELINE]
+2026-05-27 23:58:22,005 [INFO] XAIAnalyzer Ч [OK][frontend] P95=44.89ms \u2264 UCL=74.69ms
+2026-05-27 23:58:22,013 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.86ms \u2264 UCL=4.50ms
+2026-05-27 23:58:22,022 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=66.10ms
+2026-05-27 23:58:22,035 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.83ms \u2264 UCL=4.94ms
+2026-05-27 23:58:22,044 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.36ms \u2264 UCL=10.65ms
+2026-05-27 23:58:52,046 [INFO] ExperimentRunner Ч \u2502  Ciclo 26/40 [BASELINE]
+2026-05-27 23:58:52,060 [INFO] XAIAnalyzer Ч [OK][frontend] P95=45.43ms \u2264 UCL=74.24ms
+2026-05-27 23:58:52,077 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.62ms \u2264 UCL=4.49ms
+2026-05-27 23:58:52,086 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=65.56ms
+2026-05-27 23:58:52,105 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.82ms \u2264 UCL=4.94ms
+2026-05-27 23:58:52,118 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.94ms \u2264 UCL=10.56ms
+2026-05-27 23:59:22,120 [INFO] ExperimentRunner Ч \u2502  Ciclo 27/40 [BASELINE]
+2026-05-27 23:59:22,136 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.67ms \u2264 UCL=73.77ms
+2026-05-27 23:59:22,149 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.55ms \u2264 UCL=4.52ms
+2026-05-27 23:59:22,166 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=65.02ms
+2026-05-27 23:59:22,181 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.83ms \u2264 UCL=4.94ms
+2026-05-27 23:59:22,199 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=8.03ms \u2264 UCL=10.50ms
+2026-05-27 23:59:52,201 [INFO] ExperimentRunner Ч \u2502  Ciclo 28/40 [BASELINE]
+2026-05-27 23:59:52,218 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.24ms \u2264 UCL=73.28ms
+2026-05-27 23:59:52,229 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.47ms \u2264 UCL=4.51ms
+2026-05-27 23:59:52,238 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=64.49ms
+2026-05-27 23:59:52,250 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.85ms \u2264 UCL=4.94ms
+2026-05-27 23:59:52,259 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.87ms \u2264 UCL=10.61ms
+2026-05-28 00:00:22,261 [INFO] ExperimentRunner Ч \u2502  Ciclo 29/40 [BASELINE]
+2026-05-28 00:00:22,270 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.34ms \u2264 UCL=72.81ms
+2026-05-28 00:00:22,281 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.41ms \u2264 UCL=4.50ms
+2026-05-28 00:00:22,290 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=63.96ms
+2026-05-28 00:00:22,299 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.83ms \u2264 UCL=4.93ms
+2026-05-28 00:00:22,307 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.97ms \u2264 UCL=10.56ms
+2026-05-28 00:00:52,308 [INFO] ExperimentRunner Ч \u2502  Ciclo 30/40 [BASELINE]
+2026-05-28 00:00:52,319 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.18ms \u2264 UCL=72.37ms
+2026-05-28 00:00:52,329 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.37ms \u2264 UCL=4.48ms
+2026-05-28 00:00:52,339 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=43.75ms \u2264 UCL=63.45ms
+2026-05-28 00:00:52,347 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.80ms \u2264 UCL=4.93ms
+2026-05-28 00:00:52,356 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.65ms \u2264 UCL=10.50ms
+2026-05-28 00:01:22,357 [INFO] ExperimentRunner Ч \u2502  Ciclo 31/40 [BASELINE]
+2026-05-28 00:01:22,376 [INFO] XAIAnalyzer Ч [OK][frontend] P95=70.75ms \u2264 UCL=71.94ms
+2026-05-28 00:01:22,390 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.61ms \u2264 UCL=4.46ms
+2026-05-28 00:01:22,415 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=45.00ms \u2264 UCL=63.94ms
+2026-05-28 00:01:22,429 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.93ms
+2026-05-28 00:01:22,438 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=8.34ms \u2264 UCL=10.45ms
+2026-05-28 00:01:52,440 [INFO] ExperimentRunner Ч \u2502  Ciclo 32/40 [BASELINE]
+2026-05-28 00:01:52,453 [INFO] XAIAnalyzer Ч [OK][frontend] P95=70.00ms \u2264 UCL=74.93ms
+2026-05-28 00:01:52,468 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.94ms \u2264 UCL=4.46ms
+2026-05-28 00:01:52,482 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=42.50ms \u2264 UCL=64.53ms
+2026-05-28 00:01:52,496 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.83ms \u2264 UCL=4.93ms
+2026-05-28 00:01:52,522 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=7.52ms \u2264 UCL=10.59ms
+2026-05-28 00:02:22,524 [INFO] ExperimentRunner Ч \u2502  Ciclo 33/40 [BASELINE]
+2026-05-28 00:02:22,548 [INFO] XAIAnalyzer Ч [OK][frontend] P95=77.08ms \u2264 UCL=77.22ms
+2026-05-28 00:02:22,564 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.84ms \u2264 UCL=4.51ms
+2026-05-28 00:02:22,579 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=42.50ms \u2264 UCL=64.72ms
+2026-05-28 00:02:22,591 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.84ms \u2264 UCL=4.93ms
+2026-05-28 00:02:22,603 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.83ms \u2264 UCL=10.60ms
+2026-05-28 00:02:52,606 [INFO] ExperimentRunner Ч \u2502  Ciclo 34/40 [BASELINE]
+2026-05-28 00:02:52,620 [INFO] XAIAnalyzer Ч [OK][frontend] P95=64.32ms \u2264 UCL=80.90ms
+2026-05-28 00:02:52,637 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=4.06ms \u2264 UCL=4.54ms
+2026-05-28 00:02:52,650 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=64.88ms
+2026-05-28 00:02:52,664 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.88ms \u2264 UCL=4.93ms
+2026-05-28 00:02:52,680 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=8.71ms \u2264 UCL=10.53ms
+2026-05-28 00:03:22,682 [INFO] ExperimentRunner Ч \u2502  Ciclo 35/40 [BASELINE]
+2026-05-28 00:03:22,714 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.00ms \u2264 UCL=81.49ms
+2026-05-28 00:03:22,726 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.24ms \u2264 UCL=4.59ms
+2026-05-28 00:03:22,739 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=nanms \u2264 UCL=64.50ms
+2026-05-28 00:03:22,751 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.93ms
+2026-05-28 00:03:22,761 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=7.70ms \u2264 UCL=10.71ms
+2026-05-28 00:03:52,762 [INFO] ExperimentRunner Ч \u2502  Ciclo 36/40 [BASELINE]
+2026-05-28 00:03:52,779 [INFO] XAIAnalyzer Ч [OK][frontend] P95=52.19ms \u2264 UCL=81.03ms
+2026-05-28 00:03:52,794 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.97ms \u2264 UCL=4.57ms
+2026-05-28 00:03:52,808 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:03:52,822 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.82ms \u2264 UCL=4.93ms
+2026-05-28 00:03:52,836 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.28ms \u2264 UCL=10.73ms
+2026-05-28 00:04:22,838 [INFO] ExperimentRunner Ч \u2502  Ciclo 37/40 [BASELINE]
+2026-05-28 00:04:22,855 [INFO] XAIAnalyzer Ч [OK][frontend] P95=55.83ms \u2264 UCL=80.61ms
+2026-05-28 00:04:22,870 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.80ms \u2264 UCL=4.56ms
+2026-05-28 00:04:22,885 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:04:22,901 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.93ms
+2026-05-28 00:04:22,916 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.91ms \u2264 UCL=10.66ms
+2026-05-28 00:04:52,919 [INFO] ExperimentRunner Ч \u2502  Ciclo 38/40 [BASELINE]
+2026-05-28 00:04:52,941 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.73ms \u2264 UCL=80.36ms
+2026-05-28 00:04:52,956 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.22ms \u2264 UCL=4.56ms
+2026-05-28 00:04:52,970 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=43.33ms \u2264 UCL=nanms
+2026-05-28 00:04:52,985 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.82ms \u2264 UCL=4.93ms
+2026-05-28 00:04:53,001 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.45ms \u2264 UCL=10.63ms
+2026-05-28 00:05:23,003 [INFO] ExperimentRunner Ч \u2502  Ciclo 39/40 [BASELINE]
+2026-05-28 00:05:23,022 [INFO] XAIAnalyzer Ч [OK][frontend] P95=46.68ms \u2264 UCL=79.95ms
+2026-05-28 00:05:23,044 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.12ms \u2264 UCL=4.54ms
+2026-05-28 00:05:23,061 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=27.50ms \u2264 UCL=nanms
+2026-05-28 00:05:23,079 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.80ms \u2264 UCL=4.92ms
+2026-05-28 00:05:23,097 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.95ms \u2264 UCL=10.58ms
+2026-05-28 00:05:53,099 [INFO] ExperimentRunner Ч \u2502  Ciclo 40/40 [BASELINE]
+2026-05-28 00:05:53,109 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.81ms \u2264 UCL=79.58ms
+2026-05-28 00:05:53,120 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.82ms \u2264 UCL=4.53ms
+2026-05-28 00:05:53,128 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:05:53,136 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.92ms
+2026-05-28 00:05:53,145 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.90ms \u2264 UCL=10.55ms
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:164: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end = datetime.utcnow()
+2026-05-28 00:05:53,150 [INFO] ExperimentRunner Ч \u2514\u2500 FIM BASELINE | Duraзгo: 1173s | Anomalias: 0 | Escalonamentos: 0
+2026-05-28 00:05:53,150 [INFO] ExperimentRunner Ч 
+2026-05-28 00:05:53,151 [INFO] ExperimentRunner Ч Aplicando injeзгo de falha Istio \u2192 checkoutservice (delay=1,5s, 100%)...
+2026-05-28 00:05:53,407 [INFO] ExperimentRunner Ч kubectl apply fault-checkoutservice.yaml Ч OK
+2026-05-28 00:05:53,407 [INFO] ExperimentRunner Ч \u250c\u2500 FASE: FAULT_INJECTION (20 ciclos „ 30s = ~10 min) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-28 00:05:53,408 [INFO] ExperimentRunner Ч \u2502  Ciclo 1/20 [FAULT_INJECTION]
+2026-05-28 00:05:53,419 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.81ms \u2264 UCL=79.20ms
+2026-05-28 00:05:53,428 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.82ms \u2264 UCL=4.52ms
+2026-05-28 00:05:53,436 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:05:53,449 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.92ms
+2026-05-28 00:05:53,457 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.90ms \u2264 UCL=10.52ms
+2026-05-28 00:06:23,458 [INFO] ExperimentRunner Ч \u2502  Ciclo 2/20 [FAULT_INJECTION]
+2026-05-28 00:06:23,469 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.95ms \u2264 UCL=79.21ms
+2026-05-28 00:06:23,479 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.29ms \u2264 UCL=4.52ms
+2026-05-28 00:06:23,491 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:06:23,503 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.92ms
+2026-05-28 00:06:23,513 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.22ms \u2264 UCL=10.43ms
+2026-05-28 00:06:53,514 [INFO] ExperimentRunner Ч \u2502  Ciclo 3/20 [FAULT_INJECTION]
+2026-05-28 00:06:53,557 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.59ms \u2264 UCL=79.20ms
+2026-05-28 00:06:53,569 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.45ms \u2264 UCL=4.52ms
+2026-05-28 00:06:53,578 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:06:53,587 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.92ms
+2026-05-28 00:06:53,596 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=7.05ms \u2264 UCL=10.37ms
+2026-05-28 00:07:23,597 [INFO] ExperimentRunner Ч \u2502  Ciclo 4/20 [FAULT_INJECTION]
+2026-05-28 00:07:23,615 [WARNING] XAIAnalyzer Ч [ANOMALY][frontend] P95=83.75ms > UCL=78.57ms (\u03bc=51.86, \u03c3=8.90, k=3)
+2026-05-28 00:07:23,646 [INFO] XAIAnalyzer Ч [XAI] Causa raiz: frontend | Melhor score Pearson upstream: 0.6134 (threshold: 0.70) | Upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice']
+2026-05-28 00:07:24,017 [INFO] ScalerModule Ч [PLAN] ARIMA(2, 1, 0) | AIC=290.11 | Previsгo=[48.54, 48.62, 48.6] ms | Escalonar=False
+2026-05-28 00:07:24,018 [INFO] XAIAnalyzer Ч [EXECUTE] Escalonamento suprimido Ч Pearson=0.6134 < 0.7
+2026-05-28 00:07:24,598 [INFO] XAIReporter Ч [XAIReporter] Heatmap salvo: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\plots\heatmap_20260528_030724.png
+2026-05-28 00:07:24,910 [INFO] XAIReporter Ч [XAIReporter] Sйrie temporal salva: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\plots\timeseries_frontend_20260528_030724.png
+2026-05-28 00:07:24,912 [INFO] XAIReporter Ч [XAIReporter] Relatуrio salvo: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\reports\event_20260528_030724.json
+2026-05-28 00:07:24,929 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.88ms \u2264 UCL=4.51ms
+2026-05-28 00:07:24,941 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2332.74ms \u2264 UCL=nanms
+2026-05-28 00:07:24,953 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.91ms
+2026-05-28 00:07:24,964 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=7.79ms \u2264 UCL=10.34ms
+2026-05-28 00:07:54,965 [INFO] ExperimentRunner Ч \u2502  Ciclo 5/20 [FAULT_INJECTION]
+2026-05-28 00:07:54,986 [WARNING] XAIAnalyzer Ч [ANOMALY][frontend] P95=90.25ms > UCL=83.37ms (\u03bc=52.75, \u03c3=10.21, k=3)
+2026-05-28 00:07:54,987 [INFO] XAIAnalyzer Ч [XAI] Causa raiz: frontend | Melhor score Pearson upstream: 0.6564 (threshold: 0.70) | Upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice']
+2026-05-28 00:07:55,044 [INFO] ScalerModule Ч [PLAN] ARIMA(2, 1, 0) | AIC=302.11 | Previsгo=[68.92, 70.83, 71.86] ms | Escalonar=False
+2026-05-28 00:07:55,044 [INFO] XAIAnalyzer Ч [EXECUTE] Escalonamento suprimido Ч Pearson=0.6564 < 0.7
+2026-05-28 00:07:56,117 [INFO] XAIReporter Ч [XAIReporter] Heatmap salvo: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\plots\heatmap_20260528_030755.png
+2026-05-28 00:07:56,380 [INFO] XAIReporter Ч [XAIReporter] Sйrie temporal salva: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\plots\timeseries_frontend_20260528_030755.png
+2026-05-28 00:07:56,382 [INFO] XAIReporter Ч [XAIReporter] Relatуrio salvo: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\reports\event_20260528_030755.json
+2026-05-28 00:07:56,395 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.55ms \u2264 UCL=4.52ms
+2026-05-28 00:07:56,405 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:07:56,415 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.90ms
+2026-05-28 00:07:56,424 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.67ms \u2264 UCL=10.27ms
+2026-05-28 00:08:26,427 [INFO] ExperimentRunner Ч \u2502  Ciclo 6/20 [FAULT_INJECTION]
+2026-05-28 00:08:26,447 [WARNING] XAIAnalyzer Ч [ANOMALY][frontend] P95=1043.75ms > UCL=89.12ms (\u03bc=53.72, \u03c3=11.80, k=3)
+2026-05-28 00:08:26,448 [INFO] XAIAnalyzer Ч [XAI] Causa raiz: frontend | Melhor score Pearson upstream: 0.6181 (threshold: 0.70) | Upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice']
+2026-05-28 00:08:26,492 [INFO] ScalerModule Ч [PLAN] ARIMA(2, 1, 0) | AIC=303.71 | Previsгo=[86.17, 86.53, 86.77] ms | Escalonar=False
+2026-05-28 00:08:26,493 [INFO] XAIAnalyzer Ч [EXECUTE] Escalonamento suprimido Ч Pearson=0.6181 < 0.7
+2026-05-28 00:08:26,776 [INFO] XAIReporter Ч [XAIReporter] Heatmap salvo: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\plots\heatmap_20260528_030826.png
+2026-05-28 00:08:27,040 [INFO] XAIReporter Ч [XAIReporter] Sйrie temporal salva: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\plots\timeseries_frontend_20260528_030826.png
+2026-05-28 00:08:27,043 [INFO] XAIReporter Ч [XAIReporter] Relatуrio salvo: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\reports\event_20260528_030826.json
+2026-05-28 00:08:27,060 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.24ms \u2264 UCL=4.52ms
+2026-05-28 00:08:27,074 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:08:27,087 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.90ms
+2026-05-28 00:08:27,105 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.90ms \u2264 UCL=10.16ms
+2026-05-28 00:08:57,106 [INFO] ExperimentRunner Ч \u2502  Ciclo 7/20 [FAULT_INJECTION]
+2026-05-28 00:08:57,133 [INFO] XAIAnalyzer Ч [OK][frontend] P95=97.50ms \u2264 UCL=549.19ms
+2026-05-28 00:08:57,159 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.24ms \u2264 UCL=4.51ms
+2026-05-28 00:08:57,186 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:08:57,202 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.84ms \u2264 UCL=4.89ms
+2026-05-28 00:08:57,213 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.58ms \u2264 UCL=10.10ms
+2026-05-28 00:09:27,214 [INFO] ExperimentRunner Ч \u2502  Ciclo 8/20 [FAULT_INJECTION]
+2026-05-28 00:09:27,226 [INFO] XAIAnalyzer Ч [OK][frontend] P95=163.75ms \u2264 UCL=550.29ms
+2026-05-28 00:09:27,237 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.44ms \u2264 UCL=4.51ms
+2026-05-28 00:09:27,247 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:09:27,257 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.82ms \u2264 UCL=4.89ms
+2026-05-28 00:09:27,268 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=7.26ms \u2264 UCL=10.10ms
+2026-05-28 00:09:57,269 [INFO] ExperimentRunner Ч \u2502  Ciclo 9/20 [FAULT_INJECTION]
+2026-05-28 00:09:57,278 [INFO] XAIAnalyzer Ч [OK][frontend] P95=183.75ms \u2264 UCL=554.55ms
+2026-05-28 00:09:57,286 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.91ms \u2264 UCL=4.46ms
+2026-05-28 00:09:57,298 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:09:57,307 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.78ms \u2264 UCL=4.88ms
+2026-05-28 00:09:57,313 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.87ms \u2264 UCL=9.77ms
+2026-05-28 00:10:27,315 [INFO] ExperimentRunner Ч \u2502  Ciclo 10/20 [FAULT_INJECTION]
+2026-05-28 00:10:27,336 [INFO] XAIAnalyzer Ч [OK][frontend] P95=155.00ms \u2264 UCL=560.05ms
+2026-05-28 00:10:27,352 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.62ms \u2264 UCL=4.45ms
+2026-05-28 00:10:27,365 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:10:27,375 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.78ms \u2264 UCL=4.88ms
+2026-05-28 00:10:27,384 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.94ms \u2264 UCL=9.80ms
+2026-05-28 00:10:57,386 [INFO] ExperimentRunner Ч \u2502  Ciclo 11/20 [FAULT_INJECTION]
+2026-05-28 00:10:57,405 [INFO] XAIAnalyzer Ч [OK][frontend] P95=139.37ms \u2264 UCL=563.48ms
+2026-05-28 00:10:57,418 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.30ms \u2264 UCL=4.47ms
+2026-05-28 00:10:57,428 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:10:57,439 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.80ms \u2264 UCL=4.88ms
+2026-05-28 00:10:57,450 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.50ms \u2264 UCL=9.82ms
+2026-05-28 00:11:27,450 [INFO] ExperimentRunner Ч \u2502  Ciclo 12/20 [FAULT_INJECTION]
+2026-05-28 00:11:27,461 [INFO] XAIAnalyzer Ч [OK][frontend] P95=95.62ms \u2264 UCL=565.96ms
+2026-05-28 00:11:27,471 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.37ms \u2264 UCL=4.47ms
+2026-05-28 00:11:27,491 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:11:27,501 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.88ms
+2026-05-28 00:11:27,511 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.96ms \u2264 UCL=9.81ms
+2026-05-28 00:11:57,512 [INFO] ExperimentRunner Ч \u2502  Ciclo 13/20 [FAULT_INJECTION]
+2026-05-28 00:11:57,532 [INFO] XAIAnalyzer Ч [OK][frontend] P95=120.62ms \u2264 UCL=566.71ms
+2026-05-28 00:11:57,543 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.10ms \u2264 UCL=4.47ms
+2026-05-28 00:11:57,552 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:11:57,581 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.80ms \u2264 UCL=4.88ms
+2026-05-28 00:11:57,592 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.25ms \u2264 UCL=9.81ms
+2026-05-28 00:12:27,593 [INFO] ExperimentRunner Ч \u2502  Ciclo 14/20 [FAULT_INJECTION]
+2026-05-28 00:12:27,603 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.36ms \u2264 UCL=568.23ms
+2026-05-28 00:12:27,623 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.19ms \u2264 UCL=4.47ms
+2026-05-28 00:12:27,635 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:12:27,643 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.88ms
+2026-05-28 00:12:27,651 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.30ms \u2264 UCL=9.81ms
+2026-05-28 00:12:57,652 [INFO] ExperimentRunner Ч \u2502  Ciclo 15/20 [FAULT_INJECTION]
+2026-05-28 00:12:57,664 [INFO] XAIAnalyzer Ч [OK][frontend] P95=91.25ms \u2264 UCL=568.23ms
+2026-05-28 00:12:57,674 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.47ms \u2264 UCL=4.46ms
+2026-05-28 00:12:57,683 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:12:57,692 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.78ms \u2264 UCL=4.88ms
+2026-05-28 00:12:57,700 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.85ms \u2264 UCL=9.80ms
+2026-05-28 00:13:27,701 [INFO] ExperimentRunner Ч \u2502  Ciclo 16/20 [FAULT_INJECTION]
+2026-05-28 00:13:27,717 [INFO] XAIAnalyzer Ч [OK][frontend] P95=183.75ms \u2264 UCL=568.77ms
+2026-05-28 00:13:27,726 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.18ms \u2264 UCL=4.48ms
+2026-05-28 00:13:27,736 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:13:27,748 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.85ms \u2264 UCL=4.88ms
+2026-05-28 00:13:27,757 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.95ms \u2264 UCL=9.78ms
+2026-05-28 00:13:57,758 [INFO] ExperimentRunner Ч \u2502  Ciclo 17/20 [FAULT_INJECTION]
+2026-05-28 00:13:57,773 [INFO] XAIAnalyzer Ч [OK][frontend] P95=100.00ms \u2264 UCL=573.47ms
+2026-05-28 00:13:57,783 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.06ms \u2264 UCL=4.47ms
+2026-05-28 00:13:57,790 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:13:57,798 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.83ms \u2264 UCL=4.88ms
+2026-05-28 00:13:57,806 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.45ms \u2264 UCL=9.78ms
+2026-05-28 00:14:27,807 [INFO] ExperimentRunner Ч \u2502  Ciclo 18/20 [FAULT_INJECTION]
+2026-05-28 00:14:27,818 [INFO] XAIAnalyzer Ч [OK][frontend] P95=49.62ms \u2264 UCL=574.16ms
+2026-05-28 00:14:27,826 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.56ms \u2264 UCL=4.44ms
+2026-05-28 00:14:27,836 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:14:27,845 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.80ms \u2264 UCL=4.88ms
+2026-05-28 00:14:27,854 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.44ms \u2264 UCL=9.77ms
+2026-05-28 00:14:57,855 [INFO] ExperimentRunner Ч \u2502  Ciclo 19/20 [FAULT_INJECTION]
+2026-05-28 00:14:57,872 [INFO] XAIAnalyzer Ч [OK][frontend] P95=46.47ms \u2264 UCL=573.93ms
+2026-05-28 00:14:57,880 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.03ms \u2264 UCL=4.41ms
+2026-05-28 00:14:57,888 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:14:57,896 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.88ms
+2026-05-28 00:14:57,905 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.05ms \u2264 UCL=9.51ms
+2026-05-28 00:15:27,906 [INFO] ExperimentRunner Ч \u2502  Ciclo 20/20 [FAULT_INJECTION]
+2026-05-28 00:15:27,918 [INFO] XAIAnalyzer Ч [OK][frontend] P95=70.00ms \u2264 UCL=573.93ms
+2026-05-28 00:15:27,931 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.85ms \u2264 UCL=4.39ms
+2026-05-28 00:15:27,941 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:15:27,952 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.88ms
+2026-05-28 00:15:27,961 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.22ms \u2264 UCL=9.37ms
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:164: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end = datetime.utcnow()
+2026-05-28 00:15:27,962 [INFO] ExperimentRunner Ч \u2514\u2500 FIM FAULT_INJECTION | Duraзгo: 575s | Anomalias: 3 | Escalonamentos: 0
+2026-05-28 00:15:27,962 [INFO] ExperimentRunner Ч 
+2026-05-28 00:15:27,962 [INFO] ExperimentRunner Ч Removendo injeзгo de falha. Iniciando mediзгo de MTTR...
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:242: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  fault_removed_at = datetime.utcnow()
+2026-05-28 00:15:28,084 [INFO] ExperimentRunner Ч kubectl delete fault-checkoutservice.yaml Ч OK
+2026-05-28 00:15:28,084 [INFO] ExperimentRunner Ч \u250c\u2500 FASE: RECOVERY (10 ciclos „ 30s = ~5 min) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:157: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start = datetime.utcnow()
+2026-05-28 00:15:28,084 [INFO] ExperimentRunner Ч \u2502  Ciclo 1/10 [RECOVERY]
+2026-05-28 00:15:28,096 [INFO] XAIAnalyzer Ч [OK][frontend] P95=70.00ms \u2264 UCL=574.05ms
+2026-05-28 00:15:28,107 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.85ms \u2264 UCL=4.40ms
+2026-05-28 00:15:28,119 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2350.00ms \u2264 UCL=nanms
+2026-05-28 00:15:28,130 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.88ms
+2026-05-28 00:15:28,195 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=5.22ms \u2264 UCL=9.36ms
+2026-05-28 00:15:58,196 [INFO] ExperimentRunner Ч \u2502  Ciclo 2/10 [RECOVERY]
+2026-05-28 00:15:58,211 [INFO] XAIAnalyzer Ч [OK][frontend] P95=48.32ms \u2264 UCL=574.16ms
+2026-05-28 00:15:58,234 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.49ms \u2264 UCL=4.33ms
+2026-05-28 00:15:58,261 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=2200.00ms \u2264 UCL=nanms
+2026-05-28 00:15:58,278 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.78ms \u2264 UCL=4.88ms
+2026-05-28 00:15:58,296 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.88ms \u2264 UCL=9.35ms
+2026-05-28 00:16:28,297 [INFO] ExperimentRunner Ч \u2502  Ciclo 3/10 [RECOVERY]
+2026-05-28 00:16:28,316 [INFO] XAIAnalyzer Ч [OK][frontend] P95=47.75ms \u2264 UCL=574.16ms
+2026-05-28 00:16:28,330 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.69ms \u2264 UCL=4.36ms
+2026-05-28 00:16:28,344 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=47.92ms \u2264 UCL=nanms
+2026-05-28 00:16:28,363 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.78ms \u2264 UCL=4.88ms
+2026-05-28 00:16:28,376 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.82ms \u2264 UCL=9.37ms
+2026-05-28 00:16:58,377 [INFO] ExperimentRunner Ч \u2502  Ciclo 4/10 [RECOVERY]
+2026-05-28 00:16:58,388 [INFO] XAIAnalyzer Ч [OK][frontend] P95=52.92ms \u2264 UCL=574.16ms
+2026-05-28 00:16:58,396 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.46ms \u2264 UCL=4.36ms
+2026-05-28 00:16:58,404 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:16:58,413 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.88ms
+2026-05-28 00:16:58,422 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.45ms \u2264 UCL=9.38ms
+2026-05-28 00:17:28,423 [INFO] ExperimentRunner Ч \u2502  Ciclo 5/10 [RECOVERY]
+2026-05-28 00:17:28,438 [INFO] XAIAnalyzer Ч [OK][frontend] P95=54.58ms \u2264 UCL=574.16ms
+2026-05-28 00:17:28,448 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.13ms \u2264 UCL=4.38ms
+2026-05-28 00:17:28,457 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=46.25ms \u2264 UCL=nanms
+2026-05-28 00:17:28,467 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.83ms \u2264 UCL=4.88ms
+2026-05-28 00:17:28,477 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=7.64ms \u2264 UCL=9.39ms
+2026-05-28 00:17:58,478 [INFO] ExperimentRunner Ч \u2502  Ciclo 6/10 [RECOVERY]
+2026-05-28 00:17:58,491 [INFO] XAIAnalyzer Ч [OK][frontend] P95=49.61ms \u2264 UCL=574.17ms
+2026-05-28 00:17:58,500 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.31ms \u2264 UCL=4.38ms
+2026-05-28 00:17:58,508 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=87.50ms \u2264 UCL=nanms
+2026-05-28 00:17:58,517 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.80ms \u2264 UCL=4.88ms
+2026-05-28 00:17:58,528 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.98ms \u2264 UCL=9.52ms
+2026-05-28 00:18:28,529 [INFO] ExperimentRunner Ч \u2502  Ciclo 7/10 [RECOVERY]
+2026-05-28 00:18:28,543 [INFO] XAIAnalyzer Ч [OK][frontend] P95=53.64ms \u2264 UCL=574.17ms
+2026-05-28 00:18:28,566 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.40ms \u2264 UCL=4.37ms
+2026-05-28 00:18:28,579 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=24.25ms \u2264 UCL=nanms
+2026-05-28 00:18:28,588 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.84ms \u2264 UCL=4.88ms
+2026-05-28 00:18:28,595 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.92ms \u2264 UCL=9.51ms
+2026-05-28 00:18:58,596 [INFO] ExperimentRunner Ч \u2502  Ciclo 8/10 [RECOVERY]
+2026-05-28 00:18:58,606 [INFO] XAIAnalyzer Ч [OK][frontend] P95=73.52ms \u2264 UCL=574.17ms
+2026-05-28 00:18:58,620 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=3.11ms \u2264 UCL=4.35ms
+2026-05-28 00:18:58,629 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=95.00ms \u2264 UCL=nanms
+2026-05-28 00:18:58,638 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.88ms
+2026-05-28 00:18:58,645 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=6.93ms \u2264 UCL=9.34ms
+2026-05-28 00:19:28,646 [INFO] ExperimentRunner Ч \u2502  Ciclo 9/10 [RECOVERY]
+2026-05-28 00:19:28,658 [INFO] XAIAnalyzer Ч [OK][frontend] P95=63.65ms \u2264 UCL=574.31ms
+2026-05-28 00:19:28,668 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.83ms \u2264 UCL=4.34ms
+2026-05-28 00:19:28,678 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=94.37ms \u2264 UCL=nanms
+2026-05-28 00:19:28,688 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.79ms \u2264 UCL=4.87ms
+2026-05-28 00:19:28,699 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.99ms \u2264 UCL=9.35ms
+2026-05-28 00:19:58,700 [INFO] ExperimentRunner Ч \u2502  Ciclo 10/10 [RECOVERY]
+2026-05-28 00:19:58,721 [INFO] XAIAnalyzer Ч [OK][frontend] P95=49.86ms \u2264 UCL=574.36ms
+2026-05-28 00:19:58,736 [INFO] XAIAnalyzer Ч [OK][productcatalogservice] P95=2.91ms \u2264 UCL=4.33ms
+2026-05-28 00:19:58,748 [INFO] XAIAnalyzer Ч [OK][checkoutservice] P95=93.33ms \u2264 UCL=nanms
+2026-05-28 00:19:58,759 [INFO] XAIAnalyzer Ч [OK][cartservice] P95=4.81ms \u2264 UCL=4.87ms
+2026-05-28 00:19:58,767 [INFO] XAIAnalyzer Ч [OK][recommendationservice] P95=4.94ms \u2264 UCL=9.35ms
+2026-05-28 00:19:58,768 [INFO] ExperimentRunner Ч \u2514\u2500 FIM RECOVERY | Duraзгo: 271s | Anomalias: 0 | Escalonamentos: 0
+2026-05-28 00:19:58,769 [INFO] XAIReporter Ч [XAIReporter] Resumo do experimento: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1\reports\experiment_summary.json
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_experiment.py:251: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  meta["end_time"] = datetime.utcnow().isoformat()
+2026-05-28 00:19:58,770 [INFO] ExperimentRunner Ч 
+2026-05-28 00:19:58,770 [INFO] ExperimentRunner Ч =================================================================
+2026-05-28 00:19:58,770 [INFO] ExperimentRunner Ч   EXPERIMENTO CONCLUЌDO
+2026-05-28 00:19:58,770 [INFO] ExperimentRunner Ч   Anomalias detectadas  : 3
+2026-05-28 00:19:58,771 [INFO] ExperimentRunner Ч   Escalonamentos        : 0
+2026-05-28 00:19:58,771 [INFO] ExperimentRunner Ч   Supressхes (FP evit.) : 3
+2026-05-28 00:19:58,771 [INFO] ExperimentRunner Ч   Taxa de supressгo     : 100.0%
+2026-05-28 00:19:58,771 [INFO] ExperimentRunner Ч   Resultados em         : C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1/
+2026-05-28 00:19:58,771 [INFO] ExperimentRunner Ч =================================================================

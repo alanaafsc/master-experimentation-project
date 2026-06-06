@@ -1,0 +1,131 @@
+2026-05-29 01:10:12,168 [INFO] KEDAScenario — =================================================================
+2026-05-29 01:10:12,168 [INFO] KEDAScenario —   XAI-FinOps — Cenário B: KEDA + Prometheus P95
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:348: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  logger.info("  Iniciado em: %s", datetime.utcnow().isoformat())
+2026-05-29 01:10:12,168 [INFO] KEDAScenario —   Iniciado em: 2026-05-29T04:10:12.168689
+2026-05-29 01:10:12,168 [INFO] KEDAScenario — =================================================================
+2026-05-29 01:10:12,168 [INFO] KEDAScenario — Resetando réplicas para 1 em todos os serviços...
+2026-05-29 01:10:12,273 [INFO] KEDAScenario —   frontend \u2192 1 réplica
+2026-05-29 01:10:12,380 [INFO] KEDAScenario —   productcatalogservice \u2192 1 réplica
+2026-05-29 01:10:12,482 [INFO] KEDAScenario —   checkoutservice \u2192 1 réplica
+2026-05-29 01:10:12,582 [INFO] KEDAScenario —   recommendationservice \u2192 1 réplica
+2026-05-29 01:10:12,684 [INFO] KEDAScenario —   cartservice \u2192 1 réplica
+2026-05-29 01:10:12,685 [INFO] KEDAScenario — Instalando KEDA ScaledObjects (P95 threshold=500ms)...
+2026-05-29 01:10:12,815 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-frontend
+2026-05-29 01:10:12,931 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-productcatalogservice
+2026-05-29 01:10:13,038 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-checkoutservice
+2026-05-29 01:10:13,147 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-recommendationservice
+2026-05-29 01:10:13,262 [INFO] KEDAScenario —   ScaledObject criado: keda-p95-cartservice
+2026-05-29 01:10:13,262 [INFO] KEDAScenario — Aguardando KEDA estabilizar (60s)...
+2026-05-29 01:11:13,262 [INFO] MonitoringModule — MonitoringModule iniciado. Prometheus: http://localhost:9090
+2026-05-29 01:11:13,798 [INFO] KEDAScenario — KEDAMetricsCollector iniciado. Réplicas iniciais: {'frontend': 1, 'productcatalogservice': 1, 'checkoutservice': 1, 'recommendationservice': 1, 'cartservice': 1}
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:368: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "experiment_id": datetime.utcnow().strftime("%Y%m%d_%H%M%S"),
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:370: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "start_time": datetime.utcnow().isoformat(),
+2026-05-29 01:11:13,798 [INFO] KEDAScenario — \u250c\u2500 FASE KEDA: BASELINE (40 ciclos × 30s = ~20 min) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:320: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start = datetime.utcnow()
+2026-05-29 01:11:13,798 [INFO] KEDAScenario — \u2502  Ciclo 1/40 [BASELINE]
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:282: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = datetime.utcnow().isoformat()
+2026-05-29 01:11:44,974 [INFO] KEDAScenario — \u2502  Ciclo 2/40 [BASELINE]
+2026-05-29 01:12:16,242 [INFO] KEDAScenario — \u2502  Ciclo 3/40 [BASELINE]
+2026-05-29 01:12:47,366 [INFO] KEDAScenario — \u2502  Ciclo 4/40 [BASELINE]
+2026-05-29 01:13:18,517 [INFO] KEDAScenario — \u2502  Ciclo 5/40 [BASELINE]
+2026-05-29 01:13:49,581 [INFO] KEDAScenario — \u2502  Ciclo 6/40 [BASELINE]
+2026-05-29 01:14:20,678 [INFO] KEDAScenario — \u2502  Ciclo 7/40 [BASELINE]
+2026-05-29 01:14:51,764 [INFO] KEDAScenario — \u2502  Ciclo 8/40 [BASELINE]
+2026-05-29 01:15:22,814 [INFO] KEDAScenario — \u2502  Ciclo 9/40 [BASELINE]
+2026-05-29 01:15:53,849 [INFO] KEDAScenario — \u2502  Ciclo 10/40 [BASELINE]
+2026-05-29 01:16:24,861 [INFO] KEDAScenario — \u2502  Ciclo 11/40 [BASELINE]
+2026-05-29 01:16:55,915 [INFO] KEDAScenario — \u2502  Ciclo 12/40 [BASELINE]
+2026-05-29 01:17:26,952 [INFO] KEDAScenario — \u2502  Ciclo 13/40 [BASELINE]
+2026-05-29 01:17:57,970 [INFO] KEDAScenario — \u2502  Ciclo 14/40 [BASELINE]
+2026-05-29 01:18:28,987 [INFO] KEDAScenario — \u2502  Ciclo 15/40 [BASELINE]
+2026-05-29 01:18:59,989 [INFO] KEDAScenario — \u2502  Ciclo 16/40 [BASELINE]
+2026-05-29 01:19:31,037 [INFO] KEDAScenario — \u2502  Ciclo 17/40 [BASELINE]
+2026-05-29 01:20:02,065 [INFO] KEDAScenario — \u2502  Ciclo 18/40 [BASELINE]
+2026-05-29 01:20:33,119 [INFO] KEDAScenario — \u2502  Ciclo 19/40 [BASELINE]
+2026-05-29 01:21:04,155 [INFO] KEDAScenario — \u2502  Ciclo 20/40 [BASELINE]
+2026-05-29 01:21:35,155 [INFO] KEDAScenario — \u2502  Ciclo 21/40 [BASELINE]
+2026-05-29 01:22:06,142 [INFO] KEDAScenario — \u2502  Ciclo 22/40 [BASELINE]
+2026-05-29 01:22:37,216 [INFO] KEDAScenario — \u2502  Ciclo 23/40 [BASELINE]
+2026-05-29 01:23:08,214 [INFO] KEDAScenario — \u2502  Ciclo 24/40 [BASELINE]
+2026-05-29 01:23:39,269 [INFO] KEDAScenario — \u2502  Ciclo 25/40 [BASELINE]
+2026-05-29 01:24:10,278 [INFO] KEDAScenario — \u2502  Ciclo 26/40 [BASELINE]
+2026-05-29 01:24:41,330 [INFO] KEDAScenario — \u2502  Ciclo 27/40 [BASELINE]
+2026-05-29 01:25:12,436 [INFO] KEDAScenario — \u2502  Ciclo 28/40 [BASELINE]
+2026-05-29 01:25:43,882 [INFO] KEDAScenario — \u2502  Ciclo 29/40 [BASELINE]
+2026-05-29 01:26:14,961 [INFO] KEDAScenario — \u2502  Ciclo 30/40 [BASELINE]
+2026-05-29 01:26:45,983 [INFO] KEDAScenario — \u2502  Ciclo 31/40 [BASELINE]
+2026-05-29 01:27:17,033 [INFO] KEDAScenario — \u2502  Ciclo 32/40 [BASELINE]
+2026-05-29 01:27:48,075 [INFO] KEDAScenario — \u2502  Ciclo 33/40 [BASELINE]
+2026-05-29 01:28:19,110 [INFO] KEDAScenario — \u2502  Ciclo 34/40 [BASELINE]
+2026-05-29 01:28:50,192 [INFO] KEDAScenario — \u2502  Ciclo 35/40 [BASELINE]
+2026-05-29 01:29:21,263 [INFO] KEDAScenario — \u2502  Ciclo 36/40 [BASELINE]
+2026-05-29 01:29:52,301 [INFO] KEDAScenario — \u2502  Ciclo 37/40 [BASELINE]
+2026-05-29 01:30:23,332 [INFO] KEDAScenario — \u2502  Ciclo 38/40 [BASELINE]
+2026-05-29 01:30:54,403 [INFO] KEDAScenario — \u2502  Ciclo 39/40 [BASELINE]
+2026-05-29 01:31:25,408 [INFO] KEDAScenario — \u2502  Ciclo 40/40 [BASELINE]
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:328: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end = datetime.utcnow()
+2026-05-29 01:31:26,427 [INFO] KEDAScenario — \u2514\u2500 FIM BASELINE | Duração: 1213s
+2026-05-29 01:31:26,427 [INFO] KEDAScenario — 
+2026-05-29 01:31:26,427 [INFO] KEDAScenario — Aplicando falha Istio \u2192 productcatalogservice (delay=2.5s, 100%%)...
+2026-05-29 01:31:26,565 [INFO] KEDAScenario — kubectl apply fault-injection.yaml — OK
+2026-05-29 01:31:26,565 [INFO] KEDAScenario — \u250c\u2500 FASE KEDA: FAULT_INJECTION (20 ciclos × 30s = ~10 min) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-29 01:31:26,565 [INFO] KEDAScenario — \u2502  Ciclo 1/20 [FAULT_INJECTION]
+2026-05-29 01:31:57,873 [INFO] KEDAScenario — \u2502  Ciclo 2/20 [FAULT_INJECTION]
+2026-05-29 01:32:28,909 [INFO] KEDAScenario — \u2502  Ciclo 3/20 [FAULT_INJECTION]
+2026-05-29 01:33:00,079 [INFO] KEDAScenario — \u2502  Ciclo 4/20 [FAULT_INJECTION]
+2026-05-29 01:33:31,127 [INFO] KEDAScenario — \u2502  Ciclo 5/20 [FAULT_INJECTION]
+2026-05-29 01:34:02,166 [INFO] KEDAScenario — \u2502  Ciclo 6/20 [FAULT_INJECTION]
+2026-05-29 01:34:33,306 [INFO] KEDAScenario — \u2502  Ciclo 7/20 [FAULT_INJECTION]
+2026-05-29 01:35:04,368 [INFO] KEDAScenario — \u2502  Ciclo 8/20 [FAULT_INJECTION]
+2026-05-29 01:35:35,473 [INFO] KEDAScenario — \u2502  Ciclo 9/20 [FAULT_INJECTION]
+2026-05-29 01:36:06,517 [INFO] KEDAScenario — \u2502  Ciclo 10/20 [FAULT_INJECTION]
+2026-05-29 01:36:37,563 [INFO] KEDAScenario — \u2502  Ciclo 11/20 [FAULT_INJECTION]
+2026-05-29 01:37:08,614 [INFO] KEDAScenario — \u2502  Ciclo 12/20 [FAULT_INJECTION]
+2026-05-29 01:37:39,632 [INFO] KEDAScenario — \u2502  Ciclo 13/20 [FAULT_INJECTION]
+2026-05-29 01:38:10,716 [INFO] KEDAScenario — \u2502  Ciclo 14/20 [FAULT_INJECTION]
+2026-05-29 01:38:41,747 [INFO] KEDAScenario — \u2502  Ciclo 15/20 [FAULT_INJECTION]
+2026-05-29 01:39:12,764 [INFO] KEDAScenario — \u2502  Ciclo 16/20 [FAULT_INJECTION]
+2026-05-29 01:39:13,443 [WARNING] KEDAScenario — [KEDA] frontend escalado: 1 \u2192 5 réplicas (SCALE_UP)
+2026-05-29 01:39:13,551 [WARNING] KEDAScenario — [KEDA] productcatalogservice escalado: 1 \u2192 5 réplicas (SCALE_UP)
+2026-05-29 01:39:13,754 [WARNING] KEDAScenario — [KEDA] recommendationservice escalado: 1 \u2192 5 réplicas (SCALE_UP)
+2026-05-29 01:39:43,852 [INFO] KEDAScenario — \u2502  Ciclo 17/20 [FAULT_INJECTION]
+2026-05-29 01:40:14,940 [INFO] KEDAScenario — \u2502  Ciclo 18/20 [FAULT_INJECTION]
+2026-05-29 01:40:46,046 [INFO] KEDAScenario — \u2502  Ciclo 19/20 [FAULT_INJECTION]
+2026-05-29 01:41:17,062 [INFO] KEDAScenario — \u2502  Ciclo 20/20 [FAULT_INJECTION]
+2026-05-29 01:41:18,164 [INFO] KEDAScenario — \u2514\u2500 FIM FAULT_INJECTION | Duração: 592s
+2026-05-29 01:41:18,164 [INFO] KEDAScenario — 
+2026-05-29 01:41:18,164 [INFO] KEDAScenario — Removendo falha. Observando recuperação com KEDA...
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:412: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  fault_removed_at = datetime.utcnow()
+2026-05-29 01:41:18,268 [INFO] KEDAScenario — kubectl delete fault-injection.yaml — OK
+2026-05-29 01:41:18,268 [INFO] KEDAScenario — \u250c\u2500 FASE KEDA: RECOVERY (10 ciclos × 30s = ~5 min) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-29 01:41:18,268 [INFO] KEDAScenario — \u2502  Ciclo 1/10 [RECOVERY]
+2026-05-29 01:41:49,357 [INFO] KEDAScenario — \u2502  Ciclo 2/10 [RECOVERY]
+2026-05-29 01:42:20,405 [INFO] KEDAScenario — \u2502  Ciclo 3/10 [RECOVERY]
+2026-05-29 01:42:51,448 [INFO] KEDAScenario — \u2502  Ciclo 4/10 [RECOVERY]
+2026-05-29 01:43:22,480 [INFO] KEDAScenario — \u2502  Ciclo 5/10 [RECOVERY]
+2026-05-29 01:43:53,596 [INFO] KEDAScenario — \u2502  Ciclo 6/10 [RECOVERY]
+2026-05-29 01:44:24,658 [INFO] KEDAScenario — \u2502  Ciclo 7/10 [RECOVERY]
+2026-05-29 01:44:55,739 [INFO] KEDAScenario — \u2502  Ciclo 8/10 [RECOVERY]
+2026-05-29 01:45:26,808 [INFO] KEDAScenario — \u2502  Ciclo 9/10 [RECOVERY]
+2026-05-29 01:48:28,363 [INFO] KEDAScenario — \u2502  Ciclo 10/10 [RECOVERY]
+2026-05-29 01:48:29,702 [INFO] KEDAScenario — \u2514\u2500 FIM RECOVERY | Duração: 431s
+2026-05-29 01:48:29,702 [INFO] KEDAScenario — Removendo KEDA ScaledObjects...
+2026-05-29 01:48:29,957 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-frontend
+2026-05-29 01:48:30,179 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-productcatalogservice
+2026-05-29 01:48:30,397 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-checkoutservice
+2026-05-29 01:48:30,615 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-recommendationservice
+2026-05-29 01:48:30,858 [INFO] KEDAScenario —   ScaledObject removido: keda-p95-cartservice
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_scenario.py:421: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  meta["end_time"] = datetime.utcnow().isoformat()
+2026-05-29 01:48:30,865 [INFO] KEDAScenario — 
+2026-05-29 01:48:30,865 [INFO] KEDAScenario — =================================================================
+2026-05-29 01:48:30,866 [INFO] KEDAScenario —   CENÁRIO B (KEDA) CONCLUÍDO
+2026-05-29 01:48:30,866 [INFO] KEDAScenario —   Resultados em: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_keda_run5/
+2026-05-29 01:48:30,866 [INFO] KEDAScenario — =================================================================

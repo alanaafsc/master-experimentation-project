@@ -1,0 +1,52 @@
+{
+  "experiment_id": "20260529_041113",
+  "type": "KEDA_P95_SCENARIO",
+  "start_time": "2026-05-29T04:11:13.798381",
+  "keda_config": {
+    "p95_threshold_ms": 500,
+    "min_replicas": 1,
+    "max_replicas": 5,
+    "polling_interval_s": 30,
+    "cooldown_period_s": 60,
+    "prometheus_address": "http://prometheus.istio-system.svc.cluster.local:9090",
+    "services": [
+      "frontend",
+      "productcatalogservice",
+      "checkoutservice",
+      "recommendationservice",
+      "cartservice"
+    ]
+  },
+  "config": {
+    "scrape_interval_s": 30,
+    "baseline_cycles": 40,
+    "fault_cycles": 20,
+    "recovery_cycles": 10
+  },
+  "phases": [
+    {
+      "name": "BASELINE",
+      "start": "2026-05-29T04:11:13.798511",
+      "end": "2026-05-29T04:31:26.427642",
+      "duration_s": 1212.6,
+      "cycles": 40
+    },
+    {
+      "name": "FAULT_INJECTION",
+      "start": "2026-05-29T04:31:26.565290",
+      "end": "2026-05-29T04:41:18.164290",
+      "duration_s": 591.6,
+      "cycles": 20
+    },
+    {
+      "name": "RECOVERY",
+      "start": "2026-05-29T04:41:18.268347",
+      "end": "2026-05-29T04:48:29.702339",
+      "duration_s": 431.4,
+      "cycles": 10
+    }
+  ],
+  "fault_injected_at": "2026-05-29T04:31:26.565290",
+  "end_time": "2026-05-29T04:48:30.859182",
+  "fault_removed_at": "2026-05-29T04:41:18.164521"
+}

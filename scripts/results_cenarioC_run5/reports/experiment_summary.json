@@ -1,0 +1,923 @@
+{
+  "total_anomaly_events": 14,
+  "scale_up_events": 1,
+  "suppressed_events": 10,
+  "suppression_rate": 0.7143,
+  "avg_pearson_score": 0.388,
+  "events": [
+    {
+      "cycle": 42,
+      "timestamp": "2026-05-28T18:10:48.403140",
+      "trigger_service": "frontend",
+      "root_cause_service": "frontend",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:10:48.258418",
+        "observed_p95_ms": 77.0,
+        "baseline_mean_ms": 49.57,
+        "baseline_std_ms": 8.2,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 74.17,
+        "lower_control_limit_ms": 24.96,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "frontend",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": 0.0969,
+          "checkoutservice": -0.0172,
+          "cartservice": 0.2742,
+          "recommendationservice": 0.1256
+        },
+        "best_score": 0.2742,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'], melhor S=0.2742 < τ=0.7). Causa raiz assumida: frontend."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 290.0,
+        "bic": 294.99,
+        "adf_test": {
+          "adf_statistic": -5.998,
+          "p_value": 0.0,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": true,
+          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
+        },
+        "forecast_ms": [
+          48.34,
+          48.21,
+          48.27
+        ],
+        "forecast_mean_ms": 48.28,
+        "last_observed_ms": 48.15,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Tendência de alta: E[L_{t+1:t+3}]=48.28ms > L_t=48.15ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 42,
+      "timestamp": "2026-05-28T18:10:48.810904",
+      "trigger_service": "checkoutservice",
+      "root_cause_service": "checkoutservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "checkoutservice",
+        "timestamp": "2026-05-28T18:10:48.794850",
+        "observed_p95_ms": 2162.5,
+        "baseline_mean_ms": 30.19,
+        "baseline_std_ms": 9.3,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 58.11,
+        "lower_control_limit_ms": 2.28,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "checkoutservice",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "productcatalogservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": -0.0643,
+          "productcatalogservice": 0.2112,
+          "cartservice": 0.1922,
+          "recommendationservice": 0.4031
+        },
+        "best_score": 0.2112,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.2112 < τ=0.7). Causa raiz assumida: checkoutservice."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 294.29,
+        "bic": 299.28,
+        "adf_test": {
+          "adf_statistic": -5.5711,
+          "p_value": 0.0,
+          "critical_values": {
+            "1%": -3.6155,
+            "5%": -2.9413,
+            "10%": -2.6092
+          },
+          "is_stationary": true,
+          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
+        },
+        "forecast_ms": [
+          24.25,
+          24.25,
+          24.25
+        ],
+        "forecast_mean_ms": 24.25,
+        "last_observed_ms": 24.25,
+        "sla_threshold_ms": 500.0,
+        "should_scale": false,
+        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 43,
+      "timestamp": "2026-05-28T18:11:19.239190",
+      "trigger_service": "frontend",
+      "root_cause_service": "frontend",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:11:19.222454",
+        "observed_p95_ms": 106.25,
+        "baseline_mean_ms": 50.29,
+        "baseline_std_ms": 9.27,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 78.1,
+        "lower_control_limit_ms": 22.47,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "frontend",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": 0.0169,
+          "checkoutservice": 0.4665,
+          "cartservice": 0.1981,
+          "recommendationservice": 0.082
+        },
+        "best_score": 0.4665,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'], melhor S=0.4665 < τ=0.7). Causa raiz assumida: frontend."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 298.69,
+        "bic": 303.68,
+        "adf_test": {
+          "adf_statistic": -5.4198,
+          "p_value": 0.0,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": true,
+          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
+        },
+        "forecast_ms": [
+          57.75,
+          66.16,
+          63.51
+        ],
+        "forecast_mean_ms": 62.47,
+        "last_observed_ms": 77.0,
+        "sla_threshold_ms": 500.0,
+        "should_scale": false,
+        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 43,
+      "timestamp": "2026-05-28T18:11:19.535270",
+      "trigger_service": "checkoutservice",
+      "root_cause_service": "checkoutservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "checkoutservice",
+        "timestamp": "2026-05-28T18:11:19.515558",
+        "observed_p95_ms": 2350.0,
+        "baseline_mean_ms": 83.65,
+        "baseline_std_ms": 337.25,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 1095.4,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "checkoutservice",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "productcatalogservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.6893,
+          "productcatalogservice": 0.0367,
+          "cartservice": -0.0882,
+          "recommendationservice": -0.0486
+        },
+        "best_score": 0.0367,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.0367 < τ=0.7). Causa raiz assumida: checkoutservice."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.92,
+        "bic": 576.91,
+        "adf_test": {
+          "adf_statistic": -0.766,
+          "p_value": 0.8289,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2156.2,
+          2140.26,
+          2140.35
+        ],
+        "forecast_mean_ms": 2145.6,
+        "last_observed_ms": 2162.5,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2145.60ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 44,
+      "timestamp": "2026-05-28T18:11:49.968668",
+      "trigger_service": "frontend",
+      "root_cause_service": "checkoutservice",
+      "decision": "SCALE_UP:checkoutservice:3_replicas",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:11:49.884918",
+        "observed_p95_ms": 107.5,
+        "baseline_mean_ms": 51.82,
+        "baseline_std_ms": 12.77,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 90.14,
+        "lower_control_limit_ms": 13.49,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": 0.0478,
+          "checkoutservice": 0.7345,
+          "cartservice": 0.1734,
+          "recommendationservice": 0.0249
+        },
+        "best_score": 0.7345,
+        "threshold": 0.7,
+        "interpretation": "Causa raiz upstream: checkoutservice (S=0.7345 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.93,
+        "bic": 576.92,
+        "adf_test": {
+          "adf_statistic": 0.3548,
+          "p_value": 0.9797,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2344.11,
+          2341.69,
+          2341.54
+        ],
+        "forecast_mean_ms": 2342.45,
+        "last_observed_ms": 2350.0,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2342.45ms > SLA=500.0ms"
+      },
+      "execute_result": {
+        "timestamp": "2026-05-28T18:11:49.968536",
+        "service": "checkoutservice",
+        "namespace": "default",
+        "from_replicas": 1,
+        "to_replicas": 3,
+        "direction": "SCALE_UP",
+        "status": "SUCCESS"
+      }
+    },
+    {
+      "cycle": 44,
+      "timestamp": "2026-05-28T18:11:50.244523",
+      "trigger_service": "checkoutservice",
+      "root_cause_service": "checkoutservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "checkoutservice",
+        "timestamp": "2026-05-28T18:11:50.222896",
+        "observed_p95_ms": 2350.0,
+        "baseline_mean_ms": 141.28,
+        "baseline_std_ms": 491.93,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 1617.06,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "checkoutservice",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "productcatalogservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.8022,
+          "productcatalogservice": 0.0497,
+          "cartservice": -0.0299,
+          "recommendationservice": -0.0741
+        },
+        "best_score": 0.0497,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.0497 < τ=0.7). Causa raiz assumida: checkoutservice."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.93,
+        "bic": 576.92,
+        "adf_test": {
+          "adf_statistic": 0.3548,
+          "p_value": 0.9797,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2344.11,
+          2341.69,
+          2341.54
+        ],
+        "forecast_mean_ms": 2342.45,
+        "last_observed_ms": 2350.0,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2342.45ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 45,
+      "timestamp": "2026-05-28T18:12:20.606748",
+      "trigger_service": "frontend",
+      "root_cause_service": "checkoutservice",
+      "decision": "COOLDOWN:checkoutservice",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:12:20.571542",
+        "observed_p95_ms": 172.19,
+        "baseline_mean_ms": 53.31,
+        "baseline_std_ms": 15.49,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 99.78,
+        "lower_control_limit_ms": 6.83,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": 0.068,
+          "checkoutservice": 0.8214,
+          "cartservice": 0.1154,
+          "recommendationservice": 0.0003
+        },
+        "best_score": 0.8214,
+        "threshold": 0.7,
+        "interpretation": "Causa raiz upstream: checkoutservice (S=0.8214 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.92,
+        "bic": 576.91,
+        "adf_test": {
+          "adf_statistic": 0.1134,
+          "p_value": 0.967,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2348.57,
+          2348.44,
+          2348.44
+        ],
+        "forecast_mean_ms": 2348.48,
+        "last_observed_ms": 2350.0,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2348.48ms > SLA=500.0ms"
+      },
+      "execute_result": {
+        "status": "COOLDOWN",
+        "service": "checkoutservice"
+      }
+    },
+    {
+      "cycle": 45,
+      "timestamp": "2026-05-28T18:12:20.886696",
+      "trigger_service": "checkoutservice",
+      "root_cause_service": "checkoutservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "checkoutservice",
+        "timestamp": "2026-05-28T18:12:20.865437",
+        "observed_p95_ms": 2331.25,
+        "baseline_mean_ms": 198.9,
+        "baseline_std_ms": 602.86,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 2007.48,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "checkoutservice",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "productcatalogservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.8625,
+          "productcatalogservice": 0.0803,
+          "cartservice": -0.0515,
+          "recommendationservice": -0.0954
+        },
+        "best_score": 0.0803,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.0803 < τ=0.7). Causa raiz assumida: checkoutservice."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.92,
+        "bic": 576.91,
+        "adf_test": {
+          "adf_statistic": 0.1134,
+          "p_value": 0.967,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2348.57,
+          2348.44,
+          2348.44
+        ],
+        "forecast_mean_ms": 2348.48,
+        "last_observed_ms": 2350.0,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2348.48ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 46,
+      "timestamp": "2026-05-28T18:12:51.171058",
+      "trigger_service": "frontend",
+      "root_cause_service": "checkoutservice",
+      "decision": "COOLDOWN:checkoutservice",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:12:51.150604",
+        "observed_p95_ms": 188.5,
+        "baseline_mean_ms": 56.41,
+        "baseline_std_ms": 24.33,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 129.39,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": 0.0958,
+          "checkoutservice": 0.8321,
+          "cartservice": 0.1053,
+          "recommendationservice": -0.0221
+        },
+        "best_score": 0.8321,
+        "threshold": 0.7,
+        "interpretation": "Causa raiz upstream: checkoutservice (S=0.8321 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.92,
+        "bic": 576.92,
+        "adf_test": {
+          "adf_statistic": -0.0442,
+          "p_value": 0.9547,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2329.64,
+          2329.66,
+          2329.68
+        ],
+        "forecast_mean_ms": 2329.66,
+        "last_observed_ms": 2331.25,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2329.66ms > SLA=500.0ms"
+      },
+      "execute_result": {
+        "status": "COOLDOWN",
+        "service": "checkoutservice"
+      }
+    },
+    {
+      "cycle": 46,
+      "timestamp": "2026-05-28T18:12:51.455262",
+      "trigger_service": "checkoutservice",
+      "root_cause_service": "checkoutservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "checkoutservice",
+        "timestamp": "2026-05-28T18:12:51.434256",
+        "observed_p95_ms": 2357.5,
+        "baseline_mean_ms": 256.57,
+        "baseline_std_ms": 689.81,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 2326.0,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "checkoutservice",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "productcatalogservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.8888,
+          "productcatalogservice": 0.1285,
+          "cartservice": -0.0259,
+          "recommendationservice": -0.0986
+        },
+        "best_score": 0.1285,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.1285 < τ=0.7). Causa raiz assumida: checkoutservice."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.92,
+        "bic": 576.92,
+        "adf_test": {
+          "adf_statistic": -0.0442,
+          "p_value": 0.9547,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2329.64,
+          2329.66,
+          2329.68
+        ],
+        "forecast_mean_ms": 2329.66,
+        "last_observed_ms": 2331.25,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2329.66ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 47,
+      "timestamp": "2026-05-28T18:13:21.751479",
+      "trigger_service": "frontend",
+      "root_cause_service": "checkoutservice",
+      "decision": "COOLDOWN:checkoutservice",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:13:21.731530",
+        "observed_p95_ms": 1323.08,
+        "baseline_mean_ms": 59.92,
+        "baseline_std_ms": 32.01,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 155.96,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "checkoutservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": 0.1512,
+          "checkoutservice": 0.851,
+          "cartservice": 0.1906,
+          "recommendationservice": -0.0553
+        },
+        "best_score": 0.851,
+        "threshold": 0.7,
+        "interpretation": "Causa raiz upstream: checkoutservice (S=0.8510 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 571.93,
+        "bic": 576.92,
+        "adf_test": {
+          "adf_statistic": -0.0936,
+          "p_value": 0.9501,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          2359.9,
+          2359.89,
+          2359.87
+        ],
+        "forecast_mean_ms": 2359.89,
+        "last_observed_ms": 2357.5,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=2359.89ms > SLA=500.0ms"
+      },
+      "execute_result": {
+        "status": "COOLDOWN",
+        "service": "checkoutservice"
+      }
+    },
+    {
+      "cycle": 60,
+      "timestamp": "2026-05-28T18:19:53.657333",
+      "trigger_service": "frontend",
+      "root_cause_service": "frontend",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:19:53.636004",
+        "observed_p95_ms": 1195.0,
+        "baseline_mean_ms": 133.11,
+        "baseline_std_ms": 215.04,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 778.24,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "frontend",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": -0.0789,
+          "checkoutservice": 0.4417,
+          "cartservice": 0.3769,
+          "recommendationservice": -0.0917
+        },
+        "best_score": 0.4417,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'], melhor S=0.4417 < τ=0.7). Causa raiz assumida: frontend."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 534.33,
+        "bic": 539.32,
+        "adf_test": {
+          "adf_statistic": -2.5737,
+          "p_value": 0.0986,
+          "critical_values": {
+            "1%": -3.6155,
+            "5%": -2.9413,
+            "10%": -2.6092
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          141.77,
+          182.61,
+          170.55
+        ],
+        "forecast_mean_ms": 164.98,
+        "last_observed_ms": 244.37,
+        "sla_threshold_ms": 500.0,
+        "should_scale": false,
+        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 61,
+      "timestamp": "2026-05-28T18:19:54.216341",
+      "trigger_service": "frontend",
+      "root_cause_service": "frontend",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-28T18:19:54.198787",
+        "observed_p95_ms": 1195.0,
+        "baseline_mean_ms": 161.85,
+        "baseline_std_ms": 272.24,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 978.56,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "frontend",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": -0.0387,
+          "checkoutservice": 0.4435,
+          "cartservice": 0.3669,
+          "recommendationservice": -0.0771
+        },
+        "best_score": 0.4435,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'], melhor S=0.4435 < τ=0.7). Causa raiz assumida: frontend."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 553.39,
+        "bic": 558.38,
+        "adf_test": {
+          "adf_statistic": -3.2131,
+          "p_value": 0.0192,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": true,
+          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
+        },
+        "forecast_ms": [
+          698.9,
+          875.52,
+          825.1
+        ],
+        "forecast_mean_ms": 799.84,
+        "last_observed_ms": 1195.0,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=799.84ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 69,
+      "timestamp": "2026-05-28T18:23:55.593926",
+      "trigger_service": "recommendationservice",
+      "root_cause_service": "recommendationservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "recommendationservice",
+        "timestamp": "2026-05-28T18:23:55.572906",
+        "observed_p95_ms": 5.45,
+        "baseline_mean_ms": 4.93,
+        "baseline_std_ms": 0.1,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 5.23,
+        "lower_control_limit_ms": 4.63,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "recommendationservice",
+        "root_cause_identified": "recommendationservice",
+        "upstream_candidates_considered": [
+          "productcatalogservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": -0.1227,
+          "productcatalogservice": 0.061,
+          "checkoutservice": -0.2226,
+          "cartservice": -0.1818
+        },
+        "best_score": 0.061,
+        "threshold": 0.7,
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['productcatalogservice'], melhor S=0.0610 < τ=0.7). Causa raiz assumida: recommendationservice."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": -55.15,
+        "bic": -50.16,
+        "adf_test": {
+          "adf_statistic": -6.1878,
+          "p_value": 0.0,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": true,
+          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
+        },
+        "forecast_ms": [
+          5.19,
+          4.95,
+          5.01
+        ],
+        "forecast_mean_ms": 5.05,
+        "last_observed_ms": 4.94,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Tendência de alta: E[L_{t+1:t+3}]=5.05ms > L_t=4.94ms"
+      },
+      "execute_result": {}
+    }
+  ]
+}

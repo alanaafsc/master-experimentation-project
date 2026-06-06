@@ -1,0 +1,48 @@
+2026-05-28 22:50:42,214 [INFO] KEDAMultiRun — =================================================================
+2026-05-28 22:50:42,214 [INFO] KEDAMultiRun —   KEDA Multi-Run — Cenário A (productcatalogservice 2,5s)
+2026-05-28 22:50:42,214 [INFO] KEDAMultiRun —   Runs      : [2, 3, 4, 5]
+2026-05-28 22:50:42,214 [INFO] KEDAMultiRun —   Cooldown  : 90s entre runs
+2026-05-28 22:50:42,214 [INFO] KEDAMultiRun —   Estimativa: ~2h23min
+2026-05-28 22:50:42,214 [INFO] KEDAMultiRun — =================================================================
+2026-05-28 22:50:42,370 [INFO] KEDAMultiRun — Prometheus OK | KEDA operator OK
+
+2026-05-28 22:50:42,371 [INFO] KEDAMultiRun — Carregados 5 run(s) anteriores do CSV.
+2026-05-28 22:50:42,371 [INFO] KEDAMultiRun — 
+Preparando Run 2...
+2026-05-28 22:50:43,429 [INFO] KEDAMultiRun —   ScaledObjects KEDA removidos.
+2026-05-28 22:50:43,429 [INFO] KEDAMultiRun —   Resetando réplicas para 1 em todos os serviços...
+2026-05-28 22:50:58,988 [INFO] KEDAMultiRun — \u250c\u2500 KEDA Run 2 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-28 22:50:58,988 [INFO] KEDAMultiRun — \u2502  Resultados \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_keda_run2
+2026-05-28 22:50:58,988 [INFO] KEDAMultiRun — \u2502  Log stdout \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\logs_keda_run2_stdout.txt
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_keda_multirun.py:120: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start = datetime.utcnow()
+C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\run_keda_multirun.py:131: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  duration_s = (datetime.utcnow() - start).total_seconds()
+2026-05-28 23:29:22,789 [INFO] KEDAMultiRun — \u2514\u2500 OK em 2304s | scale_ups=18 correct=2 FP=16
+2026-05-28 23:29:22,791 [INFO] KEDAMultiRun —    Cooldown 90s antes do próximo run...
+2026-05-28 23:30:52,801 [INFO] KEDAMultiRun —   Summary atualizado: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_multirun_summary.csv
+2026-05-28 23:30:52,802 [INFO] KEDAMultiRun — 
+Preparando Run 3...
+2026-05-28 23:30:53,969 [INFO] KEDAMultiRun —   ScaledObjects KEDA removidos.
+2026-05-28 23:30:53,970 [INFO] KEDAMultiRun —   Resetando réplicas para 1 em todos os serviços...
+2026-05-28 23:31:09,779 [INFO] KEDAMultiRun — \u250c\u2500 KEDA Run 3 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-28 23:31:09,780 [INFO] KEDAMultiRun — \u2502  Resultados \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_keda_run3
+2026-05-28 23:31:09,780 [INFO] KEDAMultiRun — \u2502  Log stdout \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\logs_keda_run3_stdout.txt
+2026-05-28 23:58:19,596 [ERROR] KEDAMultiRun — \u2514\u2500 FALHOU (exit 4294967295). Log: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\logs_keda_run3_stdout.txt
+2026-05-28 23:58:19,600 [INFO] KEDAMultiRun —   Summary atualizado: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_multirun_summary.csv
+2026-05-28 23:58:19,600 [INFO] KEDAMultiRun — 
+Preparando Run 4...
+2026-05-28 23:58:43,577 [INFO] KEDAMultiRun —   ScaledObjects KEDA removidos.
+2026-05-28 23:58:43,578 [INFO] KEDAMultiRun —   Resetando réplicas para 1 em todos os serviços...
+2026-05-28 23:58:59,155 [INFO] KEDAMultiRun — \u250c\u2500 KEDA Run 4 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-28 23:58:59,155 [INFO] KEDAMultiRun — \u2502  Resultados \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_keda_run4
+2026-05-28 23:58:59,155 [INFO] KEDAMultiRun — \u2502  Log stdout \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\logs_keda_run4_stdout.txt
+2026-05-29 00:00:01,388 [ERROR] KEDAMultiRun — \u2514\u2500 FALHOU (exit 1). Log: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\logs_keda_run4_stdout.txt
+2026-05-29 00:00:01,390 [INFO] KEDAMultiRun —   Summary atualizado: C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\keda_multirun_summary.csv
+2026-05-29 00:00:01,390 [INFO] KEDAMultiRun — 
+Preparando Run 5...
+2026-05-29 00:00:02,602 [INFO] KEDAMultiRun —   ScaledObjects KEDA removidos.
+2026-05-29 00:00:02,602 [INFO] KEDAMultiRun —   Resetando réplicas para 1 em todos os serviços...
+2026-05-29 00:00:18,205 [INFO] KEDAMultiRun — \u250c\u2500 KEDA Run 5 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+2026-05-29 00:00:18,205 [INFO] KEDAMultiRun — \u2502  Resultados \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_keda_run5
+2026-05-29 00:00:18,205 [INFO] KEDAMultiRun — \u2502  Log stdout \u2192 C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\logs_keda_run5_stdout.txt

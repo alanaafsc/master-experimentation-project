@@ -1,0 +1,17 @@
+﻿scenario,run,timestamp,duration_s,exit_code,status,total_anomaly_events,scale_up_events,suppressed_events,suppression_rate_pct,avg_pearson_score,results_dir
+A,1,2026-05-27T14:13:02.010793,2031.7,0,OK,5,0,5,100.0,0.0,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioA_run1
+A,2,2026-05-27T15:15:19.694787,21131.5,0,CONTAMINATED,6,0,6,100.0,0.0,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioA_run2
+A,3,2026-05-27T21:09:42.101311,2029.7,0,OK,13,1,9,69.2,0.3229,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioA_run3
+A,4,2026-05-27T21:45:42.703785,2026.4,0,OK,15,1,12,80.0,0.2858,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioA_run4
+A,5,2026-05-27T22:21:39.945985,2026.1,0,OK,18,1,12,66.7,0.4456,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioA_run5
+A,6,2026-05-28T18:40:35.544031,2020.1,0,OK,15,1,9,60.0,0.5074,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioA_run6
+B,1,2026-05-27T22:57:36.931946,2024.2,0,OK,16,1,12,75.0,0.3531,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioB_run1
+B,2,2026-05-27T23:33:32.007949,2024.4,0,OK,20,1,15,75.0,0.3931,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioB_run2
+B,3,2026-05-28T00:09:27.261541,2675.4,0,OK,18,2,11,61.1,0.4596,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioB_run3
+B,4,2026-05-28T00:56:13.516372,2512.7,0,OK,23,1,17,73.9,0.4544,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioB_run4
+B,5,2026-05-28T01:40:17.075180,3811.7,0,OK,11,1,7,63.6,0.3844,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioB_run5
+C,1,2026-05-28T02:45:59.788696,2039.5,0,OK,3,0,3,100.0,0.6293,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run1
+C,2,2026-05-28T03:22:10.120543,2020.1,0,OK,5,0,5,100.0,0.3206,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run2
+C,3,2026-05-28T16:18:52.344152,2023.8,0,OK,9,0,9,100.0,0.2593,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run3
+C,4,2026-05-28T17:14:34.275076,2036.1,0,OK,25,0,25,100.0,0.2536,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run4
+C,5,2026-05-28T17:50:41.313796,2025.2,0,OK,14,1,10,71.4,0.3880,C:\Users\alana\Documents\MESTRADO\GitHub\master-experimentation-project\scripts\results_cenarioC_run5

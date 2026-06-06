@@ -1,0 +1,73 @@
+{
+  "cycle": 43,
+  "timestamp": "2026-05-28T01:16:52.862683",
+  "trigger_service": "frontend",
+  "root_cause_service": "cartservice",
+  "decision": "SCALE_UP:cartservice:3_replicas",
+  "anomaly_evidence": {
+    "service": "frontend",
+    "timestamp": "2026-05-28T01:16:52.811691",
+    "observed_p95_ms": 4910.28,
+    "baseline_mean_ms": 173.13,
+    "baseline_std_ms": 713.91,
+    "k_factor": 3.0,
+    "threshold_3sigma_ms": 2314.84,
+    "lower_control_limit_ms": 0.0,
+    "anomaly_detected": true
+  },
+  "correlation_evidence": {
+    "trigger_service": "frontend",
+    "root_cause_identified": "cartservice",
+    "upstream_candidates_considered": [
+      "cartservice",
+      "checkoutservice",
+      "productcatalogservice",
+      "recommendationservice"
+    ],
+    "topology_constrained": true,
+    "pearson_scores": {
+      "productcatalogservice": -0.1466,
+      "checkoutservice": 0.2625,
+      "cartservice": 0.9998,
+      "recommendationservice": -0.0385
+    },
+    "best_score": 0.9998,
+    "threshold": 0.7,
+    "interpretation": "Causa raiz upstream: cartservice (S=0.9998 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+  },
+  "arima_evidence": {
+    "model": "ARIMA(2, 1, 0)",
+    "aic": 617.59,
+    "bic": 622.58,
+    "adf_test": {
+      "adf_statistic": -0.7606,
+      "p_value": 0.8304,
+      "critical_values": {
+        "1%": -3.6104,
+        "5%": -2.9391,
+        "10%": -2.6081
+      },
+      "is_stationary": false,
+      "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+    },
+    "forecast_ms": [
+      3845.4,
+      3844.66,
+      3844.66
+    ],
+    "forecast_mean_ms": 3844.9,
+    "last_observed_ms": 3846.59,
+    "sla_threshold_ms": 500.0,
+    "should_scale": true,
+    "scale_reason": "Previsão acima do SLA: E[L]=3844.90ms > SLA=500.0ms"
+  },
+  "execute_result": {
+    "timestamp": "2026-05-28T01:16:52.862550",
+    "service": "cartservice",
+    "namespace": "default",
+    "from_replicas": 1,
+    "to_replicas": 3,
+    "direction": "SCALE_UP",
+    "status": "SUCCESS"
+  }
+}

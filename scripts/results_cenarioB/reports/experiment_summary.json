@@ -1,88 +1,25 @@
 {
-  "total_anomaly_events": 10,
+  "total_anomaly_events": 16,
   "scale_up_events": 1,
-  "suppressed_events": 8,
-  "suppression_rate": 0.8,
-  "avg_pearson_score": 0.2911,
+  "suppressed_events": 12,
+  "suppression_rate": 0.75,
+  "avg_pearson_score": 0.2605,
   "events": [
     {
-      "cycle": 37,
-      "timestamp": "2026-05-27T01:04:21.197949",
-      "trigger_service": "checkoutservice",
-      "root_cause_service": "checkoutservice",
-      "decision": "NO_ACTION",
-      "anomaly_evidence": {
-        "service": "checkoutservice",
-        "timestamp": "2026-05-27T01:04:21.092515",
-        "observed_p95_ms": 4875.0,
-        "baseline_mean_ms": 259.58,
-        "baseline_std_ms": 828.44,
-        "k_factor": 3.0,
-        "threshold_3sigma_ms": 2744.91,
-        "lower_control_limit_ms": 0.0,
-        "anomaly_detected": true
-      },
-      "correlation_evidence": {
-        "trigger_service": "checkoutservice",
-        "root_cause_identified": "checkoutservice",
-        "upstream_candidates_considered": [
-          "cartservice",
-          "productcatalogservice"
-        ],
-        "topology_constrained": true,
-        "pearson_scores": {
-          "frontend": 0.8028,
-          "productcatalogservice": 0.0981,
-          "cartservice": -0.0377,
-          "recommendationservice": 0.0
-        },
-        "best_score": 0.0981,
-        "threshold": 0.7,
-        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.0981 < τ=0.7). Causa raiz assumida: checkoutservice."
-      },
-      "arima_evidence": {
-        "model": "ARIMA(2, 1, 0)",
-        "aic": 576.83,
-        "bic": 581.5,
-        "adf_test": {
-          "adf_statistic": -3.6989,
-          "p_value": 0.0041,
-          "critical_values": {
-            "1%": -3.6327,
-            "5%": -2.9485,
-            "10%": -2.613
-          },
-          "is_stationary": true,
-          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
-        },
-        "forecast_ms": [
-          80.03,
-          83.39,
-          86.12
-        ],
-        "forecast_mean_ms": 83.18,
-        "last_observed_ms": 92.5,
-        "sla_threshold_ms": 500.0,
-        "should_scale": false,
-        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
-      },
-      "execute_result": {}
-    },
-    {
-      "cycle": 38,
-      "timestamp": "2026-05-27T01:04:51.984672",
+      "cycle": 42,
+      "timestamp": "2026-05-27T14:22:03.669729",
       "trigger_service": "frontend",
       "root_cause_service": "frontend",
       "decision": "NO_ACTION",
       "anomaly_evidence": {
         "service": "frontend",
-        "timestamp": "2026-05-27T01:04:51.931304",
-        "observed_p95_ms": 4087.5,
-        "baseline_mean_ms": 256.49,
-        "baseline_std_ms": 763.95,
+        "timestamp": "2026-05-27T14:22:03.483556",
+        "observed_p95_ms": 2941.17,
+        "baseline_mean_ms": 92.7,
+        "baseline_std_ms": 1.09,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 2548.36,
-        "lower_control_limit_ms": 0.0,
+        "threshold_3sigma_ms": 95.96,
+        "lower_control_limit_ms": 89.44,
         "anomaly_detected": true
       },
       "correlation_evidence": {
@@ -96,58 +33,58 @@
         ],
         "topology_constrained": true,
         "pearson_scores": {
-          "productcatalogservice": -0.0025,
-          "checkoutservice": 0.5759,
-          "cartservice": -0.0142,
+          "productcatalogservice": 0.054,
+          "checkoutservice": 0.0087,
+          "cartservice": -0.0819,
           "recommendationservice": 0.0
         },
-        "best_score": 0.5759,
+        "best_score": 0.054,
         "threshold": 0.7,
-        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'], melhor S=0.5759 < τ=0.7). Causa raiz assumida: frontend."
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'], melhor S=0.0540 < τ=0.7). Causa raiz assumida: frontend."
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 584.02,
-        "bic": 588.77,
+        "aic": 123.51,
+        "bic": 128.5,
         "adf_test": {
-          "adf_statistic": -3.9235,
-          "p_value": 0.0019,
+          "adf_statistic": -3.684,
+          "p_value": 0.0043,
           "critical_values": {
-            "1%": -3.6327,
-            "5%": -2.9485,
-            "10%": -2.613
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
           },
           "is_stationary": true,
           "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
         },
         "forecast_ms": [
-          93.71,
-          93.52,
-          93.71
+          90.88,
+          90.82,
+          90.72
         ],
-        "forecast_mean_ms": 93.64,
-        "last_observed_ms": 94.18,
+        "forecast_mean_ms": 90.81,
+        "last_observed_ms": 90.54,
         "sla_threshold_ms": 500.0,
-        "should_scale": false,
-        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+        "should_scale": true,
+        "scale_reason": "Tendência de alta: E[L_{t+1:t+3}]=90.81ms > L_t=90.54ms"
       },
       "execute_result": {}
     },
     {
-      "cycle": 38,
-      "timestamp": "2026-05-27T01:04:52.935567",
+      "cycle": 42,
+      "timestamp": "2026-05-27T14:22:04.441847",
       "trigger_service": "checkoutservice",
       "root_cause_service": "checkoutservice",
       "decision": "NO_ACTION",
       "anomaly_evidence": {
         "service": "checkoutservice",
-        "timestamp": "2026-05-27T01:04:52.904742",
-        "observed_p95_ms": 4875.0,
-        "baseline_mean_ms": 384.32,
-        "baseline_std_ms": 1114.89,
+        "timestamp": "2026-05-27T14:22:04.421136",
+        "observed_p95_ms": 4562.5,
+        "baseline_mean_ms": 86.79,
+        "baseline_std_ms": 19.58,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 3729.0,
-        "lower_control_limit_ms": 0.0,
+        "threshold_3sigma_ms": 145.52,
+        "lower_control_limit_ms": 28.06,
         "anomaly_detected": true
       },
       "correlation_evidence": {
@@ -159,58 +96,58 @@
         ],
         "topology_constrained": true,
         "pearson_scores": {
-          "frontend": 0.8867,
-          "productcatalogservice": 0.1727,
-          "cartservice": -0.0485,
+          "frontend": 0.0627,
+          "productcatalogservice": -0.0134,
+          "cartservice": 0.144,
           "recommendationservice": 0.0
         },
-        "best_score": 0.1727,
+        "best_score": 0.144,
         "threshold": 0.7,
-        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.1727 < τ=0.7). Causa raiz assumida: checkoutservice."
+        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.1440 < τ=0.7). Causa raiz assumida: checkoutservice."
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 615.78,
-        "bic": 620.53,
+        "aic": 351.37,
+        "bic": 356.36,
         "adf_test": {
-          "adf_statistic": -2.7553,
-          "p_value": 0.0649,
+          "adf_statistic": -4.7643,
+          "p_value": 0.0001,
           "critical_values": {
-            "1%": -3.6267,
-            "5%": -2.946,
-            "10%": -2.6117
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
           },
-          "is_stationary": false,
-          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+          "is_stationary": true,
+          "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
         },
         "forecast_ms": [
-          3741.34,
-          2726.07,
-          3271.18
+          93.59,
+          93.98,
+          94.11
         ],
-        "forecast_mean_ms": 3246.2,
-        "last_observed_ms": 4875.0,
+        "forecast_mean_ms": 93.9,
+        "last_observed_ms": 94.38,
         "sla_threshold_ms": 500.0,
-        "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=3246.20ms > SLA=500.0ms"
+        "should_scale": false,
+        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
       },
       "execute_result": {}
     },
     {
-      "cycle": 38,
-      "timestamp": "2026-05-27T01:04:53.643501",
+      "cycle": 42,
+      "timestamp": "2026-05-27T14:22:05.109553",
       "trigger_service": "cartservice",
       "root_cause_service": "cartservice",
       "decision": "NO_ACTION",
       "anomaly_evidence": {
         "service": "cartservice",
-        "timestamp": "2026-05-27T01:04:53.608201",
-        "observed_p95_ms": 4701.16,
-        "baseline_mean_ms": 4.9,
-        "baseline_std_ms": 0.53,
+        "timestamp": "2026-05-27T14:22:05.095494",
+        "observed_p95_ms": 4614.58,
+        "baseline_mean_ms": 6.1,
+        "baseline_std_ms": 1.52,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 6.47,
-        "lower_control_limit_ms": 3.32,
+        "threshold_3sigma_ms": 10.67,
+        "lower_control_limit_ms": 1.53,
         "anomaly_detected": true
       },
       "correlation_evidence": {
@@ -219,9 +156,9 @@
         "upstream_candidates_considered": [],
         "topology_constrained": true,
         "pearson_scores": {
-          "frontend": -0.0554,
-          "productcatalogservice": 0.13,
-          "checkoutservice": -0.0624,
+          "frontend": 0.0946,
+          "productcatalogservice": -0.1693,
+          "checkoutservice": 0.1005,
           "recommendationservice": 0.0
         },
         "best_score": 0.0,
@@ -230,52 +167,52 @@
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 73.72,
-        "bic": 78.47,
+        "aic": 144.4,
+        "bic": 149.39,
         "adf_test": {
-          "adf_statistic": -5.8316,
+          "adf_statistic": -5.2579,
           "p_value": 0.0,
           "critical_values": {
-            "1%": -3.6267,
-            "5%": -2.946,
-            "10%": -2.6117
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
           },
           "is_stationary": true,
           "conclusion": "Série estacionária (rejeita H0, p < 0.05)."
         },
         "forecast_ms": [
-          4.8,
-          4.8,
-          4.8
+          8.69,
+          7.6,
+          7.26
         ],
-        "forecast_mean_ms": 4.8,
-        "last_observed_ms": 4.8,
+        "forecast_mean_ms": 7.85,
+        "last_observed_ms": 7.0,
         "sla_threshold_ms": 500.0,
-        "should_scale": false,
-        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+        "should_scale": true,
+        "scale_reason": "Tendência de alta: E[L_{t+1:t+3}]=7.85ms > L_t=7.00ms"
       },
       "execute_result": {}
     },
     {
-      "cycle": 39,
-      "timestamp": "2026-05-27T01:05:24.676518",
+      "cycle": 43,
+      "timestamp": "2026-05-27T14:22:35.505496",
       "trigger_service": "frontend",
-      "root_cause_service": "checkoutservice",
-      "decision": "SCALE_UP:checkoutservice:3_replicas",
+      "root_cause_service": "cartservice",
+      "decision": "SCALE_UP:cartservice:3_replicas",
       "anomaly_evidence": {
         "service": "frontend",
-        "timestamp": "2026-05-27T01:05:24.405766",
-        "observed_p95_ms": 4192.86,
-        "baseline_mean_ms": 357.31,
-        "baseline_std_ms": 976.77,
+        "timestamp": "2026-05-27T14:22:35.444737",
+        "observed_p95_ms": 4093.75,
+        "baseline_mean_ms": 163.9,
+        "baseline_std_ms": 450.39,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 3287.62,
+        "threshold_3sigma_ms": 1515.06,
         "lower_control_limit_ms": 0.0,
         "anomaly_detected": true
       },
       "correlation_evidence": {
         "trigger_service": "frontend",
-        "root_cause_identified": "checkoutservice",
+        "root_cause_identified": "cartservice",
         "upstream_candidates_considered": [
           "cartservice",
           "checkoutservice",
@@ -284,44 +221,44 @@
         ],
         "topology_constrained": true,
         "pearson_scores": {
-          "productcatalogservice": 0.0932,
-          "checkoutservice": 0.7218,
-          "cartservice": 0.6362,
+          "productcatalogservice": -0.2423,
+          "checkoutservice": 0.9996,
+          "cartservice": 1.0,
           "recommendationservice": 0.0
         },
-        "best_score": 0.7218,
+        "best_score": 1.0,
         "threshold": 0.7,
-        "interpretation": "Causa raiz upstream: checkoutservice (S=0.7218 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+        "interpretation": "Causa raiz upstream: cartservice (S=1.0000 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 632.24,
-        "bic": 637.08,
+        "aic": 631.76,
+        "bic": 636.75,
         "adf_test": {
-          "adf_statistic": -2.0379,
-          "p_value": 0.2702,
+          "adf_statistic": 2.6701,
+          "p_value": 0.9991,
           "critical_values": {
-            "1%": -3.6209,
-            "5%": -2.9435,
-            "10%": -2.6104
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
           },
           "is_stationary": false,
           "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
         },
         "forecast_ms": [
-          3681.72,
-          3836.21,
-          4113.95
+          4613.41,
+          4548.4,
+          4548.43
         ],
-        "forecast_mean_ms": 3877.29,
-        "last_observed_ms": 4875.0,
+        "forecast_mean_ms": 4570.08,
+        "last_observed_ms": 4614.58,
         "sla_threshold_ms": 500.0,
         "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=3877.29ms > SLA=500.0ms"
+        "scale_reason": "Previsão acima do SLA: E[L]=4570.08ms > SLA=500.0ms"
       },
       "execute_result": {
-        "timestamp": "2026-05-27T01:05:24.676324",
-        "service": "checkoutservice",
+        "timestamp": "2026-05-27T14:22:35.505348",
+        "service": "cartservice",
         "namespace": "default",
         "from_replicas": 1,
         "to_replicas": 3,
@@ -330,82 +267,19 @@
       }
     },
     {
-      "cycle": 39,
-      "timestamp": "2026-05-27T01:05:25.491210",
-      "trigger_service": "checkoutservice",
-      "root_cause_service": "checkoutservice",
-      "decision": "NO_ACTION",
-      "anomaly_evidence": {
-        "service": "checkoutservice",
-        "timestamp": "2026-05-27T01:05:25.437158",
-        "observed_p95_ms": 4875.0,
-        "baseline_mean_ms": 502.5,
-        "baseline_std_ms": 1319.12,
-        "k_factor": 3.0,
-        "threshold_3sigma_ms": 4459.86,
-        "lower_control_limit_ms": 0.0,
-        "anomaly_detected": true
-      },
-      "correlation_evidence": {
-        "trigger_service": "checkoutservice",
-        "root_cause_identified": "checkoutservice",
-        "upstream_candidates_considered": [
-          "cartservice",
-          "productcatalogservice"
-        ],
-        "topology_constrained": true,
-        "pearson_scores": {
-          "frontend": 0.9202,
-          "productcatalogservice": 0.2216,
-          "cartservice": 0.5522,
-          "recommendationservice": 0.0
-        },
-        "best_score": 0.5522,
-        "threshold": 0.7,
-        "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.5522 < τ=0.7). Causa raiz assumida: checkoutservice."
-      },
-      "arima_evidence": {
-        "model": "ARIMA(2, 1, 0)",
-        "aic": 632.24,
-        "bic": 637.08,
-        "adf_test": {
-          "adf_statistic": -2.0379,
-          "p_value": 0.2702,
-          "critical_values": {
-            "1%": -3.6209,
-            "5%": -2.9435,
-            "10%": -2.6104
-          },
-          "is_stationary": false,
-          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
-        },
-        "forecast_ms": [
-          3681.72,
-          3836.21,
-          4113.95
-        ],
-        "forecast_mean_ms": 3877.29,
-        "last_observed_ms": 4875.0,
-        "sla_threshold_ms": 500.0,
-        "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=3877.29ms > SLA=500.0ms"
-      },
-      "execute_result": {}
-    },
-    {
-      "cycle": 39,
-      "timestamp": "2026-05-27T01:05:26.258619",
+      "cycle": 43,
+      "timestamp": "2026-05-27T14:22:35.784930",
       "trigger_service": "cartservice",
       "root_cause_service": "cartservice",
       "decision": "NO_ACTION",
       "anomaly_evidence": {
         "service": "cartservice",
-        "timestamp": "2026-05-27T01:05:26.213011",
-        "observed_p95_ms": 4757.35,
-        "baseline_mean_ms": 128.48,
-        "baseline_std_ms": 761.83,
+        "timestamp": "2026-05-27T14:22:35.767011",
+        "observed_p95_ms": 4700.0,
+        "baseline_mean_ms": 121.35,
+        "baseline_std_ms": 728.66,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 2413.98,
+        "threshold_3sigma_ms": 2307.33,
         "lower_control_limit_ms": 0.0,
         "anomaly_detected": true
       },
@@ -415,9 +289,9 @@
         "upstream_candidates_considered": [],
         "topology_constrained": true,
         "pearson_scores": {
-          "frontend": 0.5369,
-          "productcatalogservice": 0.1433,
-          "checkoutservice": 0.4731,
+          "frontend": 0.8097,
+          "productcatalogservice": -0.2585,
+          "checkoutservice": 0.0,
           "recommendationservice": 0.0
         },
         "best_score": 0.0,
@@ -426,52 +300,52 @@
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 603.03,
-        "bic": 607.87,
+        "aic": 631.76,
+        "bic": 636.75,
         "adf_test": {
-          "adf_statistic": -0.1858,
-          "p_value": 0.9402,
+          "adf_statistic": 2.6701,
+          "p_value": 0.9991,
           "critical_values": {
-            "1%": -3.6209,
-            "5%": -2.9435,
-            "10%": -2.6104
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
           },
           "is_stationary": false,
           "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
         },
         "forecast_ms": [
-          4700.95,
-          4700.96,
-          4700.96
+          4613.41,
+          4548.4,
+          4548.43
         ],
-        "forecast_mean_ms": 4700.96,
-        "last_observed_ms": 4701.16,
+        "forecast_mean_ms": 4570.08,
+        "last_observed_ms": 4614.58,
         "sla_threshold_ms": 500.0,
         "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=4700.96ms > SLA=500.0ms"
+        "scale_reason": "Previsão acima do SLA: E[L]=4570.08ms > SLA=500.0ms"
       },
       "execute_result": {}
     },
     {
-      "cycle": 40,
-      "timestamp": "2026-05-27T01:05:56.835814",
+      "cycle": 44,
+      "timestamp": "2026-05-27T14:23:06.058223",
       "trigger_service": "frontend",
-      "root_cause_service": "checkoutservice",
-      "decision": "COOLDOWN:checkoutservice",
+      "root_cause_service": "cartservice",
+      "decision": "COOLDOWN:cartservice",
       "anomaly_evidence": {
         "service": "frontend",
-        "timestamp": "2026-05-27T01:05:56.818760",
-        "observed_p95_ms": 3962.96,
-        "baseline_mean_ms": 455.65,
-        "baseline_std_ms": 1142.89,
+        "timestamp": "2026-05-27T14:23:06.045978",
+        "observed_p95_ms": 3795.46,
+        "baseline_mean_ms": 263.95,
+        "baseline_std_ms": 767.1,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 3884.31,
+        "threshold_3sigma_ms": 2565.24,
         "lower_control_limit_ms": 0.0,
         "anomaly_detected": true
       },
       "correlation_evidence": {
         "trigger_service": "frontend",
-        "root_cause_identified": "checkoutservice",
+        "root_cause_identified": "cartservice",
         "upstream_candidates_considered": [
           "cartservice",
           "checkoutservice",
@@ -480,60 +354,60 @@
         ],
         "topology_constrained": true,
         "pearson_scores": {
-          "productcatalogservice": 0.1549,
-          "checkoutservice": 0.7906,
-          "cartservice": 0.7594,
+          "productcatalogservice": -0.3471,
+          "checkoutservice": 0.0,
+          "cartservice": 0.987,
           "recommendationservice": 0.0
         },
-        "best_score": 0.7906,
+        "best_score": 0.987,
         "threshold": 0.7,
-        "interpretation": "Causa raiz upstream: checkoutservice (S=0.7906 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+        "interpretation": "Causa raiz upstream: cartservice (S=0.9870 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 648.83,
-        "bic": 653.74,
+        "aic": 631.76,
+        "bic": 636.75,
         "adf_test": {
-          "adf_statistic": -1.7603,
-          "p_value": 0.4004,
+          "adf_statistic": 2.9279,
+          "p_value": 1.0,
           "critical_values": {
-            "1%": -3.6155,
-            "5%": -2.9413,
-            "10%": -2.6092
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
           },
           "is_stationary": false,
           "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
         },
         "forecast_ms": [
-          4875.0,
-          4875.0,
-          4875.0
+          4635.43,
+          4633.03,
+          4633.91
         ],
-        "forecast_mean_ms": 4875.0,
-        "last_observed_ms": 4875.0,
+        "forecast_mean_ms": 4634.13,
+        "last_observed_ms": 4700.0,
         "sla_threshold_ms": 500.0,
         "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=4875.00ms > SLA=500.0ms"
+        "scale_reason": "Previsão acima do SLA: E[L]=4634.13ms > SLA=500.0ms"
       },
       "execute_result": {
         "status": "COOLDOWN",
-        "service": "checkoutservice"
+        "service": "cartservice"
       }
     },
     {
-      "cycle": 40,
-      "timestamp": "2026-05-27T01:05:57.488265",
+      "cycle": 44,
+      "timestamp": "2026-05-27T14:23:06.327696",
       "trigger_service": "cartservice",
       "root_cause_service": "cartservice",
       "decision": "NO_ACTION",
       "anomaly_evidence": {
         "service": "cartservice",
-        "timestamp": "2026-05-27T01:05:57.431475",
-        "observed_p95_ms": 4750.0,
-        "baseline_mean_ms": 247.17,
-        "baseline_std_ms": 1055.71,
+        "timestamp": "2026-05-27T14:23:06.315469",
+        "observed_p95_ms": 4712.5,
+        "baseline_mean_ms": 238.73,
+        "baseline_std_ms": 1026.65,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 3414.29,
+        "threshold_3sigma_ms": 3318.67,
         "lower_control_limit_ms": 0.0,
         "anomaly_detected": true
       },
@@ -543,9 +417,9 @@
         "upstream_candidates_considered": [],
         "topology_constrained": true,
         "pearson_scores": {
-          "frontend": 0.6525,
-          "productcatalogservice": 0.1916,
-          "checkoutservice": 0.5998,
+          "frontend": 0.8791,
+          "productcatalogservice": -0.2175,
+          "checkoutservice": 0.0,
           "recommendationservice": 0.0
         },
         "best_score": 0.0,
@@ -554,46 +428,114 @@
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 618.16,
-        "bic": 623.07,
+        "aic": 631.76,
+        "bic": 636.75,
         "adf_test": {
-          "adf_statistic": -0.0905,
-          "p_value": 0.9504,
+          "adf_statistic": 2.9279,
+          "p_value": 1.0,
           "critical_values": {
-            "1%": -3.6155,
-            "5%": -2.9413,
-            "10%": -2.6092
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
           },
           "is_stationary": false,
           "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
         },
         "forecast_ms": [
-          4757.88,
-          4757.89,
-          4757.89
+          4635.43,
+          4633.03,
+          4633.91
         ],
-        "forecast_mean_ms": 4757.89,
-        "last_observed_ms": 4757.35,
+        "forecast_mean_ms": 4634.13,
+        "last_observed_ms": 4700.0,
         "sla_threshold_ms": 500.0,
         "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=4757.89ms > SLA=500.0ms"
+        "scale_reason": "Previsão acima do SLA: E[L]=4634.13ms > SLA=500.0ms"
       },
       "execute_result": {}
     },
     {
-      "cycle": 41,
-      "timestamp": "2026-05-27T01:05:59.353937",
+      "cycle": 45,
+      "timestamp": "2026-05-27T14:23:36.606051",
+      "trigger_service": "frontend",
+      "root_cause_service": "cartservice",
+      "decision": "COOLDOWN:cartservice",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-27T14:23:36.597075",
+        "observed_p95_ms": 4145.16,
+        "baseline_mean_ms": 356.52,
+        "baseline_std_ms": 947.99,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 3200.49,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "cartservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": -0.3093,
+          "checkoutservice": 0.0,
+          "cartservice": 0.991,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.991,
+        "threshold": 0.7,
+        "interpretation": "Causa raiz upstream: cartservice (S=0.9910 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 631.82,
+        "bic": 636.81,
+        "adf_test": {
+          "adf_statistic": 3.2361,
+          "p_value": 1.0,
+          "critical_values": {
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4712.88,
+          4712.9,
+          4712.91
+        ],
+        "forecast_mean_ms": 4712.89,
+        "last_observed_ms": 4712.5,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4712.89ms > SLA=500.0ms"
+      },
+      "execute_result": {
+        "status": "COOLDOWN",
+        "service": "cartservice"
+      }
+    },
+    {
+      "cycle": 45,
+      "timestamp": "2026-05-27T14:23:36.897058",
       "trigger_service": "cartservice",
       "root_cause_service": "cartservice",
       "decision": "NO_ACTION",
       "anomaly_evidence": {
         "service": "cartservice",
-        "timestamp": "2026-05-27T01:05:59.337572",
-        "observed_p95_ms": 4750.0,
-        "baseline_mean_ms": 359.74,
-        "baseline_std_ms": 1262.07,
+        "timestamp": "2026-05-27T14:23:36.888391",
+        "observed_p95_ms": 4785.72,
+        "baseline_mean_ms": 356.42,
+        "baseline_std_ms": 1245.63,
         "k_factor": 3.0,
-        "threshold_3sigma_ms": 4145.96,
+        "threshold_3sigma_ms": 4093.31,
         "lower_control_limit_ms": 0.0,
         "anomaly_detected": true
       },
@@ -603,9 +545,9 @@
         "upstream_candidates_considered": [],
         "topology_constrained": true,
         "pearson_scores": {
-          "frontend": 0.7177,
-          "productcatalogservice": 0.2272,
-          "checkoutservice": 0.6717,
+          "frontend": 0.9149,
+          "productcatalogservice": -0.1682,
+          "checkoutservice": 0.0,
           "recommendationservice": 0.0
         },
         "best_score": 0.0,
@@ -614,11 +556,259 @@
       },
       "arima_evidence": {
         "model": "ARIMA(2, 1, 0)",
-        "aic": 633.31,
-        "bic": 638.3,
+        "aic": 631.82,
+        "bic": 636.81,
         "adf_test": {
-          "adf_statistic": -0.1858,
-          "p_value": 0.9402,
+          "adf_statistic": 3.2361,
+          "p_value": 1.0,
+          "critical_values": {
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4712.88,
+          4712.9,
+          4712.91
+        ],
+        "forecast_mean_ms": 4712.89,
+        "last_observed_ms": 4712.5,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4712.89ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 46,
+      "timestamp": "2026-05-27T14:24:07.187727",
+      "trigger_service": "frontend",
+      "root_cause_service": "cartservice",
+      "decision": "COOLDOWN:cartservice",
+      "anomaly_evidence": {
+        "service": "frontend",
+        "timestamp": "2026-05-27T14:24:07.178996",
+        "observed_p95_ms": 3892.05,
+        "baseline_mean_ms": 457.81,
+        "baseline_std_ms": 1120.02,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 3817.85,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "frontend",
+        "root_cause_identified": "cartservice",
+        "upstream_candidates_considered": [
+          "cartservice",
+          "checkoutservice",
+          "productcatalogservice",
+          "recommendationservice"
+        ],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "productcatalogservice": -0.2512,
+          "checkoutservice": 0.0,
+          "cartservice": 0.992,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.992,
+        "threshold": 0.7,
+        "interpretation": "Causa raiz upstream: cartservice (S=0.9920 > τ=0.7, candidatos avaliados: ['cartservice', 'checkoutservice', 'productcatalogservice', 'recommendationservice'])."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 631.83,
+        "bic": 636.82,
+        "adf_test": {
+          "adf_statistic": 1.9736,
+          "p_value": 0.9986,
+          "critical_values": {
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4787.08,
+          4787.25,
+          4787.25
+        ],
+        "forecast_mean_ms": 4787.19,
+        "last_observed_ms": 4785.72,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4787.19ms > SLA=500.0ms"
+      },
+      "execute_result": {
+        "status": "COOLDOWN",
+        "service": "cartservice"
+      }
+    },
+    {
+      "cycle": 46,
+      "timestamp": "2026-05-27T14:24:07.449836",
+      "trigger_service": "cartservice",
+      "root_cause_service": "cartservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "cartservice",
+        "timestamp": "2026-05-27T14:24:07.441433",
+        "observed_p95_ms": 4825.0,
+        "baseline_mean_ms": 475.94,
+        "baseline_std_ms": 1427.17,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 4757.45,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "cartservice",
+        "root_cause_identified": "cartservice",
+        "upstream_candidates_considered": [],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.9312,
+          "productcatalogservice": -0.1115,
+          "checkoutservice": 0.0,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.0,
+        "threshold": 0.7,
+        "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: cartservice (anomalia interna)."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 631.83,
+        "bic": 636.82,
+        "adf_test": {
+          "adf_statistic": 1.9736,
+          "p_value": 0.9986,
+          "critical_values": {
+            "1%": -3.6267,
+            "5%": -2.946,
+            "10%": -2.6117
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4787.08,
+          4787.25,
+          4787.25
+        ],
+        "forecast_mean_ms": 4787.19,
+        "last_observed_ms": 4785.72,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4787.19ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 65,
+      "timestamp": "2026-05-27T14:33:09.124829",
+      "trigger_service": "productcatalogservice",
+      "root_cause_service": "productcatalogservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "productcatalogservice",
+        "timestamp": "2026-05-27T14:33:09.092264",
+        "observed_p95_ms": 3590.89,
+        "baseline_mean_ms": 4.64,
+        "baseline_std_ms": 0.04,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 4.77,
+        "lower_control_limit_ms": 4.51,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "productcatalogservice",
+        "root_cause_identified": "productcatalogservice",
+        "upstream_candidates_considered": [],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": -0.1635,
+          "checkoutservice": 0.0,
+          "cartservice": -0.1276,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.0,
+        "threshold": 0.7,
+        "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: productcatalogservice (anomalia interna)."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": -134.1,
+        "bic": -129.11,
+        "adf_test": {
+          "adf_statistic": -2.5298,
+          "p_value": 0.1084,
+          "critical_values": {
+            "1%": -3.6327,
+            "5%": -2.9485,
+            "10%": -2.613
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4.68,
+          4.66,
+          4.66
+        ],
+        "forecast_mean_ms": 4.67,
+        "last_observed_ms": 4.68,
+        "sla_threshold_ms": 500.0,
+        "should_scale": false,
+        "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 66,
+      "timestamp": "2026-05-27T14:33:39.427711",
+      "trigger_service": "productcatalogservice",
+      "root_cause_service": "productcatalogservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "productcatalogservice",
+        "timestamp": "2026-05-27T14:33:39.415829",
+        "observed_p95_ms": 4722.56,
+        "baseline_mean_ms": 94.3,
+        "baseline_std_ms": 567.04,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 1795.41,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "productcatalogservice",
+        "root_cause_identified": "productcatalogservice",
+        "upstream_candidates_considered": [],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.1972,
+          "checkoutservice": 0.0,
+          "cartservice": -0.1684,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.0,
+        "threshold": 0.7,
+        "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: productcatalogservice (anomalia interna)."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 612.22,
+        "bic": 617.21,
+        "adf_test": {
+          "adf_statistic": 0.8287,
+          "p_value": 0.9921,
           "critical_values": {
             "1%": -3.6104,
             "5%": -2.9391,
@@ -628,15 +818,195 @@
           "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
         },
         "forecast_ms": [
-          4749.83,
-          4749.84,
-          4749.84
+          3592.7,
+          3592.81,
+          3592.81
         ],
-        "forecast_mean_ms": 4749.83,
-        "last_observed_ms": 4750.0,
+        "forecast_mean_ms": 3592.78,
+        "last_observed_ms": 3590.89,
         "sla_threshold_ms": 500.0,
         "should_scale": true,
-        "scale_reason": "Previsão acima do SLA: E[L]=4749.83ms > SLA=500.0ms"
+        "scale_reason": "Previsão acima do SLA: E[L]=3592.78ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 67,
+      "timestamp": "2026-05-27T14:34:09.777209",
+      "trigger_service": "productcatalogservice",
+      "root_cause_service": "productcatalogservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "productcatalogservice",
+        "timestamp": "2026-05-27T14:34:09.753086",
+        "observed_p95_ms": 4721.35,
+        "baseline_mean_ms": 212.25,
+        "baseline_std_ms": 925.37,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 2988.35,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "productcatalogservice",
+        "root_cause_identified": "productcatalogservice",
+        "upstream_candidates_considered": [],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.2708,
+          "checkoutservice": 0.0,
+          "cartservice": -0.239,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.0,
+        "threshold": 0.7,
+        "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: productcatalogservice (anomalia interna)."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 612.34,
+        "bic": 617.33,
+        "adf_test": {
+          "adf_statistic": 1.7601,
+          "p_value": 0.9983,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4931.45,
+          4951.5,
+          4949.47
+        ],
+        "forecast_mean_ms": 4944.14,
+        "last_observed_ms": 4722.56,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4944.14ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 68,
+      "timestamp": "2026-05-27T14:34:40.146467",
+      "trigger_service": "productcatalogservice",
+      "root_cause_service": "productcatalogservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "productcatalogservice",
+        "timestamp": "2026-05-27T14:34:40.122365",
+        "observed_p95_ms": 4695.51,
+        "baseline_mean_ms": 330.16,
+        "baseline_std_ms": 1167.17,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 3831.66,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "productcatalogservice",
+        "root_cause_identified": "productcatalogservice",
+        "upstream_candidates_considered": [],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.3205,
+          "checkoutservice": 0.0,
+          "cartservice": -0.297,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.0,
+        "threshold": 0.7,
+        "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: productcatalogservice (anomalia interna)."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 612.3,
+        "bic": 617.29,
+        "adf_test": {
+          "adf_statistic": 0.8807,
+          "p_value": 0.9928,
+          "critical_values": {
+            "1%": -3.6104,
+            "5%": -2.9391,
+            "10%": -2.6081
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4613.26,
+          4579.93,
+          4579.9
+        ],
+        "forecast_mean_ms": 4591.03,
+        "last_observed_ms": 4721.35,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4591.03ms > SLA=500.0ms"
+      },
+      "execute_result": {}
+    },
+    {
+      "cycle": 69,
+      "timestamp": "2026-05-27T14:35:10.501297",
+      "trigger_service": "productcatalogservice",
+      "root_cause_service": "productcatalogservice",
+      "decision": "NO_ACTION",
+      "anomaly_evidence": {
+        "service": "productcatalogservice",
+        "timestamp": "2026-05-27T14:35:10.480991",
+        "observed_p95_ms": 4679.05,
+        "baseline_mean_ms": 447.43,
+        "baseline_std_ms": 1354.28,
+        "k_factor": 3.0,
+        "threshold_3sigma_ms": 4510.28,
+        "lower_control_limit_ms": 0.0,
+        "anomaly_detected": true
+      },
+      "correlation_evidence": {
+        "trigger_service": "productcatalogservice",
+        "root_cause_identified": "productcatalogservice",
+        "upstream_candidates_considered": [],
+        "topology_constrained": true,
+        "pearson_scores": {
+          "frontend": 0.3579,
+          "checkoutservice": 0.0,
+          "cartservice": -0.3481,
+          "recommendationservice": 0.0
+        },
+        "best_score": 0.0,
+        "threshold": 0.7,
+        "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: productcatalogservice (anomalia interna)."
+      },
+      "arima_evidence": {
+        "model": "ARIMA(2, 1, 0)",
+        "aic": 612.31,
+        "bic": 617.31,
+        "adf_test": {
+          "adf_statistic": -0.5628,
+          "p_value": 0.8792,
+          "critical_values": {
+            "1%": -3.6155,
+            "5%": -2.9413,
+            "10%": -2.6092
+          },
+          "is_stationary": false,
+          "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+        },
+        "forecast_ms": [
+          4687.67,
+          4687.54,
+          4688.2
+        ],
+        "forecast_mean_ms": 4687.8,
+        "last_observed_ms": 4695.51,
+        "sla_threshold_ms": 500.0,
+        "should_scale": true,
+        "scale_reason": "Previsão acima do SLA: E[L]=4687.80ms > SLA=500.0ms"
       },
       "execute_result": {}
     }

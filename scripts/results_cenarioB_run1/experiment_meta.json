@@ -1,0 +1,48 @@
+{
+  "experiment_id": "20260527_225740",
+  "start_time": "2026-05-27T22:57:40.298107",
+  "config": {
+    "scrape_interval_s": 30,
+    "baseline_cycles": 40,
+    "fault_cycles": 20,
+    "recovery_cycles": 10
+  },
+  "phases": [
+    {
+      "name": "BASELINE",
+      "start": "2026-05-27T22:57:40.298185",
+      "end": "2026-05-27T23:17:14.619080",
+      "duration_s": 1174.3,
+      "cycles": 40,
+      "anomaly_events": 4,
+      "scale_events": 0
+    },
+    {
+      "name": "FAULT_INJECTION",
+      "start": "2026-05-27T23:17:14.848849",
+      "end": "2026-05-27T23:26:49.886149",
+      "duration_s": 575.0,
+      "cycles": 20,
+      "anomaly_events": 12,
+      "scale_events": 1
+    },
+    {
+      "name": "RECOVERY",
+      "start": "2026-05-27T23:26:49.990328",
+      "end": "2026-05-27T23:31:20.659319",
+      "duration_s": 270.7,
+      "cycles": 10,
+      "anomaly_events": 0,
+      "scale_events": 0
+    }
+  ],
+  "end_time": "2026-05-27T23:31:20.661225",
+  "fault_removed_at": "2026-05-27T23:26:49.886345",
+  "results": {
+    "total_anomaly_events": 16,
+    "scale_up_events": 1,
+    "suppressed_events": 12,
+    "suppression_rate": 0.75,
+    "avg_pearson_score": 0.3531
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "experiment_id": "20260523_220033",
-  "start_time": "2026-05-23T22:00:33.547297",
+  "experiment_id": "20260527_044742",
+  "start_time": "2026-05-27T04:47:42.909737",
   "config": {
     "scrape_interval_s": 30,
     "baseline_cycles": 40,
@@ -10,39 +10,39 @@
   "phases": [
     {
       "name": "BASELINE",
-      "start": "2026-05-23T22:00:33.547430",
-      "end": "2026-05-23T22:20:06.773855",
-      "duration_s": 1173.2,
+      "start": "2026-05-27T04:47:42.909845",
+      "end": "2026-05-27T05:07:17.970293",
+      "duration_s": 1175.1,
       "cycles": 40,
       "anomaly_events": 1,
       "scale_events": 0
     },
     {
       "name": "FAULT_INJECTION",
-      "start": "2026-05-23T22:20:07.049500",
-      "end": "2026-05-23T22:29:44.229782",
-      "duration_s": 577.2,
+      "start": "2026-05-27T05:07:18.148930",
+      "end": "2026-05-27T05:16:57.353873",
+      "duration_s": 579.2,
       "cycles": 20,
-      "anomaly_events": 17,
+      "anomaly_events": 13,
       "scale_events": 1
     },
     {
       "name": "RECOVERY",
-      "start": "2026-05-23T22:29:44.507281",
-      "end": "2026-05-23T22:34:16.028717",
-      "duration_s": 271.5,
+      "start": "2026-05-27T05:16:57.459743",
+      "end": "2026-05-27T05:21:27.957890",
+      "duration_s": 270.5,
       "cycles": 10,
-      "anomaly_events": 1,
+      "anomaly_events": 0,
       "scale_events": 0
     }
   ],
-  "end_time": "2026-05-23T22:34:16.044415",
-  "fault_removed_at": "2026-05-23T22:29:44.233067",
+  "end_time": "2026-05-27T05:21:27.959823",
+  "fault_removed_at": "2026-05-27T05:16:57.354079",
   "results": {
-    "total_anomaly_events": 19,
+    "total_anomaly_events": 14,
     "scale_up_events": 1,
-    "suppressed_events": 13,
-    "suppression_rate": 0.6842,
-    "avg_pearson_score": 0.4064
+    "suppressed_events": 10,
+    "suppression_rate": 0.7143,
+    "avg_pearson_score": 0.3001
   }
 }

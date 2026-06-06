@@ -1,0 +1,60 @@
+{
+  "cycle": 44,
+  "timestamp": "2026-05-27T22:06:50.848966",
+  "trigger_service": "productcatalogservice",
+  "root_cause_service": "productcatalogservice",
+  "decision": "NO_ACTION",
+  "anomaly_evidence": {
+    "service": "productcatalogservice",
+    "timestamp": "2026-05-27T22:06:50.830070",
+    "observed_p95_ms": 4724.99,
+    "baseline_mean_ms": 120.68,
+    "baseline_std_ms": 743.06,
+    "k_factor": 3.0,
+    "threshold_3sigma_ms": 2349.85,
+    "lower_control_limit_ms": 0.0,
+    "anomaly_detected": true
+  },
+  "correlation_evidence": {
+    "trigger_service": "productcatalogservice",
+    "root_cause_identified": "productcatalogservice",
+    "upstream_candidates_considered": [],
+    "topology_constrained": true,
+    "pearson_scores": {
+      "frontend": 0.6966,
+      "checkoutservice": 0.0,
+      "cartservice": -0.069,
+      "recommendationservice": 0.0
+    },
+    "best_score": 0.0,
+    "threshold": 0.7,
+    "interpretation": "Serviço folha — sem dependências upstream monitoradas. Causa raiz assumida: productcatalogservice (anomalia interna)."
+  },
+  "arima_evidence": {
+    "model": "ARIMA(2, 1, 0)",
+    "aic": 633.28,
+    "bic": 638.27,
+    "adf_test": {
+      "adf_statistic": 0.5098,
+      "p_value": 0.9852,
+      "critical_values": {
+        "1%": -3.6209,
+        "5%": -2.9435,
+        "10%": -2.6104
+      },
+      "is_stationary": false,
+      "conclusion": "Série não-estacionária (falha em rejeitar H0). Diferenciação d=1 aplicada pelo modelo."
+    },
+    "forecast_ms": [
+      4862.43,
+      4865.73,
+      4865.77
+    ],
+    "forecast_mean_ms": 4864.65,
+    "last_observed_ms": 4702.7,
+    "sla_threshold_ms": 500.0,
+    "should_scale": true,
+    "scale_reason": "Previsão acima do SLA: E[L]=4864.65ms > SLA=500.0ms"
+  },
+  "execute_result": {}
+}

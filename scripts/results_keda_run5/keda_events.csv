@@ -1,0 +1,4 @@
+cycle,timestamp,phase,service,from_replicas,to_replicas,direction
+56,2026-05-29T04:39:12.764706,FAULT_INJECTION,frontend,1,5,SCALE_UP
+56,2026-05-29T04:39:12.764706,FAULT_INJECTION,productcatalogservice,1,5,SCALE_UP
+56,2026-05-29T04:39:12.764706,FAULT_INJECTION,recommendationservice,1,5,SCALE_UP

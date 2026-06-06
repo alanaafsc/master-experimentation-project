@@ -1,0 +1,56 @@
+{
+  "cycle": 30,
+  "timestamp": "2026-05-28T17:29:20.870959",
+  "trigger_service": "checkoutservice",
+  "root_cause_service": "checkoutservice",
+  "decision": "NO_ACTION",
+  "anomaly_evidence": {
+    "service": "checkoutservice",
+    "timestamp": "2026-05-28T17:29:20.833066",
+    "observed_p95_ms": 45.0,
+    "baseline_mean_ms": 24.25,
+    "baseline_std_ms": 0.0,
+    "k_factor": 3.0,
+    "threshold_3sigma_ms": 24.25,
+    "lower_control_limit_ms": 24.25,
+    "anomaly_detected": true
+  },
+  "correlation_evidence": {
+    "trigger_service": "checkoutservice",
+    "root_cause_identified": "checkoutservice",
+    "upstream_candidates_considered": [
+      "cartservice",
+      "productcatalogservice"
+    ],
+    "topology_constrained": true,
+    "pearson_scores": {
+      "frontend": 0.0,
+      "productcatalogservice": 0.0,
+      "cartservice": 0.0,
+      "recommendationservice": 0.0
+    },
+    "best_score": 0.0,
+    "threshold": 0.7,
+    "interpretation": "Nenhum candidato upstream com correlação dominante (upstream: ['cartservice', 'productcatalogservice'], melhor S=0.0000 < τ=0.7). Causa raiz assumida: checkoutservice."
+  },
+  "arima_evidence": {
+    "model": "ARIMA(2, 1, 0)",
+    "aic": -685.3,
+    "bic": -681.31,
+    "adf_test": {
+      "error": "Invalid input, x is constant",
+      "is_stationary": false
+    },
+    "forecast_ms": [
+      24.25,
+      24.25,
+      24.25
+    ],
+    "forecast_mean_ms": 24.25,
+    "last_observed_ms": 24.25,
+    "sla_threshold_ms": 500.0,
+    "should_scale": false,
+    "scale_reason": "Tendência de queda ou estabilização — escalonamento desnecessário."
+  },
+  "execute_result": {}
+}
