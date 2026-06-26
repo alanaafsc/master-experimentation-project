@@ -1,10 +1,9 @@
 # XAI-FinOps Framework — Repositório de Experimentos
 
-Artefato de implementação da dissertação de mestrado:
+Artefato de implementação associado ao artigo submetido ao SBCARS 2026:
 
-> **Alana Ingrid Farias Ferreira Costa**
 > *Framework XAI-FinOps: Gerenciamento Autônomo e Explicável de Recursos em Kubernetes com MAPE-K e Inteligência Artificial Explicável*
-> Programa de Pós-Graduação em Ciência da Computação — CIn/UFPE, 2026
+> Autores omitidos conforme revisão duplo-anônima.
 
 ---
 
@@ -40,7 +39,7 @@ Componentes principais:
 ## Instalação
 
 ```bash
-git clone https://github.com/alanaafsc/master-experimentation-project.git
+git clone https://anonymous.4open.science/r/master-experimentation-project-3712/
 cd master-experimentation-project
 python -m venv venv
 # Windows:
