@@ -240,4 +240,4 @@ Uma linha por run × cenário. Colunas: `cenario`, `run`, `precisao`, `supressao
 
 ## Referência
 
-Costa, A. I. F. F. *Framework XAI-FinOps: Gerenciamento Autônomo e Explicável de Recursos em Kubernetes com MAPE-K e Inteligência Artificial Explicável.* Dissertação (Mestrado em Ciência da Computação) — Centro de Informática, Universidade Federal de Pernambuco, Recife, 2026.
+Autores omitidos conforme revisão duplo-anônima do SBCARS 2026. Referência completa será incluída após o processo de revisão.
