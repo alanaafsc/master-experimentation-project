@@ -32,7 +32,7 @@ Componentes principais:
 - Google Online Boutique v0.8.0 implantado no namespace `default`
 - Locust 2.20+ para geração de carga sintética
 
-**Ambiente experimental utilizado:** cluster `kind` (Kubernetes IN Docker) em notebook Intel Core i7-13650HX (2,60 GHz), 16 GB RAM DDR5, Windows 11 + Docker Desktop.
+Ambiente experimental utilizado: cluster `kind` (Kubernetes IN Docker) em notebook Intel Core i7-13650HX (2,60 GHz), 16 GB RAM DDR5, Windows 11 + Docker Desktop.
 
 ---
 
@@ -150,8 +150,8 @@ master-experimentation-project/
 │   ├── keda_scenario.py                 # Baseline KEDA (execução única)
 │   ├── analyze_results.py               # Análise pós-experimento e geração de figuras
 │   ├── locustfile.py                    # Script de carga sintética (Locust)
-│   ├── results/                         # Cenário A — execução principal (2026-05-23)
-│   ├── results_cenarioB/                # Cenário B — execução principal (2026-05-27)
+│   ├── results/                         # Cenário A — execução principal
+│   ├── results_cenarioB/                # Cenário B — execução principal
 │   ├── results_cenarioA_run{1..6}/      # Cenário A — 6 execuções independentes
 │   ├── results_cenarioB_run{1..5}/      # Cenário B — 5 execuções independentes
 │   ├── results_cenarioC_run{1..5}/      # Cenário C — 5 execuções independentes
